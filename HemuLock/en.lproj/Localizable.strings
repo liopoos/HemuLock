@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  hemu
+
+  Created by hades on 2021/3/31.
+  
+*/
+"quit" = "Quit";
+"run_screensaver" = "ScreenSaver!";
+"lock_now" = "Lock Now!";
+
+"set_script" = "Script";
+
+"set_notify" = "Notify";
+"notify_none" = "None";
+"notify_pushover" = "Pushover";
+"notify_servercat" = "ServerSauce";
+"notify_test" = "Send Notify";
+"notify_test_message" = "This is a test notify";
+"notify_title" = "HemuLock Notify";
+"notify_title_device" = "'s Notify";
+
+"set_event" = "Event";
+"event_screen_sleep" = "Screen Sleep";
+"event_screen_wake" = "Screen Wake";
+"event_system_sleep" = "System Sleep";
+"event_system_wake" = "System Wake";
+"event_system_lock" = "Lock";
+"event_system_unlock" = "Unlock";
+
+"launch_at_login" = "Launch Login";
+"set_preferences" = "Notify Preferences";
+
+"empty_servercat" = "Empty ServerCat config";
+"empty_pushover" = "Empty Pushover config";
+"error_config" = "Config is ERROR";
+
+"screen_sleep" = "Screen has shutdown";
+"screen_wake" = "Screen has wake";
+"system_sleep" = "System is sleep";
+"system_wake" = "System is wakeup";
+"system_lock" = "System locked";
+"system_unlock" = "System unlocked";
+
+"preference_filed" = "Please input ";
+"preference_save" = "Save";
+"preference_notify" = "Notify Preferences";

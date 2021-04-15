@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  hemu
+
+  Created by hades on 2021/3/31.
+  
+*/
+"quit" = "退出";
+"run_screensaver" = "启动屏幕保护程序";
+"lock_now" = "立即锁定";
+
+"set_script" = "执行脚本";
+
+"set_notify" = "通知";
+"notify_none" = "不使用";
+"notify_pushover" = "Pushover";
+"notify_servercat" = "Server酱";
+"notify_test" = "发送测试通知";
+"notify_test_message" = "这是一条测试通知";
+"notify_title" = "HEMU发来的通知";
+"notify_title_device" = "发来的通知";
+
+"set_event" = "事件";
+"event_screen_sleep" = "屏幕睡眠";
+"event_screen_wake" = "屏幕唤醒";
+"event_system_sleep" = "系统睡眠";
+"event_system_wake" = "系统唤醒";
+"event_system_lock" = "锁定";
+"event_system_unlock" = "解锁";
+
+"launch_at_login" = "开机启动";
+"set_preferences" = "通知偏好设置...";
+
+"empty_servercat" = "ServerCat配置参数是空的";
+"empty_pushover" = "Pushover配置参数是空的";
+"error_config" = "配置文件出错，请检查配置参数是否正确";
+
+"screen_sleep" = "显示器已关闭";
+"screen_wake" = "显示器被点亮";
+"system_sleep" = "系统进入睡眠模式";
+"system_wake" = "系统被唤醒";
+"system_lock" = "系统已被锁定";
+"system_unlock" = "系统已解锁";
+
+"preference_filed" = "请输入";
+"preference_save" = "应用";
+"preference_notify" = "通知偏好设置";

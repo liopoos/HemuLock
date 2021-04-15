@@ -1,0 +1,566 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		281ED2A2261772060098DB79 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 281ED2A1261772060098DB79 /* config.json */; };
+		2882DB99262037760005728C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882DB98262037760005728C /* AppDelegate.swift */; };
+		2882DB9D262037780005728C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882DB9C262037780005728C /* Assets.xcassets */; };
+		2882DBA0262037780005728C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882DB9F262037780005728C /* Preview Assets.xcassets */; };
+		2882DBA3262037780005728C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2882DBA1262037780005728C /* Main.storyboard */; };
+		2882DBCC26204A690005728C /* PrefercenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882DBCB26204A690005728C /* PrefercenceView.swift */; };
+		28B243E026145BAA00367F57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B243DF26145BAA00367F57 /* AppDelegate.swift */; };
+		28B243E226145BAA00367F57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B243E126145BAA00367F57 /* ViewController.swift */; };
+		28B243E426145BAD00367F57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B243E326145BAD00367F57 /* Assets.xcassets */; };
+		28B243E726145BAD00367F57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B243E526145BAD00367F57 /* Main.storyboard */; };
+		28B2441B2614624F00367F57 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28B2441D2614624F00367F57 /* Localizable.strings */; };
+		28B2442D2615645000367F57 /* Notify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2442C2615645000367F57 /* Notify.swift */; };
+		28B244342615B22B00367F57 /* sleep.c in Sources */ = {isa = PBXBuildFile; fileRef = 28B244332615B22B00367F57 /* sleep.c */; };
+		28B244392615D3DB00367F57 /* ConfigKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B244382615D3DB00367F57 /* ConfigKey.swift */; };
+		28B2443E2615D75400367F57 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B2443D2615D75400367F57 /* Event.swift */; };
+		28BBBA992626D0660016DE22 /* HemuLockHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2882DB96262037760005728C /* HemuLockHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		28F56E25261C4D8E00B0D3B6 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F56E24261C4D8E00B0D3B6 /* Preference.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2882DBAD262038930005728C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				28BBBA992626D0660016DE22 /* HemuLockHelper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		281ED2A1261772060098DB79 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		2882DB96262037760005728C /* HemuLockHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HemuLockHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2882DB98262037760005728C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2882DB9C262037780005728C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2882DB9F262037780005728C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2882DBA2262037780005728C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2882DBA4262037780005728C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2882DBA5262037780005728C /* HemuLockHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HemuLockHelper.entitlements; sourceTree = "<group>"; };
+		2882DBCB26204A690005728C /* PrefercenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefercenceView.swift; sourceTree = "<group>"; };
+		28B243DC26145BAA00367F57 /* HemuLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HemuLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B243DF26145BAA00367F57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		28B243E126145BAA00367F57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		28B243E326145BAD00367F57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28B243E626145BAD00367F57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		28B243E826145BAD00367F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28B243E926145BAD00367F57 /* HemuLock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HemuLock.entitlements; sourceTree = "<group>"; };
+		28B243F226145BAD00367F57 /* HemuLockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemuLockTests.swift; sourceTree = "<group>"; };
+		28B243F426145BAD00367F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28B2441C2614624F00367F57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		28B24422261462D800367F57 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		28B2442C2615645000367F57 /* Notify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notify.swift; sourceTree = "<group>"; };
+		28B244312615B22A00367F57 /* HemuLock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HemuLock-Bridging-Header.h"; sourceTree = "<group>"; };
+		28B244322615B22B00367F57 /* sleep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sleep.h; sourceTree = "<group>"; };
+		28B244332615B22B00367F57 /* sleep.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sleep.c; sourceTree = "<group>"; };
+		28B244382615D3DB00367F57 /* ConfigKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigKey.swift; sourceTree = "<group>"; };
+		28B2443D2615D75400367F57 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		28F56D8D261C328B00B0D3B6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		28F56E24261C4D8E00B0D3B6 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2882DB93262037760005728C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B243D926145BAA00367F57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2882DB97262037760005728C /* HemuLockHelper */ = {
+			isa = PBXGroup;
+			children = (
+				2882DB98262037760005728C /* AppDelegate.swift */,
+				2882DB9C262037780005728C /* Assets.xcassets */,
+				2882DBA1262037780005728C /* Main.storyboard */,
+				2882DBA4262037780005728C /* Info.plist */,
+				2882DBA5262037780005728C /* HemuLockHelper.entitlements */,
+				2882DB9E262037780005728C /* Preview Content */,
+			);
+			path = HemuLockHelper;
+			sourceTree = "<group>";
+		};
+		2882DB9E262037780005728C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2882DB9F262037780005728C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		28B243D326145BAA00367F57 = {
+			isa = PBXGroup;
+			children = (
+				28B243DE26145BAA00367F57 /* HemuLock */,
+				28B243F126145BAD00367F57 /* HemuLockTests */,
+				2882DB97262037760005728C /* HemuLockHelper */,
+				28B243DD26145BAA00367F57 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28B243DD26145BAA00367F57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28B243DC26145BAA00367F57 /* HemuLock.app */,
+				2882DB96262037760005728C /* HemuLockHelper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28B243DE26145BAA00367F57 /* HemuLock */ = {
+			isa = PBXGroup;
+			children = (
+				28B243DF26145BAA00367F57 /* AppDelegate.swift */,
+				28B243E126145BAA00367F57 /* ViewController.swift */,
+				28B243E326145BAD00367F57 /* Assets.xcassets */,
+				28B243E526145BAD00367F57 /* Main.storyboard */,
+				28B243E826145BAD00367F57 /* Info.plist */,
+				28B243E926145BAD00367F57 /* HemuLock.entitlements */,
+				28B2441D2614624F00367F57 /* Localizable.strings */,
+				28B2442C2615645000367F57 /* Notify.swift */,
+				28B244322615B22B00367F57 /* sleep.h */,
+				28B244332615B22B00367F57 /* sleep.c */,
+				28B244312615B22A00367F57 /* HemuLock-Bridging-Header.h */,
+				28B244382615D3DB00367F57 /* ConfigKey.swift */,
+				28B2443D2615D75400367F57 /* Event.swift */,
+				281ED2A1261772060098DB79 /* config.json */,
+				28F56E24261C4D8E00B0D3B6 /* Preference.swift */,
+				2882DBCB26204A690005728C /* PrefercenceView.swift */,
+			);
+			path = HemuLock;
+			sourceTree = "<group>";
+		};
+		28B243F126145BAD00367F57 /* HemuLockTests */ = {
+			isa = PBXGroup;
+			children = (
+				28B243F226145BAD00367F57 /* HemuLockTests.swift */,
+				28B243F426145BAD00367F57 /* Info.plist */,
+			);
+			path = HemuLockTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2882DB95262037760005728C /* HemuLockHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2882DBA8262037780005728C /* Build configuration list for PBXNativeTarget "HemuLockHelper" */;
+			buildPhases = (
+				2882DB92262037760005728C /* Sources */,
+				2882DB93262037760005728C /* Frameworks */,
+				2882DB94262037760005728C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HemuLockHelper;
+			productName = HemuHelper;
+			productReference = 2882DB96262037760005728C /* HemuLockHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		28B243DB26145BAA00367F57 /* HemuLock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28B2440226145BAD00367F57 /* Build configuration list for PBXNativeTarget "HemuLock" */;
+			buildPhases = (
+				28B243D826145BAA00367F57 /* Sources */,
+				28B243D926145BAA00367F57 /* Frameworks */,
+				28B243DA26145BAA00367F57 /* Resources */,
+				2882DBAD262038930005728C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HemuLock;
+			productName = hemu;
+			productReference = 28B243DC26145BAA00367F57 /* HemuLock.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28B243D426145BAA00367F57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					2882DB95262037760005728C = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					28B243DB26145BAA00367F57 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+				};
+			};
+			buildConfigurationList = 28B243D726145BAA00367F57 /* Build configuration list for PBXProject "HemuLock" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 28B243D326145BAA00367F57;
+			productRefGroup = 28B243DD26145BAA00367F57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28B243DB26145BAA00367F57 /* HemuLock */,
+				2882DB95262037760005728C /* HemuLockHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2882DB94262037760005728C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2882DBA3262037780005728C /* Main.storyboard in Resources */,
+				2882DBA0262037780005728C /* Preview Assets.xcassets in Resources */,
+				2882DB9D262037780005728C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B243DA26145BAA00367F57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28B243E426145BAD00367F57 /* Assets.xcassets in Resources */,
+				281ED2A2261772060098DB79 /* config.json in Resources */,
+				28B2441B2614624F00367F57 /* Localizable.strings in Resources */,
+				28B243E726145BAD00367F57 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2882DB92262037760005728C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2882DB99262037760005728C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28B243D826145BAA00367F57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28F56E25261C4D8E00B0D3B6 /* Preference.swift in Sources */,
+				28B243E226145BAA00367F57 /* ViewController.swift in Sources */,
+				28B244392615D3DB00367F57 /* ConfigKey.swift in Sources */,
+				28B244342615B22B00367F57 /* sleep.c in Sources */,
+				28B243E026145BAA00367F57 /* AppDelegate.swift in Sources */,
+				2882DBCC26204A690005728C /* PrefercenceView.swift in Sources */,
+				28B2443E2615D75400367F57 /* Event.swift in Sources */,
+				28B2442D2615645000367F57 /* Notify.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2882DBA1262037780005728C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2882DBA2262037780005728C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		28B243E526145BAD00367F57 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28B243E626145BAD00367F57 /* Base */,
+				28F56D8D261C328B00B0D3B6 /* zh-Hans */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		28B2441D2614624F00367F57 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28B2441C2614624F00367F57 /* en */,
+				28B24422261462D800367F57 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2882DBA6262037780005728C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HemuLockHelper/HemuLockHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 18;
+				DEVELOPMENT_ASSET_PATHS = "\"HemuLockHelper/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = HemuLockHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ch.hades.HemuLock.HemuLockHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2882DBA7262037780005728C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HemuLockHelper/HemuLockHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 18;
+				DEVELOPMENT_ASSET_PATHS = "\"HemuLockHelper/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = HemuLockHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ch.hades.HemuLock.HemuLockHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		28B2440026145BAD00367F57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		28B2440126145BAD00367F57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		28B2440326145BAD00367F57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 51;
+				INFOPLIST_FILE = HemuLock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ch.hades.HemuLock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HemuLock/HemuLock-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		28B2440426145BAD00367F57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 51;
+				INFOPLIST_FILE = HemuLock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ch.hades.HemuLock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HemuLock/HemuLock-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2882DBA8262037780005728C /* Build configuration list for PBXNativeTarget "HemuLockHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2882DBA6262037780005728C /* Debug */,
+				2882DBA7262037780005728C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28B243D726145BAA00367F57 /* Build configuration list for PBXProject "HemuLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28B2440026145BAD00367F57 /* Debug */,
+				28B2440126145BAD00367F57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28B2440226145BAD00367F57 /* Build configuration list for PBXNativeTarget "HemuLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28B2440326145BAD00367F57 /* Debug */,
+				28B2440426145BAD00367F57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 28B243D426145BAA00367F57 /* Project object */;
+}

@@ -1,0 +1,11 @@
+{
+    "notify": {
+        "pushover": {
+            "token": "",
+            "user": "",
+        },
+        "servercat": {
+            "sk": ""
+        }
+    }
+}
