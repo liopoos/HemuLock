@@ -12,7 +12,7 @@ import ServiceManagement
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the window contents.
-        let mainAppIdentifier = "com.ch.hades.HemuLock"
+        let mainAppIdentifier = "cn.hades.HemuLock"
         if (NSRunningApplication.runningApplications(withBundleIdentifier: mainAppIdentifier).count > 0) {
             self.onTerminate()
         }
