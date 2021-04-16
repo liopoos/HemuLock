@@ -235,7 +235,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             let appVersion = infoDictionary["CFBundleShortVersionString"]
             let appName = infoDictionary["CFBundleDisplayName"]
             let appBuild = infoDictionary["CFBundleVersion"]
-            mainMenu.addItem(withTitle: (appName as! String) + " v\(appVersion!)(\(appBuild!))", action:  nil, keyEquivalent: "")
+            let appStatusImg = NSImage(named: "AppStatus")
+            appStatusImg?.size = NSSize(width: 15, height: 15)
+            let appItem = mainMenu.addItem(withTitle: (appName as! String) + " v\(appVersion!)(\(appBuild!))", action:  nil, keyEquivalent: "")
+            appItem.image = appStatusImg
+            
             mainMenu.addItem(NSMenuItem.separator())
         }
         
