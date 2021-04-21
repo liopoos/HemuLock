@@ -29,7 +29,9 @@
 "event_system_unlock" = "解锁";
 
 "launch_at_login" = "开机启动";
-"set_preferences" = "通知偏好设置...";
+"set_preferences" = "偏好设置...";
+
+"set_do_not_disturb" = "开启勿扰";
 
 "empty_servercat" = "ServerCat配置参数是空的";
 "empty_pushover" = "Pushover配置参数是空的";
@@ -44,4 +46,20 @@
 
 "preference_filed" = "请输入";
 "preference_save" = "应用";
-"preference_notify" = "通知偏好设置";
+"preference_title" = "偏好设置";
+"preference_notify" = "通知设置";
+"preference_do_not_disturb" = "勿扰设置";
+
+"do_not_disturb_cycle" = "周期";
+"do_not_disturb_type" = "类型";
+
+"do_not_disturb_cycle_monday" = "周一";
+"do_not_disturb_cycle_tuesday" = "周二";
+"do_not_disturb_cycle_wednesday" = "周三";
+"do_not_disturb_cycle_thursday" = "周四";
+"do_not_disturb_cycle_firday" = "周五";
+"do_not_disturb_cycle_saturday" = "周六";
+"do_not_disturb_cycle_sunday" = "周日";
+
+"do_not_disturb_start" = "开始时间";
+"do_not_disturb_end" = "结束时间";

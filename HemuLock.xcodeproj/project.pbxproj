@@ -12,7 +12,7 @@
 		2882DB9D262037780005728C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882DB9C262037780005728C /* Assets.xcassets */; };
 		2882DBA0262037780005728C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882DB9F262037780005728C /* Preview Assets.xcassets */; };
 		2882DBA3262037780005728C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2882DBA1262037780005728C /* Main.storyboard */; };
-		2882DBCC26204A690005728C /* PrefercenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882DBCB26204A690005728C /* PrefercenceView.swift */; };
+		2882DBCC26204A690005728C /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882DBCB26204A690005728C /* PreferenceView.swift */; };
 		28B243E026145BAA00367F57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B243DF26145BAA00367F57 /* AppDelegate.swift */; };
 		28B243E226145BAA00367F57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B243E126145BAA00367F57 /* ViewController.swift */; };
 		28B243E426145BAD00367F57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B243E326145BAD00367F57 /* Assets.xcassets */; };
@@ -48,7 +48,7 @@
 		2882DBA2262037780005728C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2882DBA4262037780005728C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2882DBA5262037780005728C /* HemuLockHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HemuLockHelper.entitlements; sourceTree = "<group>"; };
-		2882DBCB26204A690005728C /* PrefercenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefercenceView.swift; sourceTree = "<group>"; };
+		2882DBCB26204A690005728C /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
 		28B243DC26145BAA00367F57 /* HemuLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HemuLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B243DF26145BAA00367F57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28B243E126145BAA00367F57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				28B2443D2615D75400367F57 /* Event.swift */,
 				281ED2A1261772060098DB79 /* config.json */,
 				28F56E24261C4D8E00B0D3B6 /* Preference.swift */,
-				2882DBCB26204A690005728C /* PrefercenceView.swift */,
+				2882DBCB26204A690005728C /* PreferenceView.swift */,
 			);
 			path = HemuLock;
 			sourceTree = "<group>";
@@ -278,7 +278,7 @@
 				28B244392615D3DB00367F57 /* ConfigKey.swift in Sources */,
 				28B244342615B22B00367F57 /* sleep.c in Sources */,
 				28B243E026145BAA00367F57 /* AppDelegate.swift in Sources */,
-				2882DBCC26204A690005728C /* PrefercenceView.swift in Sources */,
+				2882DBCC26204A690005728C /* PreferenceView.swift in Sources */,
 				28B2443E2615D75400367F57 /* Event.swift in Sources */,
 				28B2442D2615645000367F57 /* Notify.swift in Sources */,
 			);
@@ -492,13 +492,13 @@
 				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 16;
 				INFOPLIST_FILE = HemuLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.hades.HemuLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HemuLock/HemuLock-Bridging-Header.h";
@@ -516,13 +516,13 @@
 				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 54;
+				CURRENT_PROJECT_VERSION = 16;
 				INFOPLIST_FILE = HemuLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.hades.HemuLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HemuLock/HemuLock-Bridging-Header.h";
