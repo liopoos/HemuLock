@@ -24,6 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     var notifyMenu = NSMenu()
     var eventMenu = NSMenu()
+    var appStatusMenu = NSMenuItem()
     var notifyTestMenu = NSMenuItem()
     
     func menuWillOpen(_ menu: NSMenu) {
@@ -48,6 +49,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         }
     }
     
+    func menuDidClose(_ menu: NSMenu) {
+        self.statusItem.menu = nil
+    }
     
     // event
     @objc func lockNow() {
@@ -60,6 +64,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     @objc func sendNotifyTest() {
         runNotify(message: str("notify_test_message"), isAlert: true)
+    }
+    
+    @objc func updateMenu() {
+        let appStatusImg = NSImage(named: inDisturb(config: appConfig.do_no_disturb) ? "AppStatus_Disturb" : "AppStatus_Run")
+        appStatusImg?.size = NSSize(width: 15, height: 15)
+        appStatusMenu.image = appStatusImg
+        
+        statusItem.menu = mainMenu
+        statusItem.button?.performClick(nil)
     }
 
     // set
@@ -90,6 +103,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         config.set(eventList, forKey: key)
     }
     
+    @objc func setDoNotDisturb(_ menuItem: NSMenuItem) {
+        let key = ConfigKey.app.do_not_disturb
+        let value = !config.bool(forKey: key)
+        config.set(value, forKey: key)
+        menuItem.state = value ? .on : .off
+    }
+    
     // launch login
     @objc func setLaunchLogin(_ menuItem: NSMenuItem) {
         let key = ConfigKey.app.login
@@ -102,13 +122,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @objc func setPreferences(_ menuItem: NSMenuItem) {
         // Create the window and set the content view.
         window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
+            contentRect: NSRect(x: 0, y: 0, width: 480, height: 380),
             styleMask: [.titled, .closable, .miniaturizable],
             backing: .buffered, defer: false)
         
-        let contentView = PrefercenceView(window: window)
+        let contentView = PreferenceView(window: window)
         window.isReleasedWhenClosed = false
-        window.title = str("preference_notify")
+        window.title = str("preference_title")
         window.center()
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
@@ -164,6 +184,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     
     // hook
     func runScript(_ params: String) {
+        if appConfig.do_no_disturb.type.script && inDisturb(config: appConfig.do_no_disturb) { return }
+        
         let value = config.bool(forKey: ConfigKey.action.script)
         if !value { return }
         
@@ -176,13 +198,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     func runNotify(message: String, isAlert: Bool = false) {
+        if !isAlert && appConfig.do_no_disturb.type.notify && inDisturb(config: appConfig.do_no_disturb) { return }
+        
         var title = str("notify_title")
         if let deviceName = Host.current().localizedName {
            title = deviceName + str("notify_title_device")
         }
         
         let notifyType = config.integer(forKey: ConfigKey.notify.type)
-        let config = notify.getNotifyConfig().notify
+        let config = appConfig.notify
         
         
         if notifyType == 1 && isAlert && config.pushover.token.isEmpty {
@@ -227,19 +251,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             config.set(event.list, forKey: ConfigKey.event.list)
         }
         
-        if let button = statusItem.button {
-            button.image = NSImage(named: "MenuIcon")
-        }
         let infoDictionary = Bundle.main.infoDictionary
         if let infoDictionary = infoDictionary {
             let appVersion = infoDictionary["CFBundleShortVersionString"]
             let appName = infoDictionary["CFBundleDisplayName"]
             let appBuild = infoDictionary["CFBundleVersion"]
-            let appStatusImg = NSImage(named: "AppStatus")
-            appStatusImg?.size = NSSize(width: 15, height: 15)
-            let appItem = mainMenu.addItem(withTitle: (appName as! String) + " v\(appVersion!)(\(appBuild!))", action:  nil, keyEquivalent: "")
-            appItem.image = appStatusImg
-            
+            appStatusMenu = mainMenu.addItem(withTitle: (appName as! String) + " v\(appVersion!)(\(appBuild!))", action:  nil, keyEquivalent: "")
             mainMenu.addItem(NSMenuItem.separator())
         }
         
@@ -278,6 +295,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         notifyTestMenu = mainMenu.addItem(withTitle: str("notify_test"), action: #selector(sendNotifyTest), keyEquivalent: "")
         mainMenu.addItem(NSMenuItem.separator())
         
+        item = mainMenu.addItem(withTitle: str("set_do_not_disturb"), action:  #selector(setDoNotDisturb), keyEquivalent: "")
+        item.state = config.bool(forKey: ConfigKey.app.do_not_disturb) ? .on : .off
+        mainMenu.addItem(NSMenuItem.separator())
+        
         item = mainMenu.addItem(withTitle: str("launch_at_login"), action: #selector(setLaunchLogin), keyEquivalent: "")
         item.state = config.bool(forKey: ConfigKey.app.login) ? .on : .off
         
@@ -285,13 +306,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         item.state = config.bool(forKey: ConfigKey.app.preferences) ? .on : .off
         
         mainMenu.addItem(NSMenuItem.separator())
-        
         mainMenu.addItem(withTitle: str("quit"), action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q")
-        statusItem.menu = mainMenu
+        
+        mainMenu.delegate = self
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.renderMenu()
+        
+        if let button = statusItem.button {
+            button.image = NSImage(named: "MenuIcon")
+            button.action = #selector(updateMenu)
+            button.sendAction(on: [.leftMouseUp])
+        }
         
         let SystemObserver = NSWorkspace.shared.notificationCenter;
         SystemObserver.addObserver(self, selector: #selector(onScreenSleep), name: NSWorkspace.screensDidSleepNotification, object: nil)

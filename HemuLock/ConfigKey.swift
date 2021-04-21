@@ -9,6 +9,7 @@ struct ConfigKey {
     struct app {
         static let login = "app.launch_login"
         static let preferences = "app.set_preferences"
+        static let do_not_disturb = "app.do_not_disturb"
     }
     
     struct event {

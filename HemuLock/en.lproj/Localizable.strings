@@ -29,7 +29,9 @@
 "event_system_unlock" = "Unlock";
 
 "launch_at_login" = "Launch Login";
-"set_preferences" = "Notify Preferences";
+"set_preferences" = "Preferences";
+
+"set_do_not_disturb" = "Do Not Disturb";
 
 "empty_servercat" = "Empty ServerCat config";
 "empty_pushover" = "Empty Pushover config";
@@ -44,4 +46,20 @@
 
 "preference_filed" = "Please input ";
 "preference_save" = "Save";
-"preference_notify" = "Notify Preferences";
+"preference_title" = "Preferences";
+"preference_notify" = "NOTIFY";
+"preference_do_not_disturb" = "DO NOT DISTURB";
+
+"do_not_disturb_cycle" = "Cycle";
+"do_not_disturb_type" = "Type";
+
+"do_not_disturb_cycle_monday" = "Monday";
+"do_not_disturb_cycle_tuesday" = "Tuesday";
+"do_not_disturb_cycle_wednesday" = "Wednesday";
+"do_not_disturb_cycle_thursday" = "Thursday";
+"do_not_disturb_cycle_firday" = "Firday";
+"do_not_disturb_cycle_saturday" = "Saturday";
+"do_not_disturb_cycle_sunday" = "Sunday";
+
+"do_not_disturb_start" = "Start Time";
+"do_not_disturb_end" = "End Time";

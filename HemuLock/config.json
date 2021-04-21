@@ -7,5 +7,22 @@
         "servercat": {
             "sk": ""
         }
+    },
+    "do_no_disturb": {
+        "start": "00:00",
+        "end": "23:59",
+        "cycle": {
+            "monday": false,
+            "tuesday": false,
+            "wednesday": false,
+            "thursday": false,
+            "firday": false,
+            "saturday": false,
+            "sunday": false
+        },
+        "type": {
+            "script": true,
+            "notify": true
+        }
     }
 }
