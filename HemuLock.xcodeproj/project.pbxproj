@@ -492,7 +492,7 @@
 				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				INFOPLIST_FILE = HemuLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -516,7 +516,7 @@
 				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 16;
 				INFOPLIST_FILE = HemuLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

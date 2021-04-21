@@ -108,8 +108,9 @@ func inDisturb(config: DoNotDisturbData) -> Bool {
     dateFormatter.timeZone = TimeZone.init(secondsFromGMT: 0)
     let now = date.addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT()))
     // get weekday
-    let weekDay = Calendar.current.dateComponents([Calendar.Component.year, Calendar.Component.month, Calendar.Component.weekday, Calendar.Component.day], from: now).weekday
+    let weekDay = Calendar.current.dateComponents([Calendar.Component.year, Calendar.Component.month, Calendar.Component.weekday, Calendar.Component.day], from: date).weekday
     var inWeekDay = false
+    
     switch weekDay {
     case 1:
         inWeekDay = config.cycle.sunday

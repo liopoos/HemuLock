@@ -314,6 +314,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         self.renderMenu()
         
+        print(inDisturb(config: appConfig.do_no_disturb))
+        
         if let button = statusItem.button {
             button.image = NSImage(named: "MenuIcon")
             button.action = #selector(updateMenu)
