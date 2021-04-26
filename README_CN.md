@@ -96,8 +96,8 @@ esac
 
 | 状态 | 说明 |
 | ---- | ---- |
-| <span style="color: #63CA56">●</span>  | 正在运行 |
-| <span style="color: #F6C744">●</span>     | 勿扰模式 |
+| 🟢 | 正在运行 |
+| 🟡 | 勿扰模式 |
 
 ## License
 

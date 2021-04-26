@@ -94,10 +94,10 @@ Please modify the Do Not Disturb time setting in **Preferences**.
 
 #### Status
 
-| STATUS                                | INSTRUCTION         |
-| ------------------------------------- | ------------------- |
-| <span style="color: #63CA56">●</span> | Runing              |
-| <span style="color: #F6C744">●</span> | Do-Not-Disturb Mode |
+| STATUS | INSTRUCTION         |
+| ------ | ------------------- |
+| 🟢      | Runing              |
+| 🟡      | Do-Not-Disturb Mode |
 
 ## License
 
