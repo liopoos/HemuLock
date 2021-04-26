@@ -86,6 +86,19 @@ esac
 | System Lock   | SYSTEM_LOCK   |
 | System Unlock | SYSTEM_UNLOCK |
 
+## Do-Not-Disturb Mode
+
+If you don't want to listening system events for a certain period of time, you can take **Enable Do Not Disturb** open. When the time is in the Do Not Disturb time, no notification will be sent or script no t be execution.
+
+Please modify the Do Not Disturb time setting in **Preferences**.
+
+#### Status
+
+| STATUS                                | INSTRUCTION         |
+| ------------------------------------- | ------------------- |
+| <span style="color: #63CA56">●</span> | Runing              |
+| <span style="color: #F6C744">●</span> | Do-Not-Disturb Mode |
+
 ## License
 
 MIT
