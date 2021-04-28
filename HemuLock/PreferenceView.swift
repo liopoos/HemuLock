@@ -32,6 +32,11 @@ struct PreferenceView: View {
                         TextField(str("preference_filed") + "Token", text: $config.notify.pushover.token)
                         Spacer()
                     }.padding(5)
+                    HStack {
+                        Text("Device").frame(width: 60, alignment: .bottomTrailing)
+                        TextField(str("preference_filed") + "Device", text: $config.notify.pushover.device)
+                        Spacer()
+                    }.padding(5)
                 }
                 Divider().padding()
                 Section {
@@ -81,7 +86,7 @@ struct PreferenceView: View {
                 }.padding(5)
                 Spacer()
             }.tabItem { Text(str("preference_do_not_disturb")) }.tag(2)
-        }.padding(.top, 10).frame(width: .infinity, height: 260, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }.padding(.top, 10).frame(width: .infinity, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         HStack {
             Spacer()
             Button(action: setNotifyConfig) {

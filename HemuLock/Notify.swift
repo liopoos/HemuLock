@@ -33,6 +33,6 @@ class Notify: NSObject {
     
     func sendPushover(config: Pushover, title: String, message: String) {
         if config.token.isEmpty && config.user.isEmpty { return }
-        self.sendRequest(method: "POST", url: "https://api.pushover.net/1/messages.json", params:  "token=\(config.token)&user=\(config.user)&title=\(title)&message=\(message)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        self.sendRequest(method: "POST", url: "https://api.pushover.net/1/messages.json", params:  "token=\(config.token)&user=\(config.user)&device=\(config.device)&title=\(title)&message=\(message)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
     }
 }

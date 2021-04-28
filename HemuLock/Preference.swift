@@ -14,6 +14,7 @@ var appConfig = getPrefercenceConfig()
 struct Pushover: Decodable, Encodable {
     var token: String
     var user: String
+    var device: String
 }
 
 struct Servercat: Decodable, Encodable {
@@ -54,7 +55,7 @@ struct DoNotDisturbType: Decodable, Encodable {
 }
 
 func initPreference() -> Preference {
-    return Preference.init(notify: NotifyData.init(pushover: Pushover.init(token: "", user: ""), servercat: Servercat.init(sk: "")), do_no_disturb: DoNotDisturbData.init(start: "00:00", end: "23:59", cycle: DoNotDisturbCycle.init(), type: DoNotDisturbType.init()))
+    return Preference.init(notify: NotifyData.init(pushover: Pushover.init(token: "", user: "", device: ""), servercat: Servercat.init(sk: "")), do_no_disturb: DoNotDisturbData.init(start: "00:00", end: "23:59", cycle: DoNotDisturbCycle.init(), type: DoNotDisturbType.init()))
 }
 
 

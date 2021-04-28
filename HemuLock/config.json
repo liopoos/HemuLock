@@ -3,6 +3,7 @@
         "pushover": {
             "token": "",
             "user": "",
+            "Device": "",
         },
         "servercat": {
             "sk": ""
