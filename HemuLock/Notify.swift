@@ -35,4 +35,9 @@ class Notify: NSObject {
         if config.token.isEmpty && config.user.isEmpty { return }
         self.sendRequest(method: "POST", url: "https://api.pushover.net/1/messages.json", params:  "token=\(config.token)&user=\(config.user)&device=\(config.device)&title=\(title)&message=\(message)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
     }
+    
+    func sendBark(config: Bark, title: String, message: String) {
+        if config.server.isEmpty || config.device.isEmpty { return }
+        self.sendRequest(method: "GET", url: "https://\(config.server)/\(config.device)/\(title)/\(message)?group=HemuLock&icon=https://cdn.mayuko.cn/hemulock/icon.png".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+    }
 }

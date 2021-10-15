@@ -12,18 +12,24 @@ let fileManager = FileManager.default
 var appConfig = getPrefercenceConfig()
 
 struct Pushover: Decodable, Encodable {
-    var token: String
-    var user: String
-    var device: String
+    var token: String = ""
+    var user: String = ""
+    var device: String = ""
 }
 
 struct Servercat: Decodable, Encodable {
-    var sk: String
+    var sk: String = ""
+}
+
+struct Bark: Decodable, Encodable {
+    var server: String = "api.day.app" // default url
+    var device: String = ""
 }
 
 struct NotifyData: Decodable, Encodable {
     var pushover: Pushover
     var servercat: Servercat
+    var bark: Bark?
 }
 
 struct DoNotDisturbData: Decodable, Encodable {
@@ -55,7 +61,7 @@ struct DoNotDisturbType: Decodable, Encodable {
 }
 
 func initPreference() -> Preference {
-    return Preference.init(notify: NotifyData.init(pushover: Pushover.init(token: "", user: "", device: ""), servercat: Servercat.init(sk: "")), do_no_disturb: DoNotDisturbData.init(start: "00:00", end: "23:59", cycle: DoNotDisturbCycle.init(), type: DoNotDisturbType.init()))
+    return Preference.init(notify: NotifyData.init(pushover: Pushover(), servercat: Servercat(), bark: Bark()), do_no_disturb: DoNotDisturbData.init(start: "00:00", end: "23:59", cycle: DoNotDisturbCycle.init(), type: DoNotDisturbType.init()))
 }
 
 
@@ -69,9 +75,14 @@ func getPrefercenceConfig() -> Preference {
         try! fileManager.copyItem(atPath: srcPath, toPath: configPath)
     }
     let data = fileManager.contents(atPath: configPath)!
-    guard let preference = try? JSONDecoder().decode(Preference.self, from: data) else{
+    guard var preference = try? JSONDecoder().decode(Preference.self, from: data) else{
         return defaultPreference
     }
+    
+    if preference.notify.bark == nil {
+        preference.notify.bark = Bark()
+    }
+
     return preference
 }
 

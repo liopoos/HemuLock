@@ -7,6 +7,10 @@
         },
         "servercat": {
             "sk": ""
+        },
+        "bark": {
+            "url": "",
+            "device": ""
         }
     },
     "do_no_disturb": {
