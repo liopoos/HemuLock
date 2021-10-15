@@ -15,9 +15,10 @@
 "notify_none" = "不使用";
 "notify_pushover" = "Pushover";
 "notify_servercat" = "Server酱";
+"notify_bark" = "Bark";
 "notify_test" = "发送测试通知";
 "notify_test_message" = "这是一条测试通知";
-"notify_title" = "HEMU发来的通知";
+"notify_title" = "HEMULOCK发来的通知";
 "notify_title_device" = "发来的通知";
 
 "set_event" = "事件";
@@ -33,8 +34,9 @@
 
 "set_do_not_disturb" = "开启勿扰";
 
-"empty_servercat" = "ServerCat配置参数是空的";
-"empty_pushover" = "Pushover配置参数是空的";
+"empty_servercat" = "ServerCat配置参数错误";
+"empty_pushover" = "Pushover配置参数错误";
+"empty_servercat" = "Bark配置参数错误";
 "error_config" = "配置文件出错，请检查配置参数是否正确";
 
 "screen_sleep" = "显示器已关闭";

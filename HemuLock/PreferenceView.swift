@@ -11,6 +11,7 @@ struct PreferenceView: View {
     let window: NSWindow?
     var windowDelegate: PreferenceWindowDelegate = PreferenceWindowDelegate()
     @State var config = appConfig
+    @State var bark = appConfig.notify.bark ?? Bark()
     @State var do_not_disturb_start = formatDateByString(date: appConfig.do_no_disturb.start)
     @State var do_not_disturb_end = formatDateByString(date: appConfig.do_no_disturb.end)
     @State var tab_current = 1
@@ -50,6 +51,23 @@ struct PreferenceView: View {
                         Spacer()
                     }.padding(5)
                 }
+                Divider().padding()
+                Section {
+                    HStack {
+                        Text(str("notify_bark")).font(.headline).multilineTextAlignment(.leading).padding(.leading)
+                        Spacer()
+                    }
+                    HStack {
+                        Text("Server").frame(width: 60, alignment: .bottomTrailing)
+                        TextField(str("preference_filed") + "Server", text: $bark.server)
+                        Spacer()
+                    }
+                    HStack {
+                        Text("Device").frame(width: 60, alignment: .bottomTrailing)
+                        TextField(str("preference_filed") + "Device ID", text: $bark.device)
+                        Spacer()
+                    }
+                }.padding(5)
                 Spacer()
             }.tabItem { Text(str("preference_notify")) }.tag(1)
             VStack() {
@@ -86,7 +104,7 @@ struct PreferenceView: View {
                 }.padding(5)
                 Spacer()
             }.tabItem { Text(str("preference_do_not_disturb")) }.tag(2)
-        }.padding(.top, 10).frame(width: .infinity, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }.padding(.top, 10).frame(width: .infinity, height: 460, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         HStack {
             Spacer()
             Button(action: setNotifyConfig) {
@@ -100,6 +118,7 @@ struct PreferenceView: View {
         format.dateFormat = "HH:mm"
         config.do_no_disturb.start = formatDateByDate(date: do_not_disturb_start)
         config.do_no_disturb.end = formatDateByDate(date: do_not_disturb_end)
+        config.notify.bark = self.bark
         setPrefercenceConfig(config: config)
         self.window!.close()
     }

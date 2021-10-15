@@ -15,6 +15,7 @@
 "notify_none" = "None";
 "notify_pushover" = "Pushover";
 "notify_servercat" = "ServerSauce";
+"notify_bark" = "Bark";
 "notify_test" = "Send Notify";
 "notify_test_message" = "This is a test notify";
 "notify_title" = "HemuLock Notify";
@@ -35,6 +36,7 @@
 
 "empty_servercat" = "Empty ServerCat config";
 "empty_pushover" = "Empty Pushover config";
+"empty_servercat" = "Empty Bark config";
 "error_config" = "Config is ERROR";
 
 "screen_sleep" = "Screen has shutdown";

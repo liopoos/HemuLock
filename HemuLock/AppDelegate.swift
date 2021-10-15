@@ -122,7 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @objc func setPreferences(_ menuItem: NSMenuItem) {
         // Create the window and set the content view.
         window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 380),
+            contentRect: NSRect(x: 0, y: 0, width: 480, height: 480),
             styleMask: [.titled, .closable, .miniaturizable],
             backing: .buffered, defer: false)
         
@@ -198,7 +198,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     func runNotify(message: String, isAlert: Bool = false) {
-        if !isAlert && appConfig.do_no_disturb.type.notify && inDisturb(config: appConfig.do_no_disturb) { return }
+        if !isAlert && appConfig.do_no_disturb.type.notify && inDisturb(config: appConfig.do_no_disturb) {
+            return
+        }
         
         var title = str("notify_title")
         if let deviceName = Host.current().localizedName {
@@ -213,6 +215,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             runSystemNotify(str("empty_pushover"))
         } else if notifyType == 2 && isAlert && config.servercat.sk.isEmpty {
             runSystemNotify(str("empty_servercat"))
+        } else if notifyType == 3 && isAlert && config.bark!.device.isEmpty {
+            runSystemNotify(str("empty_servercat"))
         }
         
         switch notifyType {
@@ -221,6 +225,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             break
         case 2:
             notify.sendServerCat(config: config.servercat, title: title, message: message)
+            break
+        case 3:
+            notify.sendBark(config: config.bark!, title: title, message: message)
             break
         default:
             break
@@ -290,6 +297,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         notifyMenu.addItem(NSMenuItem.separator())
         notifyMenu.addItem(withTitle: str("notify_pushover"), action: #selector(setNotify), keyEquivalent: "").tag = 1
         notifyMenu.addItem(withTitle: str("notify_servercat"), action: #selector(setNotify), keyEquivalent: "").tag = 2
+        notifyMenu.addItem(withTitle: str("notify_bark"), action: #selector(setNotify), keyEquivalent: "").tag = 3
         notifyMenu.delegate = self
         
         notifyTestMenu = mainMenu.addItem(withTitle: str("notify_test"), action: #selector(sendNotifyTest), keyEquivalent: "")
