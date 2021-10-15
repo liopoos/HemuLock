@@ -32,6 +32,7 @@ HemuLock 可以监听系统以下事件：
 
 - [Pushover](https://pushover.net/)
 - [Server酱](https://sc.ftqq.com/9.version)
+- [Bark](https://github.com/Finb/Bark)
 
 如果需要其他通知类型，请发起一个 issue 或者提交一个 Pr。:)
 

@@ -32,6 +32,7 @@ When the event is activated, HemuLock will take a request to notify servers, sup
 
 - [Pushover](https://pushover.net/)
 - [Server Sauce](https://sc.ftqq.com/9.version)
+- [Bark](https://github.com/Finb/Bark)
 
 If you need other notify, take an issue or try to pull requests. :)
 
