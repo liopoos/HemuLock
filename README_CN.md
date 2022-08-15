@@ -2,7 +2,7 @@
 
 当系统解锁、锁定的时候发送通知或执行脚本。
 
-![screenshots](https://ftp.bmp.ovh/imgs/2021/04/5a9c780e2a361615.png)
+![screenshots](https://s3.bmp.ovh/imgs/2022/08/15/7e2ec3c59efbf3e4.png)
 
 This document is also available in [English](https://github.com/mayuko2012/HemuLock).
 
