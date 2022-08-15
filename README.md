@@ -2,7 +2,7 @@
 
 Send notify and run script when system lock/unlock and sleep/wake.
 
-![screenshots](https://ftp.bmp.ovh/imgs/2021/04/5a9c780e2a361615.png)
+![screenshots](https://s3.bmp.ovh/imgs/2022/08/15/7e2ec3c59efbf3e4.png)
 
 这里有一份[中文文档](https://github.com/mayuko2012/HemuLock/blob/main/README_CN.md)。
 
