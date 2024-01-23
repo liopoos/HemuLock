@@ -1,0 +1,61 @@
+//
+//  GeneraView.swift
+//  HemuLock
+//
+//  Created by hades on 2024/1/20.
+//
+
+import Settings
+import SwiftUI
+
+let GeneraPanelViewController: () -> SettingsPane = {
+    let paneView = Settings.Pane(
+        identifier: .init("genera_setting"),
+        title: "GENERA_TITLE".localized,
+        toolbarIcon: NSImage(named: "SettingGearIcon")!
+    ) {
+        GeneraPanelView()
+            .environmentObject(appState)
+    }
+
+    return Settings.PaneHostingController(pane: paneView)
+}
+
+struct GeneraPanelView: View {
+    @EnvironmentObject var appState: AppStateContainer
+
+    private let contentWidth: Double = 450
+
+    var body: some View {
+        Settings.Container(contentWidth: contentWidth) {
+            Settings.Section(title: "") {
+                Toggle("LAUNCH_AT_LOGIN".localized, isOn: $appState.appConfig.isLaunchAtLogin)
+                Toggle("SET_SCRIPT".localized, isOn: $appState.appConfig.isExecScript)
+                    .padding(.bottom, 10)
+            }
+
+            Settings.Section(title: "EVENT_RECORDS".localized) {
+                Button("SETTING_DROP_RECORD".localized) {
+                    _ = RecordRepository.shared.dropRecord()
+                }
+            }
+
+            Settings.Section(title: "PROJECT_PAGE".localized) {
+                Button(action: {}) {
+                    Text("https://github.com/liopoos/HemuLock").underline().foregroundColor(Color.blue)
+                }.buttonStyle(PlainButtonStyle())
+                    .onHover { inside in
+                        if inside {
+                            NSCursor.pointingHand.push()
+                        } else {
+                            NSCursor.pop()
+                        }
+                    }
+            }
+        }
+    }
+}
+
+#Preview {
+    GeneraPanelView()
+}

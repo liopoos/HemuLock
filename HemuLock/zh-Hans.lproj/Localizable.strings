@@ -1,67 +1,75 @@
-/* 
-  Localizable.strings
-  hemu
+/*
+   Localizable.strings
+   hemu
 
-  Created by hades on 2021/3/31.
-  
-*/
-"quit" = "退出";
-"run_screensaver" = "启动屏幕保护程序";
-"lock_now" = "立即锁定";
+   Created by hades on 2021/3/31.
 
-"set_script" = "执行脚本";
+ */
 
-"set_notify" = "通知";
-"notify_none" = "不使用";
-"notify_pushover" = "Pushover";
-"notify_servercat" = "Server酱";
-"notify_bark" = "Bark";
-"notify_test" = "发送测试通知";
-"notify_test_message" = "这是一条测试通知";
-"notify_title" = "HEMULOCK发来的通知";
-"notify_title_device" = "发来的通知";
+"QUIT" = "退出";
+"RUN_SCREENSAVER" = "启动屏幕保护程序";
+"LOCK_NOW" = "立即锁定";
 
-"set_event" = "事件";
-"event_screen_sleep" = "屏幕睡眠";
-"event_screen_wake" = "屏幕唤醒";
-"event_system_sleep" = "系统睡眠";
-"event_system_wake" = "系统唤醒";
-"event_system_lock" = "锁定";
-"event_system_unlock" = "解锁";
+"SET_SCRIPT" = "执行脚本";
+"SET_NOTIFY" = "通知";
+"SET_EVENT" = "事件";
+"LAUNCH_AT_LOGIN" = "登录时启动";
+"SET_PREFERENCES" = "偏好设置...";
+"SET_DO_NOT_DISTURB" = "开启勿扰";
 
-"launch_at_login" = "开机启动";
-"set_preferences" = "偏好设置...";
+"EVENT_RECORDS" = "历史事件";
+"NO_EVENT_RECORD" = "没有历史事件";
 
-"set_do_not_disturb" = "开启勿扰";
+"NOTIFY_TITLE" = "通知";
+"NOTIFY_NONE" = "不使用";
+"NOTIFY_PUSHOVER" = "Pushover";
+"NOTIFY_SERVERCAT" = "Server酱";
+"NOTIFY_BARK" = "Bark";
+"NOTIFY_TEST" = "发送测试通知";
+"NOTIFY_TEST_MESSAGE" = "这是一条测试通知";
 
-"empty_servercat" = "ServerCat配置参数错误";
-"empty_pushover" = "Pushover配置参数错误";
-"empty_servercat" = "Bark配置参数错误";
-"error_config" = "配置文件出错，请检查配置参数是否正确";
+"NOTIFY_MESSAGE_TITLE" = "HEMULOCK发来的通知";
+"NOTIFY_MESSAGE_TITLE_DEVICE" = "发来的通知";
 
-"screen_sleep" = "显示器已关闭";
-"screen_wake" = "显示器被点亮";
-"system_sleep" = "系统进入睡眠模式";
-"system_wake" = "系统被唤醒";
-"system_lock" = "系统已被锁定";
-"system_unlock" = "系统已解锁";
+"SCREEN_SLEEP" = "显示器已关闭";
+"SCREEN_WAKE" = "显示器被点亮";
+"SYSTEM_SLEEP" = "系统进入睡眠模式";
+"SYSTEM_WAKE" = "系统被唤醒";
+"SYSTEM_LOCK" = "系统已被锁定";
+"SYSTEM_UNLOCK" = "系统已解锁";
 
-"preference_filed" = "请输入";
-"preference_save" = "应用";
-"preference_title" = "偏好设置";
-"preference_notify" = "通知设置";
-"preference_do_not_disturb" = "勿扰设置";
+"EVENT_SCREEN_SLEEP" = "屏幕睡眠";
+"EVENT_SCREEN_WAKE" = "屏幕唤醒";
+"EVENT_SYSTEM_SLEEP" = "系统睡眠";
+"EVENT_SYSTEM_WAKE" = "系统唤醒";
+"EVENT_SYSTEM_LOCK" = "锁定";
+"EVENT_SYSTEM_UNLOCK" = "解锁";
 
-"do_not_disturb_cycle" = "周期";
-"do_not_disturb_type" = "类型";
+"EMPTY_SERVERCAT" = "ServerCat配置参数错误";
+"EMPTY_PUSHOVER" = "Pushover配置参数错误";
+"EMPTY_BARK" = "Bark配置参数错误";
+"ERROR_CONFIG" = "配置文件出错，请检查配置参数是否正确";
 
-"do_not_disturb_cycle_monday" = "周一";
-"do_not_disturb_cycle_tuesday" = "周二";
-"do_not_disturb_cycle_wednesday" = "周三";
-"do_not_disturb_cycle_thursday" = "周四";
-"do_not_disturb_cycle_firday" = "周五";
-"do_not_disturb_cycle_saturday" = "周六";
-"do_not_disturb_cycle_sunday" = "周日";
+"DO_NOT_DISTURB_TITLE" = "勿扰";
+"DO_NOT_DISTURB_CYCLE" = "周期";
+"DO_NOT_DISTURB_TYPE" = "类型";
 
-"do_not_disturb_start" = "开始时间";
-"do_not_disturb_end" = "结束时间";
+"DO_NOT_DISTURB_CYCLE_MONDAY" = "周一";
+"DO_NOT_DISTURB_CYCLE_TUESDAY" = "周二";
+"DO_NOT_DISTURB_CYCLE_WEDNESDAY" = "周三";
+"DO_NOT_DISTURB_CYCLE_THURSDAY" = "周四";
+"DO_NOT_DISTURB_CYCLE_FRIDAY" = "周五";
+"DO_NOT_DISTURB_CYCLE_SATURDAY" = "周六";
+"DO_NOT_DISTURB_CYCLE_SUNDAY" = "周日";
+"DO_NOT_DISTURB_START" = "开始时间";
+"DO_NOT_DISTURB_END" = "结束时间";
+
+"GENERA_TITLE" = "通用";
+
+"CONFIG_INVALID" = "通知配置错误";
+"REQUEST_ERROR" = "请求发送通知错误";
+"UNHANDLED_ERROR" = "发生未知错误";
+
+
+"PROJECT_PAGE" = "项目主页";
+"SETTING_DROP_RECORD" = "清除历史记录";
