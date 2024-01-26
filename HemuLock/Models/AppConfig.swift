@@ -29,4 +29,10 @@ struct AppConfig: Codable {
 
     // Do Not Disturb config
     var doNotDisturbConfig: DoNotDisturbConfig = DoNotDisturbConfig()
+
+    /**
+     Version 2.0.1 added.
+     */
+    // Record history record
+    var isRecordEvent: Bool = false
 }

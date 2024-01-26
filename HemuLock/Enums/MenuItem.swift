@@ -16,8 +16,9 @@ enum MenuItem: Int, CaseIterable {
     case setScript = 1005
     case setDoNotDisturb = 1006
     case setLaunchAtLogin = 1007
+    case setEventRecord = 1008
     
-    case eventRecord = 1008
+    case eventRecord = 1009
 
     var tag: Int {
         return rawValue

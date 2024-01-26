@@ -70,3 +70,4 @@
 
 "PROJECT_PAGE" = "Project";
 "SETTING_DROP_RECORD" = "Clear All Record";
+"SETTING_RECORD_NUMBER" = "Record Number: %D";

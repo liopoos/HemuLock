@@ -54,6 +54,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if let item = menu.item(withTag: MenuItem.setLaunchAtLogin.tag) {
             item.state = appState.appConfig.isLaunchAtLogin ? .on : .off
         }
+
+        if let item = menu.item(withTag: MenuItem.setEventRecord.tag) {
+            item.state = appState.appConfig.isRecordEvent ? .on : .off
+        }
     }
 
     func updateSubMenu(_ menu: NSMenu) {
@@ -118,7 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         let recordMenuItem = NSMenuItem(title: "EVENT_RECORDS".localized, action: nil, keyEquivalent: "")
         recordMenuItem.tag = itemTag
         recordMenuItem.submenu = recordSubMenu
-        mainMenu.insertItem(recordMenuItem, at: 7)
+        mainMenu.insertItem(recordMenuItem, at: 8)
     }
 
     // MARK: Menu event.
@@ -159,6 +163,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             eventList.append(menuItem.tag)
         }
         appState.appConfig.activeEvents = eventList
+    }
+
+    @objc func recordEvent(_ menuItem: NSMenuItem) {
+        appState.appConfig.isRecordEvent = !appState.appConfig.isRecordEvent
+        menuItem.state = appState.appConfig.isRecordEvent ? .on : .off
     }
 
     @objc func setDoNotDisturb(_ menuItem: NSMenuItem) {

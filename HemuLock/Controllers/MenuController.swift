@@ -54,7 +54,8 @@ class MenuController: NSObject, NSMenuDelegate {
         let eventItem = mainMenu.addItem(withTitle: "SET_EVENT".localized, action: nil, keyEquivalent: "")
         eventItem.tag = MenuItem.event.tag
         eventItem.submenu = eventSubMenu
-
+        
+        mainMenu.addItem(withTitle: "RECORD_EVENT".localized, action: #selector(AppDelegate.recordEvent), keyEquivalent: "").tag = MenuItem.setEventRecord.tag
         mainMenu.addItem(NSMenuItem.separator())
 
         var item = mainMenu.addItem(withTitle: "SET_SCRIPT".localized, action: #selector(AppDelegate.setScript), keyEquivalent: "")

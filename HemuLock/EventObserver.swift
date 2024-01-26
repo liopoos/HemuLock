@@ -39,7 +39,9 @@ class EventObserver {
         }
 
         // Handle record event to db.
-        recordEvent(event: event)
+        if appState.appConfig.isRecordEvent ?? false {
+            recordEvent(event: event)
+        }
 
         // Send notify.
         if appState.appConfig.notifyType != Notify.none.tag {

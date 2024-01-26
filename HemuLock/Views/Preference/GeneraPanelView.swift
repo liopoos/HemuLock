@@ -35,15 +35,21 @@ struct GeneraPanelView: View {
             }
 
             Settings.Section(title: "EVENT_RECORDS".localized) {
+                HStack {
+                    Toggle("RECORD_EVENT".localized, isOn: $appState.appConfig.isRecordEvent)
+                    Text(String(format: "SETTING_RECORD_NUMBER".localized, RecordRepository.shared.getRecordCount()))
+                }
                 Button("SETTING_DROP_RECORD".localized) {
                     _ = RecordRepository.shared.dropRecord()
                 }
+                .padding(.top, 5)
             }
 
             Settings.Section(title: "PROJECT_PAGE".localized) {
                 Button(action: {}) {
                     Text("https://github.com/liopoos/HemuLock").underline().foregroundColor(Color.blue)
                 }.buttonStyle(PlainButtonStyle())
+                    .padding(.top, 10)
                     .onHover { inside in
                         if inside {
                             NSCursor.pointingHand.push()

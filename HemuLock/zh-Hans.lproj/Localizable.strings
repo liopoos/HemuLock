@@ -13,6 +13,7 @@
 "SET_SCRIPT" = "执行脚本";
 "SET_NOTIFY" = "通知";
 "SET_EVENT" = "事件";
+"RECORD_EVENT" = "记录事件";
 "LAUNCH_AT_LOGIN" = "登录时启动";
 "SET_PREFERENCES" = "偏好设置...";
 "SET_DO_NOT_DISTURB" = "开启勿扰";
@@ -73,3 +74,4 @@
 
 "PROJECT_PAGE" = "项目主页";
 "SETTING_DROP_RECORD" = "清除历史记录";
+"SETTING_RECORD_NUMBER" = "当前有%D条记录";

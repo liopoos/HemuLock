@@ -49,6 +49,17 @@ class RecordRepository {
 
         return list
     }
+    
+    /**
+     Get record count number.
+     */
+    func getRecordCount() -> Int {
+        if let count = try? db.scalar(table.count) {
+            return count
+        }
+        
+        return 0
+    }
 
     /**
      Add record to db.
