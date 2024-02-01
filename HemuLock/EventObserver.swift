@@ -33,14 +33,14 @@ class EventObserver {
         }) else {
             return
         }
-
-        if !appState.appConfig.activeEvents.contains(event.tag) {
-            return
-        }
-
+        
         // Handle record event to db.
         if appState.appConfig.isRecordEvent {
             recordEvent(event: event)
+        }
+        
+        if !appState.appConfig.activeEvents.contains(event.tag) {
+            return
         }
 
         // Send notify.
