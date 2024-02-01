@@ -29,7 +29,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             NotifyPanelViewController(),
             DoNotDisturbPanelViewController(),
         ],
-        style: .toolbarItems
+        style: .toolbarItems,
+        animated: false
     )
 
     func menuWillOpen(_ menu: NSMenu) {

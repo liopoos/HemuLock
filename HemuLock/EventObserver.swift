@@ -39,7 +39,7 @@ class EventObserver {
         }
 
         // Handle record event to db.
-        if appState.appConfig.isRecordEvent ?? false {
+        if appState.appConfig.isRecordEvent {
             recordEvent(event: event)
         }
 
@@ -50,7 +50,7 @@ class EventObserver {
 
         // Exec some local script.
         if appState.appConfig.isExecScript {
-            runScript("123")
+            runScript(event.name)
         }
     }
 
