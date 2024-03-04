@@ -8,7 +8,7 @@ This document is also available in [English](https://github.com/liopoos/HemuLock
 
 ## 运行环境
 
-macOS 10.15 或更高。
+macOS 10.15 或更高
 
 ## 安装
 
@@ -19,7 +19,7 @@ macOS 10.15 或更高。
 
 HemuLock 是开源软件，本身是安全的，但由于苹果严格的检查机制，打开时可能会遇到警告拦截。
 
-如果无法打开，请参考苹果使用手册 打开来自身份不明开发者的 Mac App，或者进行本地代码签名。
+如果无法打开，请参考苹果使用手册 [打开来自身份不明开发者的 Mac App](https://support.apple.com/zh-cn/guide/mac-help/mh40616/mac)，或者进行本地代码签名。
 
 macOS本地代码签名
 
