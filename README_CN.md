@@ -4,16 +4,37 @@
 
 ![screenshots](https://s3.bmp.ovh/imgs/2022/08/15/7e2ec3c59efbf3e4.png)
 
-This document is also available in [English](https://github.com/mayuko2012/HemuLock).
+This document is also available in [English](https://github.com/liopoos/HemuLock).
 
 ## 运行环境
 
-macOS 10.15 或更高
+macOS 10.15 或更高。
 
 ## 安装
 
-- 从 [Releases](https://github.com/mayuko2012/HemuLock/releases) 下载DMG文件
+- 从 [Releases](https://github.com/liopoos/HemuLock/releases) 下载DMG文件
 - 将 .app 文件拖入到 Application 文件夹
+
+⚠️ 签名问题
+
+HemuLock 是开源软件，本身是安全的，但由于苹果严格的检查机制，打开时可能会遇到警告拦截。
+
+如果无法打开，请参考苹果使用手册 打开来自身份不明开发者的 Mac App，或者进行本地代码签名。
+
+macOS本地代码签名
+
+安装 Command Line Tools：
+
+```shell
+xcode-select --install
+```
+
+打开终端并执行：
+
+```shell
+sudo codesign --force --deep --sign - /Applications/HemuLock.app/
+```
+出现 「replacing existing signature」 即本地签名成功。
 
 ## 事件
 
@@ -25,6 +46,12 @@ HemuLock 可以监听系统以下事件：
 - 系统唤醒
 - 系统锁定
 - 系统解锁
+
+### 历史事件
+
+从2.0.0开始，HemuLock支持历史事件，所有的事件将存储在**本地**，你可以通过「历史事件」菜单栏查看最近的历史事件。
+
+目前仅支持查看最近12条历史记录。
 
 ## 支持的通知
 
@@ -102,5 +129,5 @@ esac
 
 ## License
 
-MIT
+©MIT
 
