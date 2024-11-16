@@ -20,6 +20,7 @@
 		2834B6142B5A564100708FB1 /* Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2834B6132B5A564100708FB1 /* Compatibility.swift */; };
 		2834B6162B5A59AF00708FB1 /* Notify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2834B6152B5A59AF00708FB1 /* Notify.swift */; };
 		2834B6182B5A664C00708FB1 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2834B6172B5A664C00708FB1 /* MenuController.swift */; };
+		283F172F2CE84A6500DAC8BE /* ScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F172E2CE84A5C00DAC8BE /* ScriptManager.swift */; };
 		288981772B5B59630078834D /* GeneraPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288981762B5B59630078834D /* GeneraPanelView.swift */; };
 		2889817A2B5B59E00078834D /* NotifyPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288981792B5B59E00078834D /* NotifyPaneView.swift */; };
 		2889817D2B5B75E50078834D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2889817C2B5B75E50078834D /* SQLite */; };
@@ -65,6 +66,7 @@
 		2834B6132B5A564100708FB1 /* Compatibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compatibility.swift; sourceTree = "<group>"; };
 		2834B6152B5A59AF00708FB1 /* Notify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notify.swift; sourceTree = "<group>"; };
 		2834B6172B5A664C00708FB1 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		283F172E2CE84A5C00DAC8BE /* ScriptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptManager.swift; sourceTree = "<group>"; };
 		288981762B5B59630078834D /* GeneraPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneraPanelView.swift; sourceTree = "<group>"; };
 		288981792B5B59E00078834D /* NotifyPaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyPaneView.swift; sourceTree = "<group>"; };
 		2889817E2B5B75F80078834D /* SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		2834B5F82B5A1EE700708FB1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				283F172E2CE84A5C00DAC8BE /* ScriptManager.swift */,
 				2834B6012B5A474E00708FB1 /* DefaultsManager.swift */,
 				2834B6112B5A513E00708FB1 /* NotifyManager.swift */,
 				2889817E2B5B75F80078834D /* SQLiteManager.swift */,
@@ -331,6 +334,7 @@
 				2834B5FA2B5A245000708FB1 /* AppStateContainer.swift in Sources */,
 				28B243E026145BAA00367F57 /* AppDelegate.swift in Sources */,
 				2834B6022B5A474E00708FB1 /* DefaultsManager.swift in Sources */,
+				283F172F2CE84A6500DAC8BE /* ScriptManager.swift in Sources */,
 				288981842B5B91930078834D /* RecordRepository.swift in Sources */,
 				2834B6142B5A564100708FB1 /* Compatibility.swift in Sources */,
 				2834B6182B5A664C00708FB1 /* MenuController.swift in Sources */,
@@ -500,14 +504,14 @@
 				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X63ZQ5VH53;
 				INFOPLIST_FILE = HemuLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyberstack.HemuLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HemuLock/HemuLock-Bridging-Header.h";
@@ -525,14 +529,14 @@
 				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X63ZQ5VH53;
 				INFOPLIST_FILE = HemuLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyberstack.HemuLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HemuLock/HemuLock-Bridging-Header.h";

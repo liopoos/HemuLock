@@ -18,8 +18,16 @@ struct NotifyConfig: Codable {
     }
 
     struct Bark: Decodable, Encodable {
-        var server: String = "bark.day.app"
+        var server: String = "bark.day.app" {
+            didSet {
+                server = server
+                    .replacingOccurrences(of: "https://", with: "")
+                    .replacingOccurrences(of: "http://", with: "")
+            }
+        }
+
         var device: String = ""
+        var critical: Bool = false
     }
 
     var pushover: Pushover = Pushover()

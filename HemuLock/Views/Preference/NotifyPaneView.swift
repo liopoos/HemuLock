@@ -76,6 +76,11 @@ struct NotifyPanelView: View {
                         } content: {
                             TextField("Bark key secret ", text: $appState.appConfig.notifyConfig.bark.device)
                         }
+                        Settings.Section {
+                            Text("Critical").frame(width: 50)
+                        } content: {
+                            Toggle("NOTIFY_BARK_CRITICAL".localized, isOn: $appState.appConfig.notifyConfig.bark.critical)
+                        }
                     default:
                         EmptyView()
                     }

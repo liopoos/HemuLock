@@ -5,8 +5,10 @@
 //  Created by hades on 2024/1/20.
 //
 
+import AppKit
 import Foundation
 import SQLite
+typealias Expression = SQLite.Expression
 
 class RecordRepository {
     static let shared = RecordRepository()
@@ -49,7 +51,7 @@ class RecordRepository {
 
         return list
     }
-    
+
     /**
      Get record count number.
      */
@@ -57,7 +59,7 @@ class RecordRepository {
         if let count = try? db.scalar(table.count) {
             return count
         }
-        
+
         return 0
     }
 

@@ -32,7 +32,7 @@ class NotifyManager {
             if config.bark.server.isEmpty || config.bark.device.isEmpty {
                 throw NotifyError.invalidConfig
             }
-            api = .bark(server: config.bark.server, device: config.bark.device, title: title, message: message)
+            api = .bark(server: config.bark.server, device: config.bark.device, title: title, message: message, level: config.bark.critical ? "critical" : "")
         default:
             return false
         }

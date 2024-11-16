@@ -102,9 +102,7 @@ class EventObserver {
      */
     func runScript(_ params: String) {
         if appState.appConfig.doNotDisturbConfig.type.script && DisturbModeManager.shared.inDisturb() { return }
-
-        guard let directory = try? FileManager.default.url(for: .applicationScriptsDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else { return }
-        let file = directory.appendingPathComponent("script")
+        let file = ScriptManager.shared.getFile()
         let process = Process()
         process.executableURL = file
         process.arguments = [params]

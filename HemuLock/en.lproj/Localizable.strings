@@ -21,7 +21,7 @@
 "NOTIFY_TITLE" = "Notify";
 "NOTIFY_NONE" = "None";
 "NOTIFY_PUSHOVER" = "Pushover";
-"NOTIFY_SERVERCAT" = "Server酱";
+"NOTIFY_SERVERCAT" = "Server Cat";
 "NOTIFY_BARK" = "Bark";
 "NOTIFY_TEST" = "Send Test Notification";
 "NOTIFY_TEST_MESSAGE" = "This is a test notification";
@@ -71,3 +71,7 @@
 "PROJECT_PAGE" = "Project";
 "SETTING_DROP_RECORD" = "Clear All Record";
 "SETTING_RECORD_NUMBER" = "Record Number: %D";
+"SETTING_OPEN_DB_FILE" = "Open DB folder";
+"SETTING_OPEN_SCRIPT_FILE" = "Open Script folder";
+
+"NOTIFY_BARK_CRITICAL" = "Critical Message";

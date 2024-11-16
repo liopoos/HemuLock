@@ -39,8 +39,10 @@ struct GeneraPanelView: View {
                     Toggle("RECORD_EVENT".localized, isOn: $appState.appConfig.isRecordEvent)
                     Text(String(format: "SETTING_RECORD_NUMBER".localized, RecordRepository.shared.getRecordCount()))
                 }
-                Button("SETTING_DROP_RECORD".localized) {
-                    _ = RecordRepository.shared.dropRecord()
+                HStack {
+                    Button("SETTING_DROP_RECORD".localized) {
+                        _ = RecordRepository.shared.dropRecord()
+                    }
                 }
                 .padding(.top, 5)
             }
@@ -57,6 +59,18 @@ struct GeneraPanelView: View {
                             NSCursor.pop()
                         }
                     }
+            }
+            
+            Settings.Section(title: "") {
+                HStack {
+                    Button("SETTING_OPEN_DB_FILE".localized) {
+                        NSWorkspace.shared.open(RecordRepository.shared.dbManager.getPath())
+                    }
+                    
+                    Button("SETTING_OPEN_SCRIPT_FILE".localized) {
+                        NSWorkspace.shared.open(ScriptManager.shared.getPath())
+                    }
+                }
             }
         }
     }

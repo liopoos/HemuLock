@@ -75,3 +75,7 @@
 "PROJECT_PAGE" = "项目主页";
 "SETTING_DROP_RECORD" = "清除历史记录";
 "SETTING_RECORD_NUMBER" = "当前有%D条记录";
+"SETTING_OPEN_DB_FILE" = "打开数据库文件夹";
+"SETTING_OPEN_SCRIPT_FILE" = "打开脚本文件夹";
+
+"NOTIFY_BARK_CRITICAL" = "重要通知";

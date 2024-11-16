@@ -11,13 +11,10 @@ import SQLite
 class SQLiteManager {
     private var db: Connection?
     private var table: Table?
-
     private var path: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
     init(dbName: String, tableName: String) {
-        path = path.appendingPathComponent("\(dbName).sqlite")
-
-        db = try! Connection(path.path)
+        db = try! Connection(path.appendingPathComponent("\(dbName).sqlite").path)
         table = Table(tableName)
     }
 
@@ -27,5 +24,9 @@ class SQLiteManager {
 
     func getTable() -> Table {
         return table!
+    }
+
+    func getPath() -> URL {
+        return path
     }
 }
