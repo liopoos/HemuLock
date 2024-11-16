@@ -16,6 +16,7 @@ Send notify and run script when system lock/unlock and sleep/wake.
 - Drop the .app to Application folder
 
 Signature issue ⚠️
+
 HemuLock is open source software and is safe, but due to Apple's strict inspection mechanism, you may encounter warning interception when opening it.
 
 If you cannot open it, please refer to the Apple manual [Open a Mac app from an unidentified developer](https://support.apple.com/en-us/guide/mac-help/mh40616/mac), or perform local code signing.
