@@ -4,7 +4,7 @@ Send notify and run script when system lock/unlock and sleep/wake.
 
 ![screenshots](https://s3.bmp.ovh/imgs/2022/08/15/7e2ec3c59efbf3e4.png)
 
-这里有一份[中文文档](https://github.com/mayuko2012/HemuLock/blob/main/README_CN.md)。
+这里有一份[中文文档](https://github.com/liopoos/HemuLock/blob/main/README_CN.md)。
 
 ## Requirements
 
@@ -12,8 +12,31 @@ Send notify and run script when system lock/unlock and sleep/wake.
 
 ## Installation
 
-- Download DMG file from [Releases](https://github.com/mayuko2012/HemuLock/releases)
+- Download DMG file from [Releases](https://github.com/liopoos/HemuLock/releases)
 - Drop the .app to Application folder
+
+Signature issue ⚠️
+
+HemuLock is open source software and is safe, but due to Apple's strict inspection mechanism, you may encounter warning interception when opening it.
+
+If you cannot open it, please refer to the Apple manual [Open a Mac app from an unidentified developer](https://support.apple.com/en-us/guide/mac-help/mh40616/mac), or perform local code signing.
+
+
+Local code signing for macOS
+
+Install Command Line Tools:
+
+```shell
+xcode-select --install
+```
+
+Open the terminal and execute:
+
+```shell
+sudo codesign --force --deep --sign - /Applications/HemuLock.app/
+```
+
+"replacing existing signature" indicates successful local signing.
 
 ## Event
 
@@ -25,6 +48,12 @@ HemuLock can listening system events:
 - System wake
 - System lock
 - System unlock
+
+### Historical event
+
+Starting from version 2.0.0, HemuLock supports historical events, and all events will be stored **locally**. You can view the recent history events through the "Historical Events" menu.
+
+Currently, only viewing the latest 12 historical records is supported.
 
 ## Notify Support
 
@@ -102,4 +131,4 @@ Please modify the Do Not Disturb time setting in **Preferences**.
 
 ## License
 
-MIT
+©MIT

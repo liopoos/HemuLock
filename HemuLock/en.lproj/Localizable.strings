@@ -1,67 +1,77 @@
-/* 
-  Localizable.strings
-  hemu
+/*
+   Localizable.strings
+   hemu
 
-  Created by hades on 2021/3/31.
-  
-*/
-"quit" = "Quit";
-"run_screensaver" = "ScreenSaver!";
-"lock_now" = "Lock Now!";
+   Created by hades on 2021/3/31.
 
-"set_script" = "Script";
+ */
+"QUIT" = "Quit";
+"RUN_SCREENSAVER" = "Run Screensaver";
+"LOCK_NOW" = "Lock Now";
 
-"set_notify" = "Notify";
-"notify_none" = "None";
-"notify_pushover" = "Pushover";
-"notify_servercat" = "ServerSauce";
-"notify_bark" = "Bark";
-"notify_test" = "Send Notify";
-"notify_test_message" = "This is a test notify";
-"notify_title" = "HemuLock Notify";
-"notify_title_device" = "'s Notify";
+"SET_SCRIPT" = "Enable Script";
+"SET_NOTIFY" = "Notify";
+"SET_EVENT" = "Event";
+"LAUNCH_AT_LOGIN" = "Launch at Login";
+"SET_PREFERENCES" = "Preferences...";
+"SET_DO_NOT_DISTURB" = "Enable Do Not Disturb";
+"EVENT_RECORDS" = "Event Records";
+"NO_EVENT_RECORD" = "No Event Record";
 
-"set_event" = "Event";
-"event_screen_sleep" = "Screen Sleep";
-"event_screen_wake" = "Screen Wake";
-"event_system_sleep" = "System Sleep";
-"event_system_wake" = "System Wake";
-"event_system_lock" = "Lock";
-"event_system_unlock" = "Unlock";
+"NOTIFY_TITLE" = "Notify";
+"NOTIFY_NONE" = "None";
+"NOTIFY_PUSHOVER" = "Pushover";
+"NOTIFY_SERVERCAT" = "Server Cat";
+"NOTIFY_BARK" = "Bark";
+"NOTIFY_TEST" = "Send Test Notification";
+"NOTIFY_TEST_MESSAGE" = "This is a test notification";
 
-"launch_at_login" = "Launch Login";
-"set_preferences" = "Preferences";
+"NOTIFY_MESSAGE_TITLE" = "Notification from HEMULOCK";
+"NOTIFY_MESSAGE_TITLE_DEVICE" = "Notification";
 
-"set_do_not_disturb" = "Do Not Disturb";
+"SCREEN_SLEEP" = "Screen Off";
+"SCREEN_WAKE" = "Screen On";
+"SYSTEM_SLEEP" = "System Sleep";
+"SYSTEM_WAKE" = "System Wake";
+"SYSTEM_LOCK" = "System Lock";
+"SYSTEM_UNLOCK" = "System Unlock";
 
-"empty_servercat" = "Empty ServerCat config";
-"empty_pushover" = "Empty Pushover config";
-"empty_servercat" = "Empty Bark config";
-"error_config" = "Config is ERROR";
+"EVENT_SCREEN_SLEEP" = "Screen Sleep";
+"EVENT_SCREEN_WAKE" = "Screen Wake";
+"EVENT_SYSTEM_SLEEP" = "System Sleep";
+"EVENT_SYSTEM_WAKE" = "System Wake";
+"EVENT_SYSTEM_LOCK" = "System Lock";
+"EVENT_SYSTEM_UNLOCK" = "System Unlock";
 
-"screen_sleep" = "Screen has shutdown";
-"screen_wake" = "Screen has wake";
-"system_sleep" = "System is sleep";
-"system_wake" = "System is wakeup";
-"system_lock" = "System locked";
-"system_unlock" = "System unlocked";
+"EMPTY_SERVERCAT" = "ServerCat Configuration Parameters Error";
+"EMPTY_PUSHOVER" = "Pushover Configuration Parameters Error";
+"EMPTY_BARK" = "Bark Configuration Parameters Error";
+"ERROR_CONFIG" = "Configuration File Error, Please Check if the Configuration Parameters are Correct";
 
-"preference_filed" = "Please input ";
-"preference_save" = "Save";
-"preference_title" = "Preferences";
-"preference_notify" = "NOTIFY";
-"preference_do_not_disturb" = "DO NOT DISTURB";
+"DO_NOT_DISTURB_TITLE" = "Do Not Disturb";
+"DO_NOT_DISTURB_CYCLE" = "Cycle";
+"DO_NOT_DISTURB_TYPE" = "Type";
 
-"do_not_disturb_cycle" = "Cycle";
-"do_not_disturb_type" = "Type";
+"DO_NOT_DISTURB_CYCLE_MONDAY" = "Monday";
+"DO_NOT_DISTURB_CYCLE_TUESDAY" = "Tuesday";
+"DO_NOT_DISTURB_CYCLE_WEDNESDAY" = "Wednesday";
+"DO_NOT_DISTURB_CYCLE_THURSDAY" = "Thursday";
+"DO_NOT_DISTURB_CYCLE_FRIDAY" = "Friday";
+"DO_NOT_DISTURB_CYCLE_SATURDAY" = "Saturday";
+"DO_NOT_DISTURB_CYCLE_SUNDAY" = "Sunday";
+"DO_NOT_DISTURB_START" = "Start Time";
+"DO_NOT_DISTURB_END" = "End Time";
 
-"do_not_disturb_cycle_monday" = "Monday";
-"do_not_disturb_cycle_tuesday" = "Tuesday";
-"do_not_disturb_cycle_wednesday" = "Wednesday";
-"do_not_disturb_cycle_thursday" = "Thursday";
-"do_not_disturb_cycle_firday" = "Firday";
-"do_not_disturb_cycle_saturday" = "Saturday";
-"do_not_disturb_cycle_sunday" = "Sunday";
+"GENERA_TITLE" = "General";
 
-"do_not_disturb_start" = "Start Time";
-"do_not_disturb_end" = "End Time";
+"CONFIG_INVALID" = "Notification Configuration Error";
+"REQUEST_ERROR" = "Error Sending Notification Request";
+"UNHANDLED_ERROR" = "Unknown Error Occurred";
+
+"PROJECT_PAGE" = "Project";
+"SETTING_DROP_RECORD" = "Clear All Record";
+"SETTING_RECORD_NUMBER" = "Record Number: %D";
+"SETTING_OPEN_DB_FILE" = "Open DB folder";
+"SETTING_OPEN_SCRIPT_FILE" = "Open Script folder";
+
+"NOTIFY_BARK_CRITICAL" = "Critical Message";
