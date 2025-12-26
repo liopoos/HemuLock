@@ -79,3 +79,15 @@
 "SETTING_OPEN_SCRIPT_FILE" = "打开脚本文件夹";
 
 "NOTIFY_BARK_CRITICAL" = "重要通知";
+
+"HISTORY_TITLE" = "历史记录";
+"HISTORY_TODAY" = "今日";
+"HISTORY_YESTERDAY" = "昨日";
+"HISTORY_DAY_BEFORE_YESTERDAY" = "前日";
+"HISTORY_TIME" = "时间";
+"HISTORY_EVENT" = "事件";
+"HISTORY_NOTIFIED" = "已通知";
+"HISTORY_YES" = "是";
+"HISTORY_NO" = "否";
+"HISTORY_DATE" = "日期";
+"HISTORY_LOADING" = "加载中...";

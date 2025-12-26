@@ -56,7 +56,7 @@ struct DoNotDisturbPanelView: View {
     @EnvironmentObject var appState: AppStateContainer
     @ObservedObject var config = DoNotDisturbPanelViewModel()
 
-    private let contentWidth: Double = 450
+    private let contentWidth: Double = 540
 
     var body: some View {
         Settings.Container(contentWidth: contentWidth) {

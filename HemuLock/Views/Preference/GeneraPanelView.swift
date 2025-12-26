@@ -24,7 +24,7 @@ let GeneraPanelViewController: () -> SettingsPane = {
 struct GeneraPanelView: View {
     @EnvironmentObject var appState: AppStateContainer
 
-    private let contentWidth: Double = 450
+    private let contentWidth: Double = 540
 
     var body: some View {
         Settings.Container(contentWidth: contentWidth) {
@@ -60,13 +60,13 @@ struct GeneraPanelView: View {
                         }
                     }
             }
-            
+
             Settings.Section(title: "") {
                 HStack {
                     Button("SETTING_OPEN_DB_FILE".localized) {
                         NSWorkspace.shared.open(RecordRepository.shared.dbManager.getPath())
                     }
-                    
+
                     Button("SETTING_OPEN_SCRIPT_FILE".localized) {
                         NSWorkspace.shared.open(ScriptManager.shared.getPath())
                     }

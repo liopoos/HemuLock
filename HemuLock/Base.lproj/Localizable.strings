@@ -1,8 +1,8 @@
 /*
    Localizable.strings
-   hemu
+   HemuLock
 
-   Created by hades on 2021/3/31.
+   Created by hades on 2024/1/20.
 
  */
 "QUIT" = "Quit";
@@ -85,7 +85,5 @@
 "HISTORY_NOTIFIED" = "Notified";
 "HISTORY_YES" = "Yes";
 "HISTORY_NO" = "No";
-"HISTORY_DATE" = "Date";
-"HISTORY_LOADING" = "Loading...";
 "HISTORY_DATE" = "Date";
 "HISTORY_LOADING" = "Loading...";

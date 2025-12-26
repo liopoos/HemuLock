@@ -28,6 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             GeneraPanelViewController(),
             NotifyPanelViewController(),
             DoNotDisturbPanelViewController(),
+            HistoryPanelViewController(),
         ],
         style: .toolbarItems,
         animated: false

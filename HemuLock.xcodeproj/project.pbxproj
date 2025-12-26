@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280D82352EF7C9AF00F161F2 /* HistoryPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280D82342EF7C9AF00F161F2 /* HistoryPanelView.swift */; };
 		281ED2A2261772060098DB79 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 281ED2A1261772060098DB79 /* config.json */; };
 		2834B5F62B5A0B3E00708FB1 /* EventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2834B5F52B5A0B3E00708FB1 /* EventObserver.swift */; };
 		2834B5FA2B5A245000708FB1 /* AppStateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2834B5F92B5A245000708FB1 /* AppStateContainer.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		280D82342EF7C9AF00F161F2 /* HistoryPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPanelView.swift; sourceTree = "<group>"; };
 		281ED2A1261772060098DB79 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		2834B5F52B5A0B3E00708FB1 /* EventObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventObserver.swift; sourceTree = "<group>"; };
 		2834B5F92B5A245000708FB1 /* AppStateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateContainer.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		288981782B5B596E0078834D /* Preference */ = {
 			isa = PBXGroup;
 			children = (
+				280D82342EF7C9AF00F161F2 /* HistoryPanelView.swift */,
 				288981762B5B59630078834D /* GeneraPanelView.swift */,
 				288981792B5B59E00078834D /* NotifyPaneView.swift */,
 				2889818F2B5E3ADE0078834D /* DoNotDisturbPanelView.swift */,
@@ -348,6 +351,7 @@
 				2889817F2B5B75F80078834D /* SQLiteManager.swift in Sources */,
 				2834B60C2B5A4ABF00708FB1 /* AppConfig.swift in Sources */,
 				2889818C2B5BBAFD0078834D /* NotifyAPI.swift in Sources */,
+				280D82352EF7C9AF00F161F2 /* HistoryPanelView.swift in Sources */,
 				28B2442D2615645000367F57 /* NotifyConfig.swift in Sources */,
 				2834B6102B5A50EF00708FB1 /* DoNotDisturbConfig.swift in Sources */,
 				2834B6122B5A513E00708FB1 /* NotifyManager.swift in Sources */,
@@ -511,6 +515,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyberstack.HemuLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -536,6 +541,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyberstack.HemuLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
