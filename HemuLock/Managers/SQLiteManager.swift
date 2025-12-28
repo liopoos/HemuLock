@@ -45,8 +45,7 @@ class SQLiteManager {
      */
     init(dbName: String, tableName: String) throws {
         guard let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            throw NSError(domain: "SQLiteManager", code: -1, 
-                         userInfo: [NSLocalizedDescriptionKey: "Could not locate documents directory"])
+            throw NSError(domain: "SQLiteManager", code: -1, userInfo: [NSLocalizedDescriptionKey: "Could not locate documents directory"])
         }
         
         self.databasePath = documentsPath.appendingPathComponent("\(dbName).sqlite")

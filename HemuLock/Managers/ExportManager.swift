@@ -45,6 +45,16 @@ class ExportManager {
     }
     
     func importConfig(from url: URL) -> Result<AppConfig, ExportError> {
+        // Start accessing the security-scoped resource for sandboxed apps
+        guard url.startAccessingSecurityScopedResource() else {
+            print("Import config failed: Unable to access security-scoped resource")
+            return .failure(.fileReadFailed(NSError(domain: "ExportManager", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unable to access file"])))
+        }
+        
+        defer {
+            url.stopAccessingSecurityScopedResource()
+        }
+        
         do {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
