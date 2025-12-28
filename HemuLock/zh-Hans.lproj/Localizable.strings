@@ -24,7 +24,6 @@
 "NOTIFY_TITLE" = "通知";
 "NOTIFY_NONE" = "不使用";
 "NOTIFY_PUSHOVER" = "Pushover";
-"NOTIFY_SERVERCAT" = "Server酱";
 "NOTIFY_BARK" = "Bark";
 "NOTIFY_TEST" = "发送测试通知";
 "NOTIFY_TEST_MESSAGE" = "这是一条测试通知";
@@ -46,7 +45,6 @@
 "EVENT_SYSTEM_LOCK" = "锁定";
 "EVENT_SYSTEM_UNLOCK" = "解锁";
 
-"EMPTY_SERVERCAT" = "ServerCat配置参数错误";
 "EMPTY_PUSHOVER" = "Pushover配置参数错误";
 "EMPTY_BARK" = "Bark配置参数错误";
 "ERROR_CONFIG" = "配置文件出错，请检查配置参数是否正确";

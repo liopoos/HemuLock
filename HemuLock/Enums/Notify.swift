@@ -10,7 +10,6 @@ import Foundation
 enum Notify: Int, CaseIterable, Codable {
     case none = 0
     case pushover = 1
-    case serverCat = 2
     case bark = 3
 
     var tag: Int {
@@ -23,8 +22,6 @@ enum Notify: Int, CaseIterable, Codable {
             return "NOTIFY_NONE".localized
         case .pushover:
             return "NOTIFY_PUSHOVER".localized
-        case .serverCat:
-            return "NOTIFY_SERVERCAT".localized
         case .bark:
             return "NOTIFY_BARK".localized
         }

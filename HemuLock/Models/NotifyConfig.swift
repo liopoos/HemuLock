@@ -13,10 +13,6 @@ struct NotifyConfig: Codable {
         var device: String = ""
     }
 
-    struct Servercat: Decodable, Encodable {
-        var sk: String = ""
-    }
-
     struct Bark: Decodable, Encodable {
         var server: String = "bark.day.app" {
             didSet {
@@ -31,6 +27,5 @@ struct NotifyConfig: Codable {
     }
 
     var pushover: Pushover = Pushover()
-    var servercat: Servercat = Servercat()
     var bark: Bark = Bark()
 }

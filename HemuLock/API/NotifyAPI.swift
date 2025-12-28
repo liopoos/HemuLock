@@ -11,7 +11,6 @@ import Moya
 enum NotifyAPI {
     case pushover(user: String, token: String, device: String, title: String, message: String)
     case bark(server: String, device: String, title: String, message: String, level: String)
-    case serverCat(sk: String, title: String, message: String)
 }
 
 extension NotifyAPI: TargetType {
@@ -19,8 +18,6 @@ extension NotifyAPI: TargetType {
         switch self {
         case .pushover:
             return URL(string: "https://api.pushover.net/1/messages.json")!
-        case let .serverCat(sk, _, _):
-            return URL(string: "https://sc.ftqq.com/\(sk).send")!
         case let .bark(server, device, title, message, _):
             return URL(string: "https://\(server)/\(device)/\(title)/\(message)")!
         }
@@ -45,8 +42,6 @@ extension NotifyAPI: TargetType {
             return .requestParameters(parameters: ["user": user, "token": token, "device": device, "title": title, "message": message], encoding: JSONEncoding.default)
         case let .bark(_, _, _, _, level):
             return .requestParameters(parameters: ["group": "HemuLock", "icon": "https://s3.bmp.ovh/imgs/2024/11/15/28e3a5070f9b767a.png", "level": level, "volume": 5], encoding: URLEncoding.queryString)
-        case let .serverCat(_, title, message):
-            return .requestParameters(parameters: ["text": title, "desp": message], encoding: URLEncoding.queryString)
         }
     }
 

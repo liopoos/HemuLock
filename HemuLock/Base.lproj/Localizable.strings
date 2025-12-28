@@ -21,7 +21,6 @@
 "NOTIFY_TITLE" = "Notify";
 "NOTIFY_NONE" = "None";
 "NOTIFY_PUSHOVER" = "Pushover";
-"NOTIFY_SERVERCAT" = "Server Cat";
 "NOTIFY_BARK" = "Bark";
 "NOTIFY_TEST" = "Send Test Notification";
 "NOTIFY_TEST_MESSAGE" = "This is a test notification";
@@ -43,7 +42,6 @@
 "EVENT_SYSTEM_LOCK" = "System Lock";
 "EVENT_SYSTEM_UNLOCK" = "System Unlock";
 
-"EMPTY_SERVERCAT" = "ServerCat Configuration Parameters Error";
 "EMPTY_PUSHOVER" = "Pushover Configuration Parameters Error";
 "EMPTY_BARK" = "Bark Configuration Parameters Error";
 "ERROR_CONFIG" = "Configuration File Error, Please Check if the Configuration Parameters are Correct";

@@ -59,12 +59,6 @@ struct NotifyPanelView: View {
                         } content: {
                             TextField("Pushover device ", text: $appState.appConfig.notifyConfig.pushover.device)
                         }
-                    case Notify.serverCat.rawValue:
-                        Settings.Section {
-                            Text("SK Key").frame(width: 50)
-                        } content: {
-                            TextField("ServerCat SK key ", text: $appState.appConfig.notifyConfig.servercat.sk)
-                        }
                     case Notify.bark.rawValue:
                         Settings.Section {
                             Text("Server").frame(width: 50)
