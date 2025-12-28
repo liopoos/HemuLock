@@ -3,7 +3,7 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
-HemuLock is a macOS menu bar application that monitors system events (lock/unlock, sleep/wake) and triggers notifications or scripts. It is built with Swift 5, targeting macOS 10.15+.
+HemuLock is a macOS menu bar application that monitors system events (lock/unlock, sleep/wake) and triggers notifications or scripts. It is built with Swift 5, targeting macOS 11+.
 
 ## Common Development Tasks
 

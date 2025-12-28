@@ -11,11 +11,12 @@ import LaunchAtLogin
 import ServiceManagement
 import Settings
 import SwiftUI
+import UserNotifications
 
 var appState = AppStateContainer()
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate, NSMenuDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSMenuDelegate {
     private var mainMenu: NSMenu!
     private var statusItem: NSStatusItem!
     private var observer: EventObserver?
@@ -185,6 +186,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 
     @objc func openPreferences(_ menuItem: NSMenuItem) {
         settingsWindowController.show()
+        
+        // Set window to floating level to keep it on top
+        if let window = settingsWindowController.window {
+            window.level = .floating
+            window.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+        }
     }
 
     func applicationDidFinishLaunching(_: Notification) {
@@ -193,6 +201,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if let window = NSApplication.shared.windows.first {
             window.close()
         }
+        
+        // Request notification authorization
+        SystemNotificationManager.shared.requestAuthorization()
+        SystemNotificationManager.shared.setDelegate(self)
 
         mainMenu = menuController.getMenu()
         mainMenu.delegate = self

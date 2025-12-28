@@ -78,6 +78,17 @@
 "SETTING_OPEN_DB_FILE" = "打开数据库文件夹";
 "SETTING_OPEN_SCRIPT_FILE" = "打开脚本文件夹";
 
+"EXPORT_CONFIG" = "导出配置";
+"IMPORT_CONFIG" = "导入配置";
+"EXPORT_SUCCESS" = "导出成功";
+"EXPORT_SUCCESS_MESSAGE" = "配置已导出至：%@";
+"EXPORT_FAILED" = "导出失败";
+"EXPORT_FAILED_MESSAGE" = "无法导出配置文件";
+"IMPORT_SUCCESS" = "导入成功";
+"IMPORT_SUCCESS_MESSAGE" = "配置已成功导入";
+"IMPORT_FAILED" = "导入失败";
+"IMPORT_FAILED_MESSAGE" = "配置文件格式错误，请检查文件内容";
+
 "NOTIFY_BARK_CRITICAL" = "重要通知";
 
 "HISTORY_TITLE" = "历史记录";
@@ -91,3 +102,5 @@
 "HISTORY_NO" = "否";
 "HISTORY_DATE" = "日期";
 "HISTORY_LOADING" = "加载中...";
+
+"CONFIGURATION_MANAGEMENT" = "配置管理";

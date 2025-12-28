@@ -7,6 +7,7 @@
 
 import Cocoa
 import Foundation
+import UserNotifications
 
 class EventObserver {
     init() {
@@ -90,11 +91,7 @@ class EventObserver {
      Send system notify.
      */
     func sendSystemNotify(title: String, message: String) {
-        let notify = NSUserNotification()
-        notify.title = title
-        notify.informativeText = message
-        notify.deliveryDate = Date().addingTimeInterval(1)
-        NSUserNotificationCenter.default.scheduleNotification(notify)
+        SystemNotificationManager.shared.sendDelayed(title: title, message: message, delay: 1)
     }
 
     /**

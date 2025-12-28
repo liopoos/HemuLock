@@ -8,11 +8,35 @@
 import Foundation
 import Moya
 
+/**
+ NotifyManager handles sending notifications to external services.
+ 
+ This manager integrates with multiple notification services (Pushover, ServerCat, Bark)
+ using the Moya networking library. It validates service configurations and sends
+ notifications based on the user's selected notification type.
+ */
 class NotifyManager {
     static let shared = NotifyManager()
 
     private let provider = MoyaProvider<NotifyAPI>()
 
+    // MARK: - Send Notification
+    
+    /**
+     Send a notification to the configured external service.
+     
+     This method:
+     - Validates the service configuration
+     - Selects the appropriate API based on notification type
+     - Sends the notification asynchronously
+     
+     - Parameters:
+       - title: The title of the notification
+       - message: The body content of the notification
+       
+     - Throws: NotifyError.invalidConfig if required configuration is missing
+     - Returns: true if the notification was sent successfully, false if no valid service is configured
+     */
     func send(title: String, message: String) throws -> Bool {
         let config = appState.appConfig.notifyConfig
         let api: NotifyAPI

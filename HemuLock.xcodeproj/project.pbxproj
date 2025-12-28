@@ -22,6 +22,8 @@
 		2834B6162B5A59AF00708FB1 /* Notify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2834B6152B5A59AF00708FB1 /* Notify.swift */; };
 		2834B6182B5A664C00708FB1 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2834B6172B5A664C00708FB1 /* MenuController.swift */; };
 		283F172F2CE84A6500DAC8BE /* ScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F172E2CE84A5C00DAC8BE /* ScriptManager.swift */; };
+		284251F62F00FBEA00DCB7C4 /* ExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284251F52F00FBEA00DCB7C4 /* ExportManager.swift */; };
+		284251F82F01031D00DCB7C4 /* SystemNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284251F72F01031D00DCB7C4 /* SystemNotificationManager.swift */; };
 		288981772B5B59630078834D /* GeneraPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288981762B5B59630078834D /* GeneraPanelView.swift */; };
 		2889817A2B5B59E00078834D /* NotifyPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288981792B5B59E00078834D /* NotifyPaneView.swift */; };
 		2889817D2B5B75E50078834D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2889817C2B5B75E50078834D /* SQLite */; };
@@ -69,6 +71,8 @@
 		2834B6152B5A59AF00708FB1 /* Notify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notify.swift; sourceTree = "<group>"; };
 		2834B6172B5A664C00708FB1 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		283F172E2CE84A5C00DAC8BE /* ScriptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptManager.swift; sourceTree = "<group>"; };
+		284251F52F00FBEA00DCB7C4 /* ExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportManager.swift; sourceTree = "<group>"; };
+		284251F72F01031D00DCB7C4 /* SystemNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemNotificationManager.swift; sourceTree = "<group>"; };
 		288981762B5B59630078834D /* GeneraPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneraPanelView.swift; sourceTree = "<group>"; };
 		288981792B5B59E00078834D /* NotifyPaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyPaneView.swift; sourceTree = "<group>"; };
 		2889817E2B5B75F80078834D /* SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 		2834B5F82B5A1EE700708FB1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				284251F72F01031D00DCB7C4 /* SystemNotificationManager.swift */,
+				284251F52F00FBEA00DCB7C4 /* ExportManager.swift */,
 				283F172E2CE84A5C00DAC8BE /* ScriptManager.swift */,
 				2834B6012B5A474E00708FB1 /* DefaultsManager.swift */,
 				2834B6112B5A513E00708FB1 /* NotifyManager.swift */,
@@ -354,7 +360,9 @@
 				280D82352EF7C9AF00F161F2 /* HistoryPanelView.swift in Sources */,
 				28B2442D2615645000367F57 /* NotifyConfig.swift in Sources */,
 				2834B6102B5A50EF00708FB1 /* DoNotDisturbConfig.swift in Sources */,
+				284251F82F01031D00DCB7C4 /* SystemNotificationManager.swift in Sources */,
 				2834B6122B5A513E00708FB1 /* NotifyManager.swift in Sources */,
+				284251F62F00FBEA00DCB7C4 /* ExportManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

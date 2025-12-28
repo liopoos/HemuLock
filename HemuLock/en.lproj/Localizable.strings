@@ -74,6 +74,17 @@
 "SETTING_OPEN_DB_FILE" = "Open DB folder";
 "SETTING_OPEN_SCRIPT_FILE" = "Open Script folder";
 
+"EXPORT_CONFIG" = "Export Config";
+"IMPORT_CONFIG" = "Import Config";
+"EXPORT_SUCCESS" = "Export Successful";
+"EXPORT_SUCCESS_MESSAGE" = "Configuration exported to: %@";
+"EXPORT_FAILED" = "Export Failed";
+"EXPORT_FAILED_MESSAGE" = "Unable to export configuration file";
+"IMPORT_SUCCESS" = "Import Successful";
+"IMPORT_SUCCESS_MESSAGE" = "Configuration imported successfully";
+"IMPORT_FAILED" = "Import Failed";
+"IMPORT_FAILED_MESSAGE" = "Invalid configuration file format, please check the file content";
+
 "NOTIFY_BARK_CRITICAL" = "Critical Message";
 
 "HISTORY_TITLE" = "History";
@@ -89,3 +100,5 @@
 "HISTORY_LOADING" = "Loading...";
 "HISTORY_DATE" = "Date";
 "HISTORY_LOADING" = "Loading...";
+
+"CONFIGURATION_MANA" = "Configuration";

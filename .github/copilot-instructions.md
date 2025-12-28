@@ -1,7 +1,7 @@
 # HemuLock AI Coding Instructions
 
 ## Project Overview
-HemuLock is a macOS menu bar application that monitors system events (lock/unlock, sleep/wake) and triggers notifications or scripts. Built with Swift 5, targeting macOS 10.15+.
+HemuLock is a macOS menu bar application that monitors system events (lock/unlock, sleep/wake) and triggers notifications or scripts. Built with Swift 5, targeting macOS 11+.
 
 ## Architecture Pattern
 
@@ -36,10 +36,11 @@ All business logic isolated in Managers:
 - Used for IOKit power management calls (`sleepNow()`)
 
 ### Menu System
-- `MenuController` creates static menu structure with enum-based tags
-- `AppDelegate.menuWillOpen()` updates dynamic state (checkmarks, history items)
-- Tags from `MenuItem` & `Event` enums used for item identification
-- History records inserted/removed dynamically at runtime
+- `MenuController.createMenu()` builds static menu structure with enum-based tags
+- `AppDelegate.menuWillOpen()` updates dynamic state (checkmarks, history items) before display
+- Tags from `MenuItem` & `Event` enums used for `item.tag` identification
+- History records inserted/removed dynamically via `updateRecordsMenu()` at runtime
+- Menu items located by tag using `menu.item(withTag:)` - never cache references
 
 ### Localization
 - All user-facing strings use `.localized` extension on String
@@ -52,17 +53,18 @@ All business logic isolated in Managers:
 - Separate flags for blocking notify vs script (`DoNotDisturbConfig.type`)
 
 ### Sandboxing
-- Scripts must be in `~/Library/Application Scripts/com.ch.hades.HemuLock/script`
-- This is a **file**, not a directory (common mistake)
+- Scripts must be at `~/Library/Application Scripts/com.ch.hades.HemuLock/script`
+- This is a **file**, not a directory (common mistake in documentation)
 - Script receives event name as first argument (e.g., `$1 = "SYSTEM_LOCK"`)
+- Configured via `ScriptManager.swift` with entitlement restrictions
 
 ## Dependencies (SPM)
 ```
-Alamofire 5.10.2, Moya 15.0.3 (networking)
-DefaultsKit (UserDefaults wrapper)
+Alamofire 5.8.1, Moya 15.0.3 (networking)
+DefaultsKit (UserDefaults wrapper, master branch)
 SQLite.swift 0.14.1 (database)
-LaunchAtLogin, Settings (sindresorhus utilities)
-SkyLightWindow (overlay views - currently experimental)
+LaunchAtLogin, Settings 3.1.0 (sindresorhus utilities)
+ReactiveSwift 6.7.0, RxSwift 6.6.0 (Moya dependencies)
 ```
 
 ## Development Workflow
@@ -77,10 +79,11 @@ SkyLightWindow (overlay views - currently experimental)
 2. Update localization files (`Localizable.strings` × 3)
 3. No changes needed to EventObserver - auto-handled via `allCases`
 
-### Adding Notify Services
-1. Add case to `NotifyAPI` enum with TargetType implementation
-2. Add config struct to `NotifyConfig` model
-3. Update `NotifyManager.send()` switch statement
+### Adding Notify ServicesMoya `TargetType` implementation (baseURL, path, method, task)
+2. Add config struct to `NotifyConfig` model with required API parameters
+3. Update `NotifyManager.send()` switch statement with new case and validation
+4. Add entry to `Notify` enum for menu item with unique tag
+5. Update preference view to add UI for new service configurationtement
 4. Add entry to `Notify` enum for menu item
 
 ### Testing Notifications
@@ -122,9 +125,9 @@ HemuLock/
 └── Resources/config.json     # Unused legacy file (TODO: remove)
 ```
 
-## Gotchas
-- `Event.screenSeeep` typo preserved for compatibility (see Event.swift)
-- System lock/unlock use DistributedNotificationCenter, others use NSWorkspace
+## Gotchas[Event.swift](HemuLock/Enums/Event.swift))
+- System lock/unlock use `DistributedNotificationCenter.default`, others use `NSWorkspace.shared.notificationCenter`
 - LaunchAtLogin updates require manual entitlement configuration in Xcode
-- SkyLightWindow overlay (in EventObserver) is experimental - currently unused
+- Historical records limited to 12 items in menu UI (see [AppDelegate.swift](HemuLock/AppDelegate.swift#L98))
+- `Resources/config.json` is unused legacy file - config stored in UserDefaults onlycurrently unused
 - Historical records limited to 12 items in UI (no pagination)
