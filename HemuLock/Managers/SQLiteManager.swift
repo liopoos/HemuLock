@@ -14,17 +14,23 @@ import SQLite
  This manager initializes and manages a SQLite database connection and table.
  It encapsulates the database and table references, providing a simple interface
  for repository classes to perform CRUD operations.
+ 
+ - Note: Uses failable initializer to handle database connection errors gracefully
  */
 class SQLiteManager {
+    // MARK: - Properties
+    
     /// The SQLite database connection
-    private var db: Connection?
+    private let db: Connection
     
     /// The table reference for database operations
-    private var table: Table?
+    private let table: Table
     
-    /// The directory path where the database file is stored
-    private var path: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-
+    /// The full path to the database file
+    private let databasePath: URL
+    
+    // MARK: - Initialization
+    
     /**
      Initialize the SQLite manager with a database and table name.
      
@@ -34,10 +40,18 @@ class SQLiteManager {
      - Parameters:
        - dbName: The name of the database file (without .sqlite extension)
        - tableName: The name of the table to operate on
+     
+     - Throws: An error if the database directory cannot be found or database connection fails
      */
-    init(dbName: String, tableName: String) {
-        db = try! Connection(path.appendingPathComponent("\(dbName).sqlite").path)
-        table = Table(tableName)
+    init(dbName: String, tableName: String) throws {
+        guard let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            throw NSError(domain: "SQLiteManager", code: -1, 
+                         userInfo: [NSLocalizedDescriptionKey: "Could not locate documents directory"])
+        }
+        
+        self.databasePath = documentsPath.appendingPathComponent("\(dbName).sqlite")
+        self.db = try Connection(databasePath.path)
+        self.table = Table(tableName)
     }
 
     // MARK: - Database Access
@@ -45,10 +59,10 @@ class SQLiteManager {
     /**
      Get the database connection.
      
-     - Returns: The SQLite database connection
+     - Returns: The SQLite database connection instance
      */
     func getDb() -> Connection {
-        return db!
+        return db
     }
 
     /**
@@ -57,15 +71,24 @@ class SQLiteManager {
      - Returns: The table reference for database operations
      */
     func getTable() -> Table {
-        return table!
+        return table
     }
 
+    /**
+     Get the database file path.
+     
+     - Returns: The full URL path to the database file
+     */
+    func getDatabasePath() -> URL {
+        return databasePath
+    }
+    
     /**
      Get the database file directory path.
      
      - Returns: The URL of the directory containing the database file
      */
     func getPath() -> URL {
-        return path
+        return databasePath.deletingLastPathComponent()
     }
 }

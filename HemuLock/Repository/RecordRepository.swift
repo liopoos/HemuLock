@@ -18,22 +18,26 @@ class RecordRepository {
     let isNotify = Expression<Bool>("is_notify")
     let time = Expression<Date>("time")
 
-    var dbManager: SQLiteManager
-    var db: Connection
-    var table: Table
+    let dbManager: SQLiteManager
+    let db: Connection
+    let table: Table
 
     init() {
-        dbManager = SQLiteManager(dbName: "hemu_data", tableName: "record")
-        db = dbManager.getDb()
-        table = dbManager.getTable()
-
-        // Attempt create table.
-        try! db.run(table.create(ifNotExists: true) { builder in
-            builder.column(id, primaryKey: .autoincrement)
-            builder.column(event)
-            builder.column(isNotify)
-            builder.column(time)
-        })
+        do {
+            dbManager = try SQLiteManager(dbName: "hemu_data", tableName: "record")
+            db = dbManager.getDb()
+            table = dbManager.getTable()
+            
+            // Attempt create table.
+            try db.run(table.create(ifNotExists: true) { builder in
+                builder.column(id, primaryKey: .autoincrement)
+                builder.column(event)
+                builder.column(isNotify)
+                builder.column(time)
+            })
+        } catch {
+            fatalError("Failed to initialize RecordRepository: \(error.localizedDescription)")
+        }
     }
 
     /**
