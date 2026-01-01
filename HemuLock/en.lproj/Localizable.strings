@@ -96,7 +96,5 @@
 "HISTORY_NO" = "No";
 "HISTORY_DATE" = "Date";
 "HISTORY_LOADING" = "Loading...";
-"HISTORY_DATE" = "Date";
-"HISTORY_LOADING" = "Loading...";
 
-"CONFIGURATION_MANA" = "Configuration";
+"CONFIGURATION_MANAGEMENT" = "Configuration Management";
