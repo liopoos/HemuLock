@@ -39,6 +39,18 @@ class RecordRepository {
             fatalError("Failed to initialize RecordRepository: \(error.localizedDescription)")
         }
     }
+    
+    /**
+     Helper method to convert SQLite row to Record model.
+     */
+    private func buildRecord(from row: Row) throws -> Record {
+        return Record(
+            id: try row.get(id),
+            event: try row.get(event),
+            isNotify: try row.get(isNotify),
+            time: try row.get(time)
+        )
+    }
 
     /**
      Get record list from db.
@@ -49,7 +61,26 @@ class RecordRepository {
             let query = limit > 0 ? table.limit(limit) : table
             let records = try db.prepare(query.order(time.desc))
             for record in records {
-                list.append(Record(id: try record.get(id), event: try record.get(event), isNotify: try record.get(isNotify), time: try record.get(time)))
+                list.append(try buildRecord(from: record))
+            }
+        } catch { return list }
+
+        return list
+    }
+    
+    /**
+     Get record list from db filtered by date range.
+     */
+    func getRecords(from startDate: Date, limit: Int = 0) -> [Record] {
+        var list: [Record] = []
+        do {
+            var query = table.filter(time >= startDate)
+            if limit > 0 {
+                query = query.limit(limit)
+            }
+            let records = try db.prepare(query.order(time.desc))
+            for record in records {
+                list.append(try buildRecord(from: record))
             }
         } catch { return list }
 
