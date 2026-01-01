@@ -55,6 +55,25 @@ class RecordRepository {
 
         return list
     }
+    
+    /**
+     Get record list from db filtered by date range.
+     */
+    func getRecords(from startDate: Date, limit: Int = 0) -> [Record] {
+        var list: [Record] = []
+        do {
+            var query = table.filter(time >= startDate)
+            if limit > 0 {
+                query = query.limit(limit)
+            }
+            let records = try db.prepare(query.order(time.desc))
+            for record in records {
+                list.append(Record(id: try record.get(id), event: try record.get(event), isNotify: try record.get(isNotify), time: try record.get(time)))
+            }
+        } catch { return list }
+
+        return list
+    }
 
     /**
      Get record count number.

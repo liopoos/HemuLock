@@ -155,20 +155,17 @@ struct HistoryPanelView: View {
 
         // Load records asynchronously to prevent UI blocking
         DispatchQueue.global(qos: .userInitiated).async {
-            let allRecords = RecordRepository.shared.getRecords(limit: 0)
             let calendar = Calendar.current
             let now = Date()
 
-            // Filter records from the last 3 days
-            let filteredRecords = allRecords.filter { record in
-                if let threeDaysAgo = calendar.date(byAdding: .day, value: -3, to: calendar.startOfDay(for: now)) {
-                    return record.time >= threeDaysAgo
-                }
-                return true
-            }
+            // Calculate the start date for filtering (3 days ago)
+            let startDate = calendar.date(byAdding: .day, value: -3, to: calendar.startOfDay(for: now)) ?? now
+
+            // Use SQL-based filtering to fetch only records from the last 3 days
+            let fetchedRecords = RecordRepository.shared.getRecords(from: startDate)
 
             DispatchQueue.main.async {
-                self.records = filteredRecords
+                self.records = fetchedRecords
                 self.isLoading = false
             }
         }
