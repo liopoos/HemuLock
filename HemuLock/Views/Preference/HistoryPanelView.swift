@@ -159,7 +159,7 @@ struct HistoryPanelView: View {
             let now = Date()
 
             // Calculate the start date for filtering (3 days ago)
-            let startDate = calendar.date(byAdding: .day, value: -3, to: calendar.startOfDay(for: now)) ?? now
+            let startDate = calendar.date(byAdding: .day, value: -3, to: calendar.startOfDay(for: now)) ?? calendar.startOfDay(for: now)
 
             // Use SQL-based filtering to fetch only records from the last 3 days
             let fetchedRecords = RecordRepository.shared.getRecords(from: startDate)
