@@ -216,9 +216,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
      */
     @objc func runScreenSaver() {
         let appPath = "/System/Library/CoreServices/ScreenSaverEngine.app"
-        NSWorkspace.shared.openApplication(at: URL(fileURLWithPath: appPath),
-                                          configuration: NSWorkspace.OpenConfiguration(),
-                                          completionHandler: nil)
+        let appURL = URL(fileURLWithPath: appPath)
+        let configuration = NSWorkspace.OpenConfiguration()
+        
+        NSWorkspace.shared.openApplication(at: appURL,
+                                          configuration: configuration) { runningApp, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    let alert = NSAlert()
+                    alert.alertStyle = .warning
+                    alert.messageText = "Failed to start screen saver."
+                    alert.informativeText = error.localizedDescription
+                    alert.runModal()
+                }
+            } else if runningApp == nil {
+                DispatchQueue.main.async {
+                    let alert = NSAlert()
+                    alert.alertStyle = .warning
+                    alert.messageText = "Failed to start screen saver."
+                    alert.informativeText = "The ScreenSaverEngine application could not be launched."
+                    alert.runModal()
+                }
+            }
+        }
     }
 
     /**

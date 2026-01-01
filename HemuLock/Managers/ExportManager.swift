@@ -70,7 +70,14 @@ class ExportManager {
     }
     
     func validateConfig(_ data: Data) -> Bool {
-        return importConfig(from: data) != nil
+        let decoder = JSONDecoder()
+        
+        do {
+            _ = try decoder.decode(AppConfig.self, from: data)
+            return true
+        } catch {
+            return false
+        }
     }
 }
 
