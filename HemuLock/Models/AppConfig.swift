@@ -35,4 +35,35 @@ struct AppConfig: Codable {
      */
     // Record history record
     var isRecordEvent: Bool = false
+    
+    // MARK: - Custom Decoding
+    
+    enum CodingKeys: String, CodingKey {
+        case isLaunchAtLogin
+        case isExecScript
+        case isDoNotDisturb
+        case activeEvents
+        case notifyType
+        case notifyConfig
+        case doNotDisturbConfig
+        case isRecordEvent
+    }
+    
+    init() {
+        // Default initializer
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // Decode each field with a fallback to default values
+        isLaunchAtLogin = (try? container.decode(Bool.self, forKey: .isLaunchAtLogin)) ?? LaunchAtLogin.isEnabled
+        isExecScript = (try? container.decode(Bool.self, forKey: .isExecScript)) ?? false
+        isDoNotDisturb = (try? container.decode(Bool.self, forKey: .isDoNotDisturb)) ?? false
+        activeEvents = (try? container.decode([Int].self, forKey: .activeEvents)) ?? [Event.systemLock.tag, Event.systemUnLock.tag]
+        notifyType = (try? container.decode(Int.self, forKey: .notifyType)) ?? Notify.none.tag
+        notifyConfig = (try? container.decode(NotifyConfig.self, forKey: .notifyConfig)) ?? NotifyConfig()
+        doNotDisturbConfig = (try? container.decode(DoNotDisturbConfig.self, forKey: .doNotDisturbConfig)) ?? DoNotDisturbConfig()
+        isRecordEvent = (try? container.decode(Bool.self, forKey: .isRecordEvent)) ?? false
+    }
 }

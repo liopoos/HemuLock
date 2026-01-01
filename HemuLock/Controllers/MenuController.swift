@@ -88,7 +88,7 @@ class MenuController: NSObject, NSMenuDelegate {
         item.tag = MenuItem.setLaunchAtLogin.tag
         item.state = appConfig.isLaunchAtLogin ? .on : .off
 
-        item = mainMenu.addItem(withTitle: "SET_PREFERENCES".localized, action: #selector(AppDelegate.openPreferences), keyEquivalent: "")
+        item = mainMenu.addItem(withTitle: "SET_PREFERENCES".localized, action: #selector(AppDelegate.openPreferences), keyEquivalent: "M")
 
         mainMenu.addItem(NSMenuItem.separator())
         mainMenu.addItem(withTitle: "QUIT".localized, action: #selector(NSApplication.terminate(_:)), keyEquivalent: "Q")

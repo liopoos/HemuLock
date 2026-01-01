@@ -11,38 +11,90 @@ import LaunchAtLogin
 import ServiceManagement
 import Settings
 import SwiftUI
+import UserNotifications
 
+/// Global application state container accessible throughout the app
 var appState = AppStateContainer()
 
+/**
+ AppDelegate is the main application delegate for HemuLock.
+ 
+ This class manages the entire application lifecycle, including:
+ - Menu bar status item creation and management
+ - Settings window controller
+ - System event observation
+ - User notification handling
+ - Menu state synchronization with app configuration
+ 
+ The app runs as an accessory app (menu bar only) without a dock icon.
+ */
 @main
-class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate, NSMenuDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSMenuDelegate {
+    /// The main menu displayed in the menu bar
     private var mainMenu: NSMenu!
+    
+    /// The status bar item that hosts the menu
     private var statusItem: NSStatusItem!
+    
+    /// Event observer for system lock/unlock and sleep/wake events
     private var observer: EventObserver?
+    
+    /// Main window reference (unused in menu bar app)
     private var window: NSWindow!
 
+    /// Controller for building the menu structure
     private let menuController = MenuController()
 
+    /// Settings window controller with all preference panes
     private lazy var settingsWindowController = SettingsWindowController(
         panes: [
             GeneraPanelViewController(),
             NotifyPanelViewController(),
             DoNotDisturbPanelViewController(),
+            HistoryPanelViewController(),
         ],
         style: .toolbarItems,
         animated: false
     )
 
+    // MARK: - NSMenuDelegate
+    
+    /**
+     Called before the menu is opened.
+     
+     Updates all menu items to reflect current application state, including:
+     - Event record history
+     - Checkbox states for toggleable items
+     - Submenu selections
+     */
     func menuWillOpen(_ menu: NSMenu) {
         updateRecordsMenu()
         updateMenuState(menu)
         updateSubMenu(menu)
     }
 
+    /**
+     Called after the menu is closed.
+     
+     Clears the menu reference to allow the menu to be rebuilt on next open.
+     */
     func menuDidClose(_ menu: NSMenu) {
         statusItem.menu = nil
     }
 
+    // MARK: - Menu State Management
+    
+    /**
+     Update menu item states based on current configuration.
+     
+     This method updates the checkmark states for:
+     - Script execution toggle
+     - Do Not Disturb mode toggle
+     - Launch at login toggle
+     - Event recording toggle
+     
+     - Parameter menu: The menu to update
+     */
     func updateMenuState(_ menu: NSMenu) {
         if let item = menu.item(withTag: MenuItem.setScript.tag) {
             item.state = appState.appConfig.isExecScript ? .on : .off
@@ -61,6 +113,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         }
     }
 
+    /**
+     Update submenu items based on current configuration.
+     
+     This method updates:
+     - App status icon (normal/disturb mode)
+     - Event selection checkmarks
+     - Notification service selection
+     - Test notification button visibility
+     
+     - Parameter menu: The menu to update
+     */
     func updateSubMenu(_ menu: NSMenu) {
         if let infoItem = menu.item(withTag: MenuItem.appInfo.tag) {
             let appStatusImg = NSImage(named: DisturbModeManager.shared.inDisturb() ? "AppStatus_Disturb" : "AppStatus_Run")
@@ -90,6 +153,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         }
     }
 
+    /**
+     Update the event records submenu with recent history.
+     
+     This method:
+     - Removes existing record menu items
+     - Fetches up to 12 recent event records from the database
+     - Creates formatted menu items showing event type and timestamp
+     - Inserts the records submenu at position 8 in the main menu
+     */
     func updateRecordsMenu() {
         let itemTag = MenuItem.eventRecord.tag
         let records = RecordRepository.shared.getRecords(limit: 12)
@@ -126,36 +198,78 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         mainMenu.insertItem(recordMenuItem, at: 8)
     }
 
-    // MARK: Menu event.
+    // MARK: - Menu Actions
 
+    /**
+     Lock the screen immediately.
+     
+     Calls the C function sleepNow() via the bridging header.
+     */
     @objc func lockNow() {
         return sleepNow()
     }
 
+    /**
+     Launch the screen saver.
+     
+     Uses NSWorkspace to open the ScreenSaverEngine application.
+     */
     @objc func runScreenSaver() {
-        NSWorkspace.shared.launchApplication("ScreenSaverEngine")
+        let appPath = "/System/Library/CoreServices/ScreenSaverEngine.app"
+        NSWorkspace.shared.openApplication(at: URL(fileURLWithPath: appPath),
+                                          configuration: NSWorkspace.OpenConfiguration(),
+                                          completionHandler: nil)
     }
 
+    /**
+     Send a test notification to verify configuration.
+     
+     Delegates to the event observer's sendNotify method.
+     */
     @objc func sendNotifyTest() {
         observer?.sendNotify()
     }
 
+    /**
+     Update and display the menu.
+     
+     Assigns the menu to the status item and programmatically clicks it.
+     */
     @objc func updateMenu() {
         statusItem.menu = mainMenu
         statusItem.button?.performClick(nil)
     }
 
-    // MARK: Event function.
+    // MARK: - Configuration Toggles
 
+    /**
+     Toggle script execution on/off.
+     
+     - Parameter menuItem: The menu item that triggered this action
+     */
     @objc func setScript(_ menuItem: NSMenuItem) {
         appState.appConfig.isExecScript = !appState.appConfig.isExecScript
         menuItem.state = appState.appConfig.isExecScript ? .on : .off
     }
 
+    /**
+     Set the notification service type.
+     
+     Updates the configuration to use the selected notification service.
+     
+     - Parameter menuItem: The menu item with the notification type tag
+     */
     @objc func setNotify(_ menuItem: NSMenuItem) {
         appState.appConfig.notifyType = menuItem.tag
     }
 
+    /**
+     Toggle an event type on/off.
+     
+     Adds or removes the event type from the active events list.
+     
+     - Parameter menuItem: The menu item with the event type tag
+     */
     @objc func setEvent(_ menuItem: NSMenuItem) {
         var eventList = appState.appConfig.activeEvents
         if eventList.contains(menuItem.tag) {
@@ -166,32 +280,81 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         appState.appConfig.activeEvents = eventList
     }
 
+    /**
+     Toggle event recording on/off.
+     
+     - Parameter menuItem: The menu item that triggered this action
+     */
     @objc func recordEvent(_ menuItem: NSMenuItem) {
         appState.appConfig.isRecordEvent = !appState.appConfig.isRecordEvent
         menuItem.state = appState.appConfig.isRecordEvent ? .on : .off
     }
 
+    /**
+     Toggle Do Not Disturb mode on/off.
+     
+     - Parameter menuItem: The menu item that triggered this action
+     */
     @objc func setDoNotDisturb(_ menuItem: NSMenuItem) {
         appState.appConfig.isDoNotDisturb = !appState.appConfig.isDoNotDisturb
         menuItem.state = appState.appConfig.isDoNotDisturb ? .on : .off
     }
 
+    /**
+     Toggle launch at login on/off.
+     
+     Updates both the app configuration and the system launch agent.
+     
+     - Parameter menuItem: The menu item that triggered this action
+     */
     @objc func setLaunchLogin(_ menuItem: NSMenuItem) {
         appState.appConfig.isLaunchAtLogin = !appState.appConfig.isLaunchAtLogin
         LaunchAtLogin.isEnabled = appState.appConfig.isLaunchAtLogin
         menuItem.state = appState.appConfig.isLaunchAtLogin ? .on : .off
     }
 
+    /**
+     Open the preferences window.
+     
+     Shows the settings window and sets it to floating level to keep it on top.
+     
+     - Parameter menuItem: The menu item that triggered this action
+     */
     @objc func openPreferences(_ menuItem: NSMenuItem) {
         settingsWindowController.show()
+        
+        // Set window to floating level to keep it on top
+        if let window = settingsWindowController.window {
+            window.level = .floating
+            window.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
+        }
     }
 
+    // MARK: - NSApplicationDelegate
+    
+    /**
+     Called when the application has finished launching.
+     
+     This method performs initial setup:
+     - Sets app as accessory (menu bar only, no dock icon)
+     - Closes the default window
+     - Requests notification authorization
+     - Creates menu bar status item with icon
+     - Initializes event observer to monitor system events
+     
+     - Parameter notification: The launch notification
+     */
     func applicationDidFinishLaunching(_: Notification) {
         NSApp.setActivationPolicy(.accessory)
         // Hide Main view.
         if let window = NSApplication.shared.windows.first {
             window.close()
         }
+        
+        // Request notification authorization
+        SystemNotificationManager.shared.requestAuthorization()
+        SystemNotificationManager.shared.setDelegate(self)
 
         mainMenu = menuController.getMenu()
         mainMenu.delegate = self
@@ -210,6 +373,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         observer = EventObserver()
     }
 
+    /**
+     Called when the application is about to terminate.
+     
+     - Parameter notification: The termination notification
+     */
     func applicationWillTerminate(_ notification: Notification) {
         print("good night!")
     }

@@ -7,11 +7,27 @@
 
 import Foundation
 
+/**
+ DisturbModeManager manages the Do Not Disturb functionality of the application.
+ 
+ This manager determines whether the current time falls within the user-configured
+ Do Not Disturb period, checking both the time range and weekday settings.
+ It is used to block notifications and script execution during disturb periods.
+ */
 class DisturbModeManager {
     static let shared = DisturbModeManager()
 
+    // MARK: - Disturb Status Check
+    
     /**
-     weather in disturb time.
+     Check whether the current time is within the Do Not Disturb period.
+     
+     This method evaluates:
+     - Whether Do Not Disturb is enabled
+     - Whether the current weekday is included in the disturb cycle
+     - Whether the current time falls within the configured time range
+     
+     - Returns: true if currently in disturb mode, false otherwise
      */
     func inDisturb() -> Bool {
         if !appState.appConfig.isDoNotDisturb {

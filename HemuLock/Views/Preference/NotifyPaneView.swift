@@ -24,7 +24,7 @@ let NotifyPanelViewController: () -> SettingsPane = {
 struct NotifyPanelView: View {
     @EnvironmentObject var appState: AppStateContainer
 
-    private let contentWidth: Double = 450
+    private let contentWidth: Double = 540
 
     var body: some View {
         Settings.Container(contentWidth: contentWidth) {
@@ -58,12 +58,6 @@ struct NotifyPanelView: View {
                             Text("Device:").frame(width: 50)
                         } content: {
                             TextField("Pushover device ", text: $appState.appConfig.notifyConfig.pushover.device)
-                        }
-                    case Notify.serverCat.rawValue:
-                        Settings.Section {
-                            Text("SK Key").frame(width: 50)
-                        } content: {
-                            TextField("ServerCat SK key ", text: $appState.appConfig.notifyConfig.servercat.sk)
                         }
                     case Notify.bark.rawValue:
                         Settings.Section {
