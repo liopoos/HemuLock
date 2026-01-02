@@ -93,6 +93,10 @@ struct FileLogHandler: LogHandler {
         queue.async {
             if let data = logLine.data(using: .utf8) {
                 self.fileHandle.write(data)
+                // Force flush to ensure data is written immediately
+                if #available(macOS 10.15, *) {
+                    try? self.fileHandle.synchronize()
+                }
             }
         }
     }
