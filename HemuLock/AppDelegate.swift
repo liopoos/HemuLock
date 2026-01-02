@@ -12,6 +12,7 @@ import ServiceManagement
 import Settings
 import SwiftUI
 import UserNotifications
+import Logging
 
 /// Global application state container accessible throughout the app
 var appState = AppStateContainer()
@@ -30,6 +31,8 @@ var appState = AppStateContainer()
  */
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSMenuDelegate {
+    private let logger = LogManager.shared.logger(for: "AppDelegate")
+    
     /// The main menu displayed in the menu bar
     private var mainMenu: NSMenu!
     
@@ -367,6 +370,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if let window = NSApplication.shared.windows.first {
             window.close()
         }
+        
+        // Initialize logging system
+        _ = LogManager.shared
         
         // Request notification authorization
         SystemNotificationManager.shared.requestAuthorization()

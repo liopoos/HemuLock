@@ -25,14 +25,7 @@ class MenuController: NSObject, NSMenuDelegate {
         mainMenu.delegate = self
 
         // App Version.
-        var title = "HemuLock"
-        let infoDictionary = Bundle.main.infoDictionary
-        if let infoDictionary = infoDictionary {
-            let appVersion = infoDictionary["CFBundleShortVersionString"]
-            let appName = infoDictionary["CFBundleDisplayName"]
-            let appBuild = infoDictionary["CFBundleVersion"]
-            title = (appName as! String) + " v\(appVersion!)(\(appBuild!))"
-        }
+        let title = AppInfoHelper.shared.fullVersionString
 
         mainMenu.addItem(withTitle: title, action: nil, keyEquivalent: "").tag = MenuItem.appInfo.tag
         mainMenu.addItem(NSMenuItem.separator())

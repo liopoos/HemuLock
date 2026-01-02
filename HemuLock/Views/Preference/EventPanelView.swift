@@ -32,12 +32,12 @@ struct EventPanelView: View {
     
     var body: some View {
         Settings.Container(contentWidth: contentWidth) {
-            // Section 1: Global recording toggle
+            // Global recording toggle
             Settings.Section(title: "EVENT_RECORDING".localized) {
                 Toggle("EVENT_ENABLE_RECORDING".localized, isOn: $appState.appConfig.isRecordEvent)
             }
             
-            // Section 2: Statistics
+            // Statistics
             Settings.Section(title: "EVENT_STATISTICS".localized) {
                 VStack(alignment: .leading, spacing: 6) {
                     HStack {
@@ -61,10 +61,10 @@ struct EventPanelView: View {
                             .foregroundColor(.secondary)
                     }
                 }
-                .padding(.trailing, 20)
+                .padding(.trailing, 10)
             }
             
-            // Section 3: Event type selection
+            // Event type selection
             Settings.Section(title: "EVENT_SELECT_TYPES".localized) {
                 VStack(alignment: .leading, spacing: 6) {
                     ForEach(Event.allCases, id: \.tag) { event in
@@ -73,7 +73,7 @@ struct EventPanelView: View {
                 }
             }
             
-            // Section 4: Batch operation buttons
+            // Batch operation buttons
             Settings.Section {
                 EmptyView()
             } content: {
@@ -91,6 +91,7 @@ struct EventPanelView: View {
                     Button("EVENT_CLEAR_ALL".localized) {
                         showClearAlert = true
                     }
+                    .padding(.trailing, 30)
                     .foregroundColor(.red)
                 }
             }

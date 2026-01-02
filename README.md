@@ -70,7 +70,7 @@ If you need other notify, take an issue or try to pull requests. :)
 When open **Script** option, HemuLock can run a script at the same time, the script file located the:
 
 ```
-~/Library/Application Scripts/com.ch.hades.HemuLock/script
+~/Library/Application Scripts/com.cyberstack.HemuLock/script
 ```
 
 **notice**: This is a file, not a folder.

@@ -53,7 +53,7 @@ All business logic isolated in Managers:
 - Separate flags for blocking notify vs script (`DoNotDisturbConfig.type`)
 
 ### Sandboxing
-- Scripts must be at `~/Library/Application Scripts/com.ch.hades.HemuLock/script`
+- Scripts must be at `~/Library/Application Scripts/com.cyberstack.HemuLock/script`
 - This is a **file**, not a directory (common mistake in documentation)
 - Script receives event name as first argument (e.g., `$1 = "SYSTEM_LOCK"`)
 - Configured via `ScriptManager.swift` with entitlement restrictions

@@ -53,7 +53,7 @@ The application follows a layered, event-driven architecture with clear separati
     - `HemuLock/Managers/DefaultsManager.swift`: Handles persistence of `AppConfig` to `UserDefaults` using DefaultsKit. Configuration changes via `appState` automatically persist.
 - **Manager Layer** (`HemuLock/Managers/`): Contains stateless business logic components:
     - `NotifyManager.swift`: Handles HTTP requests to notification services (Pushover, Bark, ServerCat) via Moya.
-    - `ScriptManager.swift`: Executes user-defined bash scripts from a sandboxed directory (`~/Library/Application Scripts/com.ch.hades.HemuLock/script`).
+    - `ScriptManager.swift`: Executes user-defined bash scripts from a sandboxed directory (`~/Library/Application Scripts/com.cyberstack.HemuLock/script`).
     - `DisturbModeManager.swift`: Manages the time-based "Do Not Disturb" logic.
     - `SQLiteManager.swift`: A wrapper for SQLite.swift to manage database connections.
     - `DefaultsManager.swift`: A wrapper for DefaultsKit for `UserDefaults` persistence.
@@ -67,7 +67,7 @@ The application follows a layered, event-driven architecture with clear separati
 - **C/Swift Bridge**: `sleep.c/h` is exposed via `HemuLock-Bridging-Header.h` and used for IOKit power management calls (`sleepNow()`).
 - **Menu System**: `MenuController` defines the static menu structure. Dynamic elements (e.g., history items, checkmarks) are updated in `AppDelegate.menuWillOpen()`.
 - **Localization**: User-facing strings use `.localized` extensions, with keys mapping to `en.lproj` and `zh-Hans.lproj` files.
-- **Sandboxing**: Scripts must reside in `~/Library/Application Scripts/com.ch.hades.HemuLock/script` (a file, not a folder). The script receives the event name as its first argument (e.g., `$1 = "SYSTEM_LOCK"`).
+- **Sandboxing**: Scripts must reside in `~/Library/Application Scripts/com.cyberstack.HemuLock/script` (a file, not a folder). The script receives the event name as its first argument (e.g., `$1 = "SYSTEM_LOCK"`).
 
 ### File Organization
 ```

@@ -7,6 +7,7 @@
 
 import Foundation
 import UserNotifications
+import Logging
 
 /**
  SystemNotificationManager manages all system notification related operations,
@@ -17,6 +18,7 @@ import UserNotifications
  */
 class SystemNotificationManager: NSObject {
     static let shared = SystemNotificationManager()
+    private let logger = LogManager.shared.logger(for: "SystemNotificationManager")
     
     private override init() {
         super.init()
@@ -33,11 +35,11 @@ class SystemNotificationManager: NSObject {
     func requestAuthorization(completion: ((Bool, Error?) -> Void)? = nil) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if let error = error {
-                print("Notification authorization failed: \(error.localizedDescription)")
+                self.logger.error("Notification authorization failed: \(error.localizedDescription)")
             } else if granted {
-                print("Notification authorization granted")
+                self.logger.info("Notification authorization granted")
             } else {
-                print("Notification authorization denied")
+                self.logger.info("Notification authorization denied")
             }
             
             completion?(granted, error)
@@ -77,7 +79,7 @@ class SystemNotificationManager: NSObject {
         
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
-                print("Send notification failed: \(error.localizedDescription)")
+                self.logger.error("Send notification failed: \(error.localizedDescription)")
             }
             completion?(error)
         }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Moya
+import Logging
 
 /**
  WebhookManager handles sending webhook notifications with parallel request support.
@@ -19,6 +20,7 @@ import Moya
  */
 class WebhookManager {
     static let shared = WebhookManager()
+    private let logger = LogManager.shared.logger(for: "WebhookManager")
     
     private let provider = MoyaProvider<WebhookAPI>()
     
@@ -43,20 +45,20 @@ class WebhookManager {
         
         // Check if webhook is enabled
         guard config.enabled else {
-            print("Webhook disabled, skipping")
+            logger.debug("Webhook disabled, skipping")
             return false
         }
         
         // Check if URL is configured
         guard !config.url.isEmpty,
               let url = URL(string: config.url) else {
-            print("Webhook URL invalid or empty")
+            logger.error("Webhook URL invalid or empty")
             return false
         }
         
         // Check if this event should trigger webhook
         guard config.enabledEvents.contains(event.tag) else {
-            print("Event \(event.rawValue) not enabled for webhook")
+            logger.debug("Event \(event.rawValue) not enabled for webhook")
             return false
         }
         
@@ -69,9 +71,9 @@ class WebhookManager {
         provider.request(api) { result in
             switch result {
             case .success(let response):
-                print("Webhook sent successfully to \(config.url), status: \(response.statusCode)")
+                self.logger.info("Webhook sent successfully to \(config.url), status: \(response.statusCode)")
             case .failure(let error):
-                print("Webhook failed: \(error.localizedDescription)")
+                self.logger.error("Webhook failed: \(error.localizedDescription)")
             }
         }
         
@@ -106,14 +108,14 @@ class WebhookManager {
         provider.request(api) { result in
             switch result {
             case .success(let response):
-                print("Test webhook sent successfully, status: \(response.statusCode)")
+                self.logger.info("Test webhook sent successfully, status: \(response.statusCode)")
                 // Show success notification
                 SystemNotificationManager.shared.send(
                     title: "WEBHOOK_TEST_SUCCESS_TITLE".localized,
                     message: "WEBHOOK_TEST_SUCCESS_MESSAGE".localized
                 )
             case .failure(let error):
-                print("Test webhook failed: \(error.localizedDescription)")
+                self.logger.error("Test webhook failed: \(error.localizedDescription)")
                 // Show error notification
                 SystemNotificationManager.shared.send(
                     title: "WEBHOOK_TEST_FAILED_TITLE".localized,

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		280580F32F07C461003501F0 /* EventPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280580F22F07C461003501F0 /* EventPanelView.swift */; };
+		280580F92F07F0C5003501F0 /* InMemoryLogging in Frameworks */ = {isa = PBXBuildFile; productRef = 280580F82F07F0C5003501F0 /* InMemoryLogging */; };
+		280580FB2F07F0C5003501F0 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 280580FA2F07F0C5003501F0 /* Logging */; };
+		280581012F07F3F0003501F0 /* FileLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280580FF2F07F3F0003501F0 /* FileLogHandler.swift */; };
+		280581032F07F406003501F0 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280581022F07F406003501F0 /* LogManager.swift */; };
+		280581062F07FC05003501F0 /* AppInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280581042F07FC05003501F0 /* AppInfoHelper.swift */; };
 		280D82352EF7C9AF00F161F2 /* HistoryPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280D82342EF7C9AF00F161F2 /* HistoryPanelView.swift */; };
 		281ED2A2261772060098DB79 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 281ED2A1261772060098DB79 /* config.json */; };
 		2834B5F62B5A0B3E00708FB1 /* EventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2834B5F52B5A0B3E00708FB1 /* EventObserver.swift */; };
@@ -65,6 +70,9 @@
 
 /* Begin PBXFileReference section */
 		280580F22F07C461003501F0 /* EventPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPanelView.swift; sourceTree = "<group>"; };
+		280580FF2F07F3F0003501F0 /* FileLogHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLogHandler.swift; sourceTree = "<group>"; };
+		280581022F07F406003501F0 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		280581042F07FC05003501F0 /* AppInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoHelper.swift; sourceTree = "<group>"; };
 		280D82342EF7C9AF00F161F2 /* HistoryPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPanelView.swift; sourceTree = "<group>"; };
 		281ED2A1261772060098DB79 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		2834B5F52B5A0B3E00708FB1 /* EventObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventObserver.swift; sourceTree = "<group>"; };
@@ -117,8 +125,10 @@
 			files = (
 				2889817D2B5B75E50078834D /* SQLite in Frameworks */,
 				2834B6072B5A4A7300708FB1 /* LaunchAtLogin in Frameworks */,
+				280580FB2F07F0C5003501F0 /* Logging in Frameworks */,
 				2834B60A2B5A4AAA00708FB1 /* DefaultsKit in Frameworks */,
 				288981892B5BBAD40078834D /* Moya in Frameworks */,
+				280580F92F07F0C5003501F0 /* InMemoryLogging in Frameworks */,
 				2834B5FF2B5A41FB00708FB1 /* Settings in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +136,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		280581002F07F3F0003501F0 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				280580FF2F07F3F0003501F0 /* FileLogHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		280581052F07FC05003501F0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				280581042F07FC05003501F0 /* AppInfoHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		2834B5F72B5A1E3800708FB1 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +166,7 @@
 		2834B5F82B5A1EE700708FB1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				280581022F07F406003501F0 /* LogManager.swift */,
 				2885B3B52F06CDD400EAA2F9 /* WebhookManager.swift */,
 				284251F72F01031D00DCB7C4 /* SystemNotificationManager.swift */,
 				284251F52F00FBEA00DCB7C4 /* ExportManager.swift */,
@@ -201,6 +228,8 @@
 		28B243DE26145BAA00367F57 /* HemuLock */ = {
 			isa = PBXGroup;
 			children = (
+				280581052F07FC05003501F0 /* Helpers */,
+				280581002F07F3F0003501F0 /* Handlers */,
 				2889818A2B5BBAF20078834D /* API */,
 				288981822B5B91850078834D /* Repository */,
 				2834B5F82B5A1EE700708FB1 /* Managers */,
@@ -285,6 +314,8 @@
 				2834B6092B5A4AAA00708FB1 /* DefaultsKit */,
 				2889817C2B5B75E50078834D /* SQLite */,
 				288981882B5BBAD40078834D /* Moya */,
+				280580F82F07F0C5003501F0 /* InMemoryLogging */,
+				280580FA2F07F0C5003501F0 /* Logging */,
 			);
 			productName = hemu;
 			productReference = 28B243DC26145BAA00367F57 /* HemuLock.app */;
@@ -321,6 +352,7 @@
 				2834B6082B5A4AAA00708FB1 /* XCRemoteSwiftPackageReference "DefaultsKit" */,
 				2889817B2B5B75E50078834D /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 				288981872B5BBAD40078834D /* XCRemoteSwiftPackageReference "Moya" */,
+				280580F72F07F0C5003501F0 /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = 28B243DD26145BAA00367F57 /* Products */;
 			projectDirPath = "";
@@ -353,6 +385,7 @@
 				288981772B5B59630078834D /* GeneraPanelView.swift in Sources */,
 				2834B5F62B5A0B3E00708FB1 /* EventObserver.swift in Sources */,
 				2889817A2B5B59E00078834D /* NotifyPaneView.swift in Sources */,
+				280581012F07F3F0003501F0 /* FileLogHandler.swift in Sources */,
 				2885B3BA2F06CDE600EAA2F9 /* WebhookPanelView.swift in Sources */,
 				28B243E226145BAA00367F57 /* ViewController.swift in Sources */,
 				28B244342615B22B00367F57 /* sleep.c in Sources */,
@@ -364,6 +397,7 @@
 				288981842B5B91930078834D /* RecordRepository.swift in Sources */,
 				2834B6142B5A564100708FB1 /* Compatibility.swift in Sources */,
 				2834B6182B5A664C00708FB1 /* MenuController.swift in Sources */,
+				280581062F07FC05003501F0 /* AppInfoHelper.swift in Sources */,
 				288981902B5E3ADE0078834D /* DoNotDisturbPanelView.swift in Sources */,
 				288981862B5B926F0078834D /* Record.swift in Sources */,
 				2889818E2B5BCBEC0078834D /* NotifyError.swift in Sources */,
@@ -380,6 +414,7 @@
 				280D82352EF7C9AF00F161F2 /* HistoryPanelView.swift in Sources */,
 				28B2442D2615645000367F57 /* NotifyConfig.swift in Sources */,
 				2834B6102B5A50EF00708FB1 /* DoNotDisturbConfig.swift in Sources */,
+				280581032F07F406003501F0 /* LogManager.swift in Sources */,
 				284251F82F01031D00DCB7C4 /* SystemNotificationManager.swift in Sources */,
 				2834B6122B5A513E00708FB1 /* NotifyManager.swift in Sources */,
 				284251F62F00FBEA00DCB7C4 /* ExportManager.swift in Sources */,
@@ -602,6 +637,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		280580F72F07F0C5003501F0 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.0;
+			};
+		};
 		2834B5FB2B5A289300708FB1 /* XCRemoteSwiftPackageReference "Settings" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Settings";
@@ -645,6 +688,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		280580F82F07F0C5003501F0 /* InMemoryLogging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 280580F72F07F0C5003501F0 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = InMemoryLogging;
+		};
+		280580FA2F07F0C5003501F0 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 280580F72F07F0C5003501F0 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
 		2834B5FE2B5A41FB00708FB1 /* Settings */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2834B5FB2B5A289300708FB1 /* XCRemoteSwiftPackageReference "Settings" */;

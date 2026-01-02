@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import Logging
 
 class AppStateContainer: ObservableObject {
+    private let logger = LogManager.shared.logger(for: "AppStateContainer")
+    
     @Published var appConfig: AppConfig {
         didSet {
-            print("Save appConfig to UserDefaults")
+            logger.trace("Save appConfig to UserDefaults")
             DefaultsManager.shared.setConfig(appConfig)
         }
     }

@@ -78,6 +78,7 @@
 "SETTING_RECORD_NUMBER" = "当前有%D条记录";
 "SETTING_OPEN_DB_FILE" = "打开数据库文件夹";
 "SETTING_OPEN_SCRIPT_FILE" = "打开脚本文件夹";
+"SETTING_OPEN_LOG_FILE" = "打开日志文件夹";
 
 "EXPORT_CONFIG" = "导出配置";
 "IMPORT_CONFIG" = "导入配置";

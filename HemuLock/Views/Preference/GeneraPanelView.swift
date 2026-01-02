@@ -75,6 +75,10 @@ struct GeneraPanelView: View {
                     Button("SETTING_OPEN_SCRIPT_FILE".localized) {
                         NSWorkspace.shared.open(ScriptManager.shared.getPath())
                     }
+                    
+                    Button("SETTING_OPEN_LOG_FILE".localized) {
+                        NSWorkspace.shared.open(LogManager.shared.getLogsDirectory())
+                    }
                 }
             }
         }
