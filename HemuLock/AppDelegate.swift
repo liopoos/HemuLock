@@ -49,7 +49,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private lazy var settingsWindowController = SettingsWindowController(
         panes: [
             GeneraPanelViewController(),
+            EventPanelViewController(),
             NotifyPanelViewController(),
+            WebhookPanelViewController(),
             DoNotDisturbPanelViewController(),
             HistoryPanelViewController(),
         ],
@@ -102,6 +104,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         if let item = menu.item(withTag: MenuItem.setDoNotDisturb.tag) {
             item.state = appState.appConfig.isDoNotDisturb ? .on : .off
+        }
+        
+        if let item = menu.item(withTag: MenuItem.setWebhook.tag) {
+            item.state = appState.appConfig.webhookConfig.enabled ? .on : .off
         }
 
         if let item = menu.item(withTag: MenuItem.setLaunchAtLogin.tag) {
@@ -298,6 +304,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     @objc func setDoNotDisturb(_ menuItem: NSMenuItem) {
         appState.appConfig.isDoNotDisturb = !appState.appConfig.isDoNotDisturb
         menuItem.state = appState.appConfig.isDoNotDisturb ? .on : .off
+    }
+
+    /**
+     Toggle webhook on/off.
+     
+     - Parameter menuItem: The menu item that triggered this action
+     */
+    @objc func setWebhook(_ menuItem: NSMenuItem) {
+        appState.appConfig.webhookConfig.enabled = !appState.appConfig.webhookConfig.enabled
+        menuItem.state = appState.appConfig.webhookConfig.enabled ? .on : .off
     }
 
     /**

@@ -15,6 +15,8 @@
 "LAUNCH_AT_LOGIN" = "Launch at Login";
 "SET_PREFERENCES" = "Preferences...";
 "SET_DO_NOT_DISTURB" = "Enable Do Not Disturb";
+"SET_WEBHOOK" = "Enable Webhook";
+"FEATURES" = "Features";
 "EVENT_RECORDS" = "Event Records";
 "NO_EVENT_RECORD" = "No Event Record";
 
@@ -22,6 +24,7 @@
 "NOTIFY_NONE" = "None";
 "NOTIFY_PUSHOVER" = "Pushover";
 "NOTIFY_BARK" = "Bark";
+"NOTIFY_WEBHOOK" = "Webhook";
 "NOTIFY_TEST" = "Send Test Notification";
 "NOTIFY_TEST_MESSAGE" = "This is a test notification";
 
@@ -98,3 +101,34 @@
 "HISTORY_LOADING" = "Loading...";
 
 "CONFIGURATION_MANAGEMENT" = "Configuration Management";
+
+"WEBHOOK_TITLE" = "Webhook";
+"WEBHOOK_ENABLE" = "Enable Webhook";
+"WEBHOOK_URL" = "URL";
+"WEBHOOK_URL_PLACEHOLDER" = "https://your-webhook-endpoint.com/api/events";
+"WEBHOOK_TIMEOUT" = "Timeout";
+"WEBHOOK_TIMEOUT_UNIT" = "seconds";
+"WEBHOOK_SYSTEM_INFO" = "System Info";
+"WEBHOOK_INCLUDE_SYSTEM_INFO" = "Include system information in payload";
+"WEBHOOK_EVENTS" = "Trigger Events";
+"WEBHOOK_TEST" = "Send Test Webhook";
+"WEBHOOK_TEST_SUCCESS_TITLE" = "Webhook Test Successful";
+"WEBHOOK_TEST_SUCCESS_MESSAGE" = "Webhook sent successfully";
+"WEBHOOK_TEST_FAILED_TITLE" = "Webhook Test Failed";
+"WEBHOOK_TEST_FAILED_MESSAGE" = "Failed to send webhook";
+
+"EVENT_PANEL_TITLE" = "Events";
+"EVENT_RECORDING" = "Event Recording";
+"EVENT_ENABLE_RECORDING" = "Enable Event Recording";
+"EVENT_STATISTICS" = "Statistics";
+"EVENT_STATISTICS_TODAY" = "Today";
+"EVENT_STATISTICS_LAST3DAYS" = "Last 3 Days";
+"EVENT_STATISTICS_TOTAL" = "Total";
+"EVENT_SELECT_TYPES" = "Event Types to Record";
+"EVENT_SELECT_ALL" = "Select All";
+"EVENT_DESELECT_ALL" = "Deselect All";
+"EVENT_CLEAR_ALL" = "Clear All Records";
+"EVENT_CLEAR_CONFIRM_TITLE" = "Confirm Clear";
+"EVENT_CLEAR_CONFIRM_MESSAGE" = "Are you sure you want to clear all event records? This action cannot be undone.";
+"EVENT_CLEAR_CONFIRM_YES" = "Clear";
+"EVENT_CLEAR_CONFIRM_NO" = "Cancel";

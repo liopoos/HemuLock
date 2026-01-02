@@ -10,7 +10,7 @@ import Foundation
 class AppStateContainer: ObservableObject {
     @Published var appConfig: AppConfig {
         didSet {
-            print("Save app config.")
+            print("Save appConfig to UserDefaults")
             DefaultsManager.shared.setConfig(appConfig)
         }
     }

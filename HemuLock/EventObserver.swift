@@ -48,6 +48,11 @@ class EventObserver {
         if appState.appConfig.notifyType != Notify.none.tag {
             sendNotify(event: event)
         }
+        
+        // Send webhook if configured
+        if appState.appConfig.webhookConfig.enabled {
+            sendWebhook(event: event)
+        }
 
         // Exec some local script.
         if appState.appConfig.isExecScript {
@@ -92,6 +97,14 @@ class EventObserver {
      */
     func sendSystemNotify(title: String, message: String) {
         SystemNotificationManager.shared.sendDelayed(title: title, message: message, delay: 1)
+    }
+
+    /**
+     Send webhook notification.
+     */
+    func sendWebhook(event: Event) {
+        if appState.appConfig.doNotDisturbConfig.type.notify && DisturbModeManager.shared.inDisturb() { return }
+        _ = WebhookManager.shared.send(event: event)
     }
 
     /**

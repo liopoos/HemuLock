@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280580F32F07C461003501F0 /* EventPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280580F22F07C461003501F0 /* EventPanelView.swift */; };
 		280D82352EF7C9AF00F161F2 /* HistoryPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280D82342EF7C9AF00F161F2 /* HistoryPanelView.swift */; };
 		281ED2A2261772060098DB79 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 281ED2A1261772060098DB79 /* config.json */; };
 		2834B5F62B5A0B3E00708FB1 /* EventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2834B5F52B5A0B3E00708FB1 /* EventObserver.swift */; };
@@ -24,6 +25,10 @@
 		283F172F2CE84A6500DAC8BE /* ScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283F172E2CE84A5C00DAC8BE /* ScriptManager.swift */; };
 		284251F62F00FBEA00DCB7C4 /* ExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284251F52F00FBEA00DCB7C4 /* ExportManager.swift */; };
 		284251F82F01031D00DCB7C4 /* SystemNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284251F72F01031D00DCB7C4 /* SystemNotificationManager.swift */; };
+		2885B3B62F06CDD400EAA2F9 /* WebhookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885B3B52F06CDD400EAA2F9 /* WebhookManager.swift */; };
+		2885B3B82F06CDDD00EAA2F9 /* WebhookConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885B3B72F06CDDD00EAA2F9 /* WebhookConfig.swift */; };
+		2885B3BA2F06CDE600EAA2F9 /* WebhookPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885B3B92F06CDE600EAA2F9 /* WebhookPanelView.swift */; };
+		2885B3BC2F06CDF100EAA2F9 /* WebhookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885B3BB2F06CDF100EAA2F9 /* WebhookAPI.swift */; };
 		288981772B5B59630078834D /* GeneraPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288981762B5B59630078834D /* GeneraPanelView.swift */; };
 		2889817A2B5B59E00078834D /* NotifyPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288981792B5B59E00078834D /* NotifyPaneView.swift */; };
 		2889817D2B5B75E50078834D /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2889817C2B5B75E50078834D /* SQLite */; };
@@ -59,6 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		280580F22F07C461003501F0 /* EventPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPanelView.swift; sourceTree = "<group>"; };
 		280D82342EF7C9AF00F161F2 /* HistoryPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPanelView.swift; sourceTree = "<group>"; };
 		281ED2A1261772060098DB79 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		2834B5F52B5A0B3E00708FB1 /* EventObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventObserver.swift; sourceTree = "<group>"; };
@@ -73,6 +79,10 @@
 		283F172E2CE84A5C00DAC8BE /* ScriptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptManager.swift; sourceTree = "<group>"; };
 		284251F52F00FBEA00DCB7C4 /* ExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportManager.swift; sourceTree = "<group>"; };
 		284251F72F01031D00DCB7C4 /* SystemNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemNotificationManager.swift; sourceTree = "<group>"; };
+		2885B3B52F06CDD400EAA2F9 /* WebhookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookManager.swift; sourceTree = "<group>"; };
+		2885B3B72F06CDDD00EAA2F9 /* WebhookConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookConfig.swift; sourceTree = "<group>"; };
+		2885B3B92F06CDE600EAA2F9 /* WebhookPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookPanelView.swift; sourceTree = "<group>"; };
+		2885B3BB2F06CDF100EAA2F9 /* WebhookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookAPI.swift; sourceTree = "<group>"; };
 		288981762B5B59630078834D /* GeneraPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneraPanelView.swift; sourceTree = "<group>"; };
 		288981792B5B59E00078834D /* NotifyPaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyPaneView.swift; sourceTree = "<group>"; };
 		2889817E2B5B75F80078834D /* SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
@@ -130,6 +140,7 @@
 		2834B5F82B5A1EE700708FB1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				2885B3B52F06CDD400EAA2F9 /* WebhookManager.swift */,
 				284251F72F01031D00DCB7C4 /* SystemNotificationManager.swift */,
 				284251F52F00FBEA00DCB7C4 /* ExportManager.swift */,
 				283F172E2CE84A5C00DAC8BE /* ScriptManager.swift */,
@@ -144,6 +155,8 @@
 		288981782B5B596E0078834D /* Preference */ = {
 			isa = PBXGroup;
 			children = (
+				280580F22F07C461003501F0 /* EventPanelView.swift */,
+				2885B3B92F06CDE600EAA2F9 /* WebhookPanelView.swift */,
 				280D82342EF7C9AF00F161F2 /* HistoryPanelView.swift */,
 				288981762B5B59630078834D /* GeneraPanelView.swift */,
 				288981792B5B59E00078834D /* NotifyPaneView.swift */,
@@ -163,6 +176,7 @@
 		2889818A2B5BBAF20078834D /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2885B3BB2F06CDF100EAA2F9 /* WebhookAPI.swift */,
 				2889818B2B5BBAFD0078834D /* NotifyAPI.swift */,
 			);
 			path = API;
@@ -239,6 +253,7 @@
 		28D47B532B59150F005F2AF8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2885B3B72F06CDDD00EAA2F9 /* WebhookConfig.swift */,
 				28B2442C2615645000367F57 /* NotifyConfig.swift */,
 				2834B60F2B5A50EF00708FB1 /* DoNotDisturbConfig.swift */,
 				2834B60B2B5A4ABF00708FB1 /* AppConfig.swift */,
@@ -338,11 +353,13 @@
 				288981772B5B59630078834D /* GeneraPanelView.swift in Sources */,
 				2834B5F62B5A0B3E00708FB1 /* EventObserver.swift in Sources */,
 				2889817A2B5B59E00078834D /* NotifyPaneView.swift in Sources */,
+				2885B3BA2F06CDE600EAA2F9 /* WebhookPanelView.swift in Sources */,
 				28B243E226145BAA00367F57 /* ViewController.swift in Sources */,
 				28B244342615B22B00367F57 /* sleep.c in Sources */,
 				2834B5FA2B5A245000708FB1 /* AppStateContainer.swift in Sources */,
 				28B243E026145BAA00367F57 /* AppDelegate.swift in Sources */,
 				2834B6022B5A474E00708FB1 /* DefaultsManager.swift in Sources */,
+				280580F32F07C461003501F0 /* EventPanelView.swift in Sources */,
 				283F172F2CE84A6500DAC8BE /* ScriptManager.swift in Sources */,
 				288981842B5B91930078834D /* RecordRepository.swift in Sources */,
 				2834B6142B5A564100708FB1 /* Compatibility.swift in Sources */,
@@ -354,9 +371,12 @@
 				28B2443E2615D75400367F57 /* Event.swift in Sources */,
 				28A695A42B5F531100409E17 /* DisturbModeManager.swift in Sources */,
 				288981922B5E48A40078834D /* MenuItem.swift in Sources */,
+				2885B3BC2F06CDF100EAA2F9 /* WebhookAPI.swift in Sources */,
+				2885B3B82F06CDDD00EAA2F9 /* WebhookConfig.swift in Sources */,
 				2889817F2B5B75F80078834D /* SQLiteManager.swift in Sources */,
 				2834B60C2B5A4ABF00708FB1 /* AppConfig.swift in Sources */,
 				2889818C2B5BBAFD0078834D /* NotifyAPI.swift in Sources */,
+				2885B3B62F06CDD400EAA2F9 /* WebhookManager.swift in Sources */,
 				280D82352EF7C9AF00F161F2 /* HistoryPanelView.swift in Sources */,
 				28B2442D2615645000367F57 /* NotifyConfig.swift in Sources */,
 				2834B6102B5A50EF00708FB1 /* DoNotDisturbConfig.swift in Sources */,

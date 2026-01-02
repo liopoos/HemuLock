@@ -17,6 +17,8 @@
 "LAUNCH_AT_LOGIN" = "登录时启动";
 "SET_PREFERENCES" = "偏好设置...";
 "SET_DO_NOT_DISTURB" = "开启勿扰";
+"SET_WEBHOOK" = "开启 Webhook";
+"FEATURES" = "功能";
 
 "EVENT_RECORDS" = "历史事件";
 "NO_EVENT_RECORD" = "没有历史事件";
@@ -25,6 +27,7 @@
 "NOTIFY_NONE" = "不使用";
 "NOTIFY_PUSHOVER" = "Pushover";
 "NOTIFY_BARK" = "Bark";
+"NOTIFY_WEBHOOK" = "Webhook";
 "NOTIFY_TEST" = "发送测试通知";
 "NOTIFY_TEST_MESSAGE" = "这是一条测试通知";
 
@@ -102,3 +105,34 @@
 "HISTORY_LOADING" = "加载中...";
 
 "CONFIGURATION_MANAGEMENT" = "配置管理";
+
+"WEBHOOK_TITLE" = "Webhook";
+"WEBHOOK_ENABLE" = "启用 Webhook";
+"WEBHOOK_URL" = "URL";
+"WEBHOOK_URL_PLACEHOLDER" = "https://your-webhook-endpoint.com/api/events";
+"WEBHOOK_TIMEOUT" = "超时";
+"WEBHOOK_TIMEOUT_UNIT" = "秒";
+"WEBHOOK_SYSTEM_INFO" = "系统信息";
+"WEBHOOK_INCLUDE_SYSTEM_INFO" = "在负载中包含系统信息";
+"WEBHOOK_EVENTS" = "触发事件";
+"WEBHOOK_TEST" = "发送测试 Webhook";
+"WEBHOOK_TEST_SUCCESS_TITLE" = "Webhook 测试成功";
+"WEBHOOK_TEST_SUCCESS_MESSAGE" = "Webhook 发送成功";
+"WEBHOOK_TEST_FAILED_TITLE" = "Webhook 测试失败";
+"WEBHOOK_TEST_FAILED_MESSAGE" = "Webhook 发送失败";
+
+"EVENT_PANEL_TITLE" = "事件";
+"EVENT_RECORDING" = "记录事件";
+"EVENT_ENABLE_RECORDING" = "启用记录";
+"EVENT_STATISTICS" = "统计信息";
+"EVENT_STATISTICS_TODAY" = "今日";
+"EVENT_STATISTICS_LAST3DAYS" = "最近3天";
+"EVENT_STATISTICS_TOTAL" = "总计";
+"EVENT_SELECT_TYPES" = "事件类型";
+"EVENT_SELECT_ALL" = "全选";
+"EVENT_DESELECT_ALL" = "取消全选";
+"EVENT_CLEAR_ALL" = "清除所有记录";
+"EVENT_CLEAR_CONFIRM_TITLE" = "确认清除";
+"EVENT_CLEAR_CONFIRM_MESSAGE" = "确定要清除所有事件记录吗？此操作不可撤销。";
+"EVENT_CLEAR_CONFIRM_YES" = "清除";
+"EVENT_CLEAR_CONFIRM_NO" = "取消";

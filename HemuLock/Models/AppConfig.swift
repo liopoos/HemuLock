@@ -36,6 +36,11 @@ struct AppConfig: Codable {
     // Record history record
     var isRecordEvent: Bool = false
     
+    /**
+     Webhook configuration
+     */
+    var webhookConfig: WebhookConfig = WebhookConfig()
+    
     // MARK: - Custom Decoding
     
     enum CodingKeys: String, CodingKey {
@@ -47,6 +52,7 @@ struct AppConfig: Codable {
         case notifyConfig
         case doNotDisturbConfig
         case isRecordEvent
+        case webhookConfig
     }
     
     init() {
@@ -65,5 +71,6 @@ struct AppConfig: Codable {
         notifyConfig = (try? container.decode(NotifyConfig.self, forKey: .notifyConfig)) ?? NotifyConfig()
         doNotDisturbConfig = (try? container.decode(DoNotDisturbConfig.self, forKey: .doNotDisturbConfig)) ?? DoNotDisturbConfig()
         isRecordEvent = (try? container.decode(Bool.self, forKey: .isRecordEvent)) ?? false
+        webhookConfig = (try? container.decode(WebhookConfig.self, forKey: .webhookConfig)) ?? WebhookConfig()
     }
 }
