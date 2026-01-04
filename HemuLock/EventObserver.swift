@@ -22,6 +22,10 @@ class EventObserver {
         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(handleEvent(_:)), name: Event.systemSleep.notification, object: nil)
         // System wake
         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(handleEvent(_:)), name: Event.systemWake.notification, object: nil)
+        // App boot (fires when app launches)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleEvent(_:)), name: Event.appBoot.notification, object: nil)
+        // System shutdown
+        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(handleEvent(_:)), name: Event.systemShutdown.notification, object: nil)
         // System lock
         DistributedNotificationCenter.default.addObserver(self, selector: #selector(handleEvent(_:)), name: Event.systemLock.notification, object: nil)
         // System unlock

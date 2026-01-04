@@ -11,6 +11,8 @@ import Foundation
 enum Event: String, CaseIterable {
     case screenSeeep = "SCREEN_SLEEP"
     case screenWake = "SCREEN_WAKE"
+    case appBoot = "APP_BOOT"
+    case systemShutdown = "SYSTEM_SHUTDOWN"
     case systemSleep = "SYSTEM_SLEEP"
     case systemWake = "SYSTEM_WAKE"
     case systemLock = "SYSTEM_LOCK"
@@ -22,6 +24,8 @@ enum Event: String, CaseIterable {
 
     var tag: Int {
         switch self {
+        case .appBoot:
+            return 100
         case .screenSeeep:
             return 110
         case .screenWake:
@@ -34,11 +38,17 @@ enum Event: String, CaseIterable {
             return 130
         case .systemUnLock:
             return 131
+        case .systemShutdown:
+            return 141
         }
     }
 
     var notification: Notification.Name {
         switch self {
+        case .appBoot:
+            return Notification.Name("HemuLock.app.boot")
+        case .systemShutdown:
+            return NSWorkspace.willPowerOffNotification
         case .screenSeeep:
             return NSWorkspace.screensDidSleepNotification
         case .screenWake:

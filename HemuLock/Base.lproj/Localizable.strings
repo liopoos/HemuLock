@@ -35,6 +35,8 @@
 "SCREEN_WAKE" = "Screen On";
 "SYSTEM_SLEEP" = "System Sleep";
 "SYSTEM_WAKE" = "System Wake";
+"APP_BOOT" = "App Boot";
+"SYSTEM_SHUTDOWN" = "System Shutdown";
 "SYSTEM_LOCK" = "System Lock";
 "SYSTEM_UNLOCK" = "System Unlock";
 
@@ -42,6 +44,8 @@
 "EVENT_SCREEN_WAKE" = "Screen Wake";
 "EVENT_SYSTEM_SLEEP" = "System Sleep";
 "EVENT_SYSTEM_WAKE" = "System Wake";
+"EVENT_APP_BOOT" = "App Boot";
+"EVENT_SYSTEM_SHUTDOWN" = "System Shutdown";
 "EVENT_SYSTEM_LOCK" = "System Lock";
 "EVENT_SYSTEM_UNLOCK" = "System Unlock";
 

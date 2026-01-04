@@ -38,6 +38,8 @@
 "SCREEN_WAKE" = "显示器被点亮";
 "SYSTEM_SLEEP" = "系统进入睡眠模式";
 "SYSTEM_WAKE" = "系统被唤醒";
+"APP_BOOT" = "应用启动";
+"SYSTEM_SHUTDOWN" = "系统关机";
 "SYSTEM_LOCK" = "系统已被锁定";
 "SYSTEM_UNLOCK" = "系统已解锁";
 
@@ -45,6 +47,8 @@
 "EVENT_SCREEN_WAKE" = "屏幕唤醒";
 "EVENT_SYSTEM_SLEEP" = "系统睡眠";
 "EVENT_SYSTEM_WAKE" = "系统唤醒";
+"EVENT_APP_BOOT" = "应用启动";
+"EVENT_SYSTEM_SHUTDOWN" = "系统关机";
 "EVENT_SYSTEM_LOCK" = "锁定";
 "EVENT_SYSTEM_UNLOCK" = "解锁";
 

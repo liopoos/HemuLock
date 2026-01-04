@@ -40,7 +40,7 @@ class MenuController: NSObject, NSMenuDelegate {
         let eventSubMenu = NSMenu()
         for event in Event.allCases {
             eventSubMenu.addItem(withTitle: "EVENT_\(event.name)".localized, action: #selector(AppDelegate.setEvent), keyEquivalent: "").tag = event.tag
-            if [Event.screenWake.tag, Event.systemWake.tag].contains(event.tag) {
+            if [Event.screenWake.tag, Event.systemWake.tag, Event.systemShutdown.tag].contains(event.tag) {
                 eventSubMenu.addItem(NSMenuItem.separator())
             }
         }

@@ -160,6 +160,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if let notifyTestItem = menu.item(withTag: MenuItem.notifyTest.tag) {
             notifyTestItem.isHidden = appState.appConfig.notifyType == Notify.none.tag
         }
+
+        // Features submenu toggles (script / DND / webhook)
+        if let featuresItem = menu.item(withTag: MenuItem.features.tag), let featuresMenu = featuresItem.submenu {
+            if let scriptItem = featuresMenu.item(withTag: MenuItem.setScript.tag) {
+                scriptItem.state = appState.appConfig.isExecScript ? .on : .off
+            }
+
+            if let dndItem = featuresMenu.item(withTag: MenuItem.setDoNotDisturb.tag) {
+                dndItem.state = appState.appConfig.isDoNotDisturb ? .on : .off
+            }
+
+            if let webhookItem = featuresMenu.item(withTag: MenuItem.setWebhook.tag) {
+                webhookItem.state = appState.appConfig.webhookConfig.enabled ? .on : .off
+            }
+        }
     }
 
     /**
@@ -393,6 +408,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         observer = EventObserver()
+
+        // Fire app boot event once at launch
+        NotificationCenter.default.post(name: Event.appBoot.notification, object: nil)
     }
 
     /**
