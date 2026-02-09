@@ -24,9 +24,9 @@ class SystemBootManager {
     /**
      Get the current system boot time using sysctl.
      
-     - Returns: The date when the system was last booted
+     - Returns: The date when the system was last booted, or nil if unable to determine
      */
-    func getSystemBootTime() -> Date {
+    func getSystemBootTime() -> Date? {
         var mib = [CTL_KERN, KERN_BOOTTIME]
         var bootTime = timeval()
         var size = MemoryLayout<timeval>.stride
@@ -34,7 +34,7 @@ class SystemBootManager {
         if sysctl(&mib, UInt32(mib.count), &bootTime, &size, nil, 0) != -1 {
             return Date(timeIntervalSince1970: TimeInterval(bootTime.tv_sec))
         }
-        return Date()
+        return nil
     }
     
     /**
@@ -45,7 +45,10 @@ class SystemBootManager {
      - Returns: true if this is a new boot that hasn't been notified yet, false otherwise
      */
     func isNewSystemBoot() -> Bool {
-        let currentBootTime = getSystemBootTime()
+        guard let currentBootTime = getSystemBootTime() else {
+            // If we can't determine boot time, don't trigger the event
+            return false
+        }
         
         // Get the last notified boot time from UserDefaults
         if let lastBootTime = UserDefaults.standard.object(forKey: lastBootTimeKey) as? Date {
@@ -65,7 +68,9 @@ class SystemBootManager {
      duplicate notifications for the same boot.
      */
     func markBootNotified() {
-        let currentBootTime = getSystemBootTime()
+        guard let currentBootTime = getSystemBootTime() else {
+            return
+        }
         UserDefaults.standard.set(currentBootTime, forKey: lastBootTimeKey)
     }
 }
