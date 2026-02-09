@@ -15,6 +15,7 @@ enum Event: String, CaseIterable {
     case systemWake = "SYSTEM_WAKE"
     case systemLock = "SYSTEM_LOCK"
     case systemUnLock = "SYSTEM_UNLOCK"
+    case systemLaunch = "SYSTEM_LAUNCH"
 
     var name: String {
         return rawValue
@@ -34,6 +35,8 @@ enum Event: String, CaseIterable {
             return 130
         case .systemUnLock:
             return 131
+        case .systemLaunch:
+            return 140
         }
     }
 
@@ -51,6 +54,9 @@ enum Event: String, CaseIterable {
             return NSNotification.Name(rawValue: "com.apple.screenIsLocked")
         case .systemUnLock:
             return NSNotification.Name(rawValue: "com.apple.screenIsUnlocked")
+        case .systemLaunch:
+            // This event is triggered manually, not via system notification
+            return NSNotification.Name(rawValue: "com.hemulock.systemLaunch")
         }
     }
 }

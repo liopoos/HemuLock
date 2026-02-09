@@ -19,7 +19,7 @@ struct AppConfig: Codable {
     var isDoNotDisturb: Bool = false
 
     // Activated event
-    var activeEvents: [Int] = [Event.systemLock.tag, Event.systemUnLock.tag]
+    var activeEvents: [Int] = [Event.systemLock.tag, Event.systemUnLock.tag, Event.systemLaunch.tag]
 
     // Notify type
     var notifyType: Int = Notify.none.tag
@@ -60,7 +60,7 @@ struct AppConfig: Codable {
         isLaunchAtLogin = (try? container.decode(Bool.self, forKey: .isLaunchAtLogin)) ?? LaunchAtLogin.isEnabled
         isExecScript = (try? container.decode(Bool.self, forKey: .isExecScript)) ?? false
         isDoNotDisturb = (try? container.decode(Bool.self, forKey: .isDoNotDisturb)) ?? false
-        activeEvents = (try? container.decode([Int].self, forKey: .activeEvents)) ?? [Event.systemLock.tag, Event.systemUnLock.tag]
+        activeEvents = (try? container.decode([Int].self, forKey: .activeEvents)) ?? [Event.systemLock.tag, Event.systemUnLock.tag, Event.systemLaunch.tag]
         notifyType = (try? container.decode(Int.self, forKey: .notifyType)) ?? Notify.none.tag
         notifyConfig = (try? container.decode(NotifyConfig.self, forKey: .notifyConfig)) ?? NotifyConfig()
         doNotDisturbConfig = (try? container.decode(DoNotDisturbConfig.self, forKey: .doNotDisturbConfig)) ?? DoNotDisturbConfig()

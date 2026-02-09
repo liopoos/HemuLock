@@ -34,6 +34,7 @@
 "SYSTEM_WAKE" = "System Wake";
 "SYSTEM_LOCK" = "System Lock";
 "SYSTEM_UNLOCK" = "System Unlock";
+"SYSTEM_LAUNCH" = "System Startup";
 
 "EVENT_SCREEN_SLEEP" = "Screen Sleep";
 "EVENT_SCREEN_WAKE" = "Screen Wake";
@@ -41,6 +42,7 @@
 "EVENT_SYSTEM_WAKE" = "System Wake";
 "EVENT_SYSTEM_LOCK" = "System Lock";
 "EVENT_SYSTEM_UNLOCK" = "System Unlock";
+"EVENT_SYSTEM_LAUNCH" = "System Launch";
 
 "EMPTY_PUSHOVER" = "Pushover Configuration Parameters Error";
 "EMPTY_BARK" = "Bark Configuration Parameters Error";

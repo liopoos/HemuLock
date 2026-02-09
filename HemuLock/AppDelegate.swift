@@ -371,6 +371,72 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         observer = EventObserver()
+        
+        // Check for system launch event
+        handleSystemLaunchEvent()
+    }
+    
+    /**
+     Check if this is first launch after system boot and handle system launch event
+     */
+    private func handleSystemLaunchEvent() {
+        // Get system uptime
+        let systemUptime = ProcessInfo.processInfo.systemUptime
+        
+        // Get last boot time from UserDefaults
+        let defaults = UserDefaults.standard
+        let lastBootTime = defaults.double(forKey: "lastSystemBootTime")
+        let lastNotificationTime = defaults.double(forKey: "lastSystemLaunchNotificationTime")
+        
+        // Calculate approximate boot time
+        let currentTime = Date().timeIntervalSince1970
+        let bootTime = currentTime - systemUptime
+        
+        // Check if this is a new boot session (boot time differs by more than 60 seconds)
+        let isNewBootSession = abs(bootTime - lastBootTime) > 60
+        
+        // Check if we already sent notification for this boot session
+        let alreadySentForThisBoot = abs(lastNotificationTime - bootTime) < 60
+        
+        if isNewBootSession {
+            // Update the last boot time
+            defaults.set(bootTime, forKey: "lastSystemBootTime")
+            defaults.synchronize()
+        }
+        
+        // Only send notification if:
+        // 1. This is a new boot session OR we haven't sent for this boot
+        // 2. The event is active
+        if (isNewBootSession || !alreadySentForThisBoot) && 
+           appState.appConfig.activeEvents.contains(Event.systemLaunch.tag) {
+            
+            // Record the notification time
+            defaults.set(bootTime, forKey: "lastSystemLaunchNotificationTime")
+            defaults.synchronize()
+            
+            // Create a manual event for system launch
+            let event = Event.systemLaunch
+            
+            // Record event if enabled
+            if appState.appConfig.isRecordEvent {
+                let record = Record(event: event.rawValue, isNotify: true)
+                _ = RecordRepository.shared.insertRecord(record: record)
+            }
+            
+            // Send notification if configured
+            if appState.appConfig.notifyType != Notify.none.tag {
+                observer?.sendNotify(event: event)
+            }
+            
+            // Execute script if enabled
+            if appState.appConfig.isExecScript {
+                let file = ScriptManager.shared.getFile()
+                let process = Process()
+                process.executableURL = file
+                process.arguments = [event.name]
+                try? process.run()
+            }
+        }
     }
 
     /**

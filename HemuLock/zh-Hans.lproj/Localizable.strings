@@ -37,6 +37,7 @@
 "SYSTEM_WAKE" = "系统被唤醒";
 "SYSTEM_LOCK" = "系统已被锁定";
 "SYSTEM_UNLOCK" = "系统已解锁";
+"SYSTEM_LAUNCH" = "系统启动";
 
 "EVENT_SCREEN_SLEEP" = "屏幕睡眠";
 "EVENT_SCREEN_WAKE" = "屏幕唤醒";
@@ -44,6 +45,7 @@
 "EVENT_SYSTEM_WAKE" = "系统唤醒";
 "EVENT_SYSTEM_LOCK" = "锁定";
 "EVENT_SYSTEM_UNLOCK" = "解锁";
+"EVENT_SYSTEM_LAUNCH" = "系统启动";
 
 "EMPTY_PUSHOVER" = "Pushover配置参数错误";
 "EMPTY_BARK" = "Bark配置参数错误";
