@@ -371,6 +371,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         observer = EventObserver()
+        
+        // Check for system launch event - only fire once per system boot
+        if SystemBootManager.shared.isNewSystemBoot() {
+            // Only handle if System Launch event is enabled in config
+            if appState.appConfig.activeEvents.contains(Event.systemLaunch.tag) {
+                // Handle recording
+                if appState.appConfig.isRecordEvent {
+                    observer?.recordEvent(event: .systemLaunch)
+                }
+                
+                // Send notification
+                if appState.appConfig.notifyType != Notify.none.tag {
+                    observer?.sendNotify(event: .systemLaunch)
+                }
+                
+                // Execute script
+                if appState.appConfig.isExecScript {
+                    observer?.runScript(Event.systemLaunch.name)
+                }
+            }
+            
+            // Mark this boot as notified to prevent duplicate notifications
+            SystemBootManager.shared.markBootNotified()
+        }
     }
 
     /**
