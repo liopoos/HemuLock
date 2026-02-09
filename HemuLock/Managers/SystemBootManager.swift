@@ -19,6 +19,11 @@ class SystemBootManager {
     
     private let lastBootTimeKey = "last_notified_boot_time"
     
+    // Tolerance in seconds for comparing boot times.
+    // System boot times may have minor differences due to precision,
+    // so we use a 1-second tolerance to avoid false positives.
+    private let bootTimeToleranceSeconds: TimeInterval = 1.0
+    
     private init() {}
     
     /**
@@ -54,7 +59,7 @@ class SystemBootManager {
         if let lastBootTime = UserDefaults.standard.object(forKey: lastBootTimeKey) as? Date {
             // If the boot times are different, it's a new boot
             // Allow a small tolerance for timing differences
-            return abs(currentBootTime.timeIntervalSince(lastBootTime)) > 1.0
+            return abs(currentBootTime.timeIntervalSince(lastBootTime)) > bootTimeToleranceSeconds
         }
         
         // If no previous boot time is stored, consider it a new boot
