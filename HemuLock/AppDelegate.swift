@@ -374,6 +374,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         
         // Check for system launch event - only fire once per system boot
         if SystemBootManager.shared.isNewSystemBoot() {
+            // Mark this boot as notified first to prevent duplicate checks
+            SystemBootManager.shared.markBootNotified()
+            
             // Only handle if System Launch event is enabled in config
             if appState.appConfig.activeEvents.contains(Event.systemLaunch.tag) {
                 // Handle recording
@@ -391,9 +394,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                     observer?.runScript(Event.systemLaunch.name)
                 }
             }
-            
-            // Mark this boot as notified to prevent duplicate notifications
-            SystemBootManager.shared.markBootNotified()
         }
     }
 
