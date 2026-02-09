@@ -44,6 +44,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     /// Controller for building the menu structure
     private let menuController = MenuController()
+    
+    /// Threshold in seconds for determining if a boot session is new
+    private let bootSessionThreshold: TimeInterval = 60
 
     /// Settings window controller with all preference panes
     private lazy var settingsWindowController = SettingsWindowController(
@@ -393,15 +396,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         let bootTime = currentTime - systemUptime
         
         // Check if this is a new boot session (boot time differs by more than 60 seconds)
-        let isNewBootSession = abs(bootTime - lastBootTime) > 60
+        let isNewBootSession = abs(bootTime - lastBootTime) > bootSessionThreshold
         
         // Check if we already sent notification for this boot session
-        let alreadySentForThisBoot = abs(lastNotificationTime - bootTime) < 60
+        let alreadySentForThisBoot = abs(lastNotificationTime - bootTime) < bootSessionThreshold
         
         if isNewBootSession {
             // Update the last boot time
             defaults.set(bootTime, forKey: "lastSystemBootTime")
-            defaults.synchronize()
         }
         
         // Only send notification if:
@@ -412,7 +414,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             
             // Record the notification time
             defaults.set(bootTime, forKey: "lastSystemLaunchNotificationTime")
-            defaults.synchronize()
             
             // Create a manual event for system launch
             let event = Event.systemLaunch
