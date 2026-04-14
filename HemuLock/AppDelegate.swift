@@ -12,6 +12,7 @@ import ServiceManagement
 import Settings
 import SwiftUI
 import UserNotifications
+import Logging
 
 /// Global application state container accessible throughout the app
 var appState = AppStateContainer()
@@ -30,6 +31,8 @@ var appState = AppStateContainer()
  */
 @main
 class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate, NSMenuDelegate {
+    private let logger = LogManager.shared.logger(for: "AppDelegate")
+    
     /// The main menu displayed in the menu bar
     private var mainMenu: NSMenu!
     
@@ -49,7 +52,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private lazy var settingsWindowController = SettingsWindowController(
         panes: [
             GeneraPanelViewController(),
+            EventPanelViewController(),
             NotifyPanelViewController(),
+            WebhookPanelViewController(),
             DoNotDisturbPanelViewController(),
             HistoryPanelViewController(),
         ],
@@ -103,6 +108,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if let item = menu.item(withTag: MenuItem.setDoNotDisturb.tag) {
             item.state = appState.appConfig.isDoNotDisturb ? .on : .off
         }
+        
+        if let item = menu.item(withTag: MenuItem.setWebhook.tag) {
+            item.state = appState.appConfig.webhookConfig.enabled ? .on : .off
+        }
 
         if let item = menu.item(withTag: MenuItem.setLaunchAtLogin.tag) {
             item.state = appState.appConfig.isLaunchAtLogin ? .on : .off
@@ -150,6 +159,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         if let notifyTestItem = menu.item(withTag: MenuItem.notifyTest.tag) {
             notifyTestItem.isHidden = appState.appConfig.notifyType == Notify.none.tag
+        }
+
+        // Features submenu toggles (script / DND / webhook)
+        if let featuresItem = menu.item(withTag: MenuItem.features.tag), let featuresMenu = featuresItem.submenu {
+            if let scriptItem = featuresMenu.item(withTag: MenuItem.setScript.tag) {
+                scriptItem.state = appState.appConfig.isExecScript ? .on : .off
+            }
+
+            if let dndItem = featuresMenu.item(withTag: MenuItem.setDoNotDisturb.tag) {
+                dndItem.state = appState.appConfig.isDoNotDisturb ? .on : .off
+            }
+
+            if let webhookItem = featuresMenu.item(withTag: MenuItem.setWebhook.tag) {
+                webhookItem.state = appState.appConfig.webhookConfig.enabled ? .on : .off
+            }
         }
     }
 
@@ -301,6 +325,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
 
     /**
+     Toggle webhook on/off.
+     
+     - Parameter menuItem: The menu item that triggered this action
+     */
+    @objc func setWebhook(_ menuItem: NSMenuItem) {
+        appState.appConfig.webhookConfig.enabled = !appState.appConfig.webhookConfig.enabled
+        menuItem.state = appState.appConfig.webhookConfig.enabled ? .on : .off
+    }
+
+    /**
      Toggle launch at login on/off.
      
      Updates both the app configuration and the system launch agent.
@@ -352,6 +386,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             window.close()
         }
         
+        // Initialize logging system
+        _ = LogManager.shared
+        
         // Request notification authorization
         SystemNotificationManager.shared.requestAuthorization()
         SystemNotificationManager.shared.setDelegate(self)
@@ -371,6 +408,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         observer = EventObserver()
+
+        // Fire app boot event once at launch
+        NotificationCenter.default.post(name: Event.appBoot.notification, object: nil)
     }
 
     /**

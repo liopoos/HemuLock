@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Logging
 
 /**
     ExportManager is responsible for exporting and importing application configurations in JSON format.
@@ -14,6 +15,7 @@ import Foundation
  */
 class ExportManager {
     static let shared = ExportManager()
+    private let logger = LogManager.shared.logger(for: "ExportManager")
     
     private init() {}
     
@@ -26,7 +28,7 @@ class ExportManager {
             let data = try encoder.encode(config)
             return data
         } catch {
-            print("Export config failed: \(error.localizedDescription)")
+            logger.error("Export config failed: \(error.localizedDescription)")
             return nil
         }
     }
@@ -39,7 +41,7 @@ class ExportManager {
             let config = try decoder.decode(AppConfig.self, from: data)
             return config
         } catch {
-            print("Import config failed: \(error.localizedDescription)")
+            logger.error("Import config failed: \(error.localizedDescription)")
             return nil
         }
     }
@@ -47,7 +49,7 @@ class ExportManager {
     func importConfig(from url: URL) -> Result<AppConfig, ExportError> {
         // Start accessing the security-scoped resource for sandboxed apps
         guard url.startAccessingSecurityScopedResource() else {
-            print("Import config failed: Unable to access security-scoped resource")
+            logger.error("Import config failed: Unable to access security-scoped resource")
             return .failure(.fileReadFailed(NSError(domain: "ExportManager", code: -1, userInfo: [NSLocalizedDescriptionKey: "Unable to access file"])))
         }
         
@@ -61,10 +63,10 @@ class ExportManager {
             let config = try decoder.decode(AppConfig.self, from: data)
             return .success(config)
         } catch let error as DecodingError {
-            print("Import config failed: \(error.localizedDescription)")
+            logger.error("Import config failed: \(error.localizedDescription)")
             return .failure(.decodingFailed(error))
         } catch {
-            print("Import config failed: \(error.localizedDescription)")
+            logger.error("Import config failed: \(error.localizedDescription)")
             return .failure(.fileReadFailed(error))
         }
     }

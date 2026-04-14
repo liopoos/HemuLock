@@ -5,17 +5,19 @@
 //  Created by hades on 2024/11/16.
 //
 import Cocoa
+import Logging
 
 /**
  ScriptManager handles user script management and execution.
  
  This manager manages the sandboxed script directory location and provides
  access to the user's custom script file. Scripts are stored in the
- application's designated scripts directory (~/Library/Application Scripts/com.ch.hades.HemuLock/)
+ application's designated scripts directory (~/Library/Application Scripts/com.cyberstack.HemuLock/)
  as required by macOS sandboxing.
  */
 class ScriptManager {
     static let shared = ScriptManager()
+    private let logger = LogManager.shared.logger(for: "ScriptManager")
 
     /// The sandboxed application scripts directory
     private let path: URL
@@ -33,7 +35,7 @@ class ScriptManager {
         do {
             path = try FileManager.default.url(for: .applicationScriptsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         } catch {
-            print("Failed to get applicationScriptsDirectory: \(error)")
+            logger.error("Failed to get applicationScriptsDirectory: \(error)")
             path = FileManager.default.temporaryDirectory
         }
     }

@@ -68,7 +68,7 @@ HemuLock 可以监听系统以下事件：
 如果打开「执行脚本」，当事件被激活时，HemuLock 将执行一个 Shell 脚本，脚本文件位于：
 
 ```
-~/Library/Application Scripts/com.ch.hades.HemuLock/script
+~/Library/Application Scripts/com.cyberstack.HemuLock/script
 ```
 
 **注意：**这是一个可编辑文件，而不是文件夹。

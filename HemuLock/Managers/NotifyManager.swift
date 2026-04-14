@@ -7,6 +7,7 @@
 
 import Foundation
 import Moya
+import Logging
 
 /**
  NotifyManager handles sending notifications to external services.
@@ -17,6 +18,7 @@ import Moya
  */
 class NotifyManager {
     static let shared = NotifyManager()
+    private let logger = LogManager.shared.logger(for: "NotifyManager")
 
     private let provider = MoyaProvider<NotifyAPI>()
 
@@ -60,9 +62,9 @@ class NotifyManager {
         provider.request(api) { result in
             switch result {
             case .success:
-                print("send notify success")
+                self.logger.info("Send notify success")
             case let .failure(error):
-                print("send notify failed: \(error)")
+                self.logger.error("Send notify failed: \(error)")
             }
         }
 

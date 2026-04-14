@@ -39,19 +39,6 @@ struct GeneraPanelView: View {
                     .padding(.bottom, 10)
             }
 
-            Settings.Section(title: "EVENT_RECORDS".localized) {
-                HStack {
-                    Toggle("RECORD_EVENT".localized, isOn: $appState.appConfig.isRecordEvent)
-                    Text(String(format: "SETTING_RECORD_NUMBER".localized, RecordRepository.shared.getRecordCount()))
-                }
-                HStack {
-                    Button("SETTING_DROP_RECORD".localized) {
-                        _ = RecordRepository.shared.dropRecord()
-                    }
-                }
-                .padding(.top, 5)
-            }
-
             Settings.Section(title: "PROJECT_PAGE".localized) {
                 Button(action: {}) {
                     Text("https://github.com/liopoos/HemuLock").underline().foregroundColor(Color.blue)
@@ -87,6 +74,10 @@ struct GeneraPanelView: View {
 
                     Button("SETTING_OPEN_SCRIPT_FILE".localized) {
                         NSWorkspace.shared.open(ScriptManager.shared.getPath())
+                    }
+                    
+                    Button("SETTING_OPEN_LOG_FILE".localized) {
+                        NSWorkspace.shared.open(LogManager.shared.getLogsDirectory())
                     }
                 }
             }

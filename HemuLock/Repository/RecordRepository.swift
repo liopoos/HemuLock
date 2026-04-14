@@ -97,6 +97,28 @@ class RecordRepository {
 
         return 0
     }
+    
+    /**
+     Get record count for a specific event type.
+     */
+    func getRecordCount(forEvent eventName: String) -> Int {
+        if let count = try? db.scalar(table.filter(event == eventName).count) {
+            return count
+        }
+        
+        return 0
+    }
+    
+    /**
+     Get record count from a specific date.
+     */
+    func getRecordCount(from startDate: Date) -> Int {
+        if let count = try? db.scalar(table.filter(time >= startDate).count) {
+            return count
+        }
+        
+        return 0
+    }
 
     /**
      Add record to db.
