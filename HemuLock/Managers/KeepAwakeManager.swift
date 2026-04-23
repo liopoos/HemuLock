@@ -46,8 +46,33 @@ class KeepAwakeManager {
             process = p
             activeDuration = duration
             logger.info("caffeinate started: pid=\(p.processIdentifier) duration=\(duration)")
+            sendNotify(duration: duration)
         } catch {
             logger.error("Failed to start caffeinate: \(error)")
+        }
+    }
+
+    private func sendNotify(duration: KeepAwakeDuration) {
+        guard appState.appConfig.notifyType != Notify.none.tag && appState.appConfig.isNotifyForKeepAwake else { return }
+
+        var title = "NOTIFY_MESSAGE_TITLE".localized
+        if let deviceName = Host.current().localizedName {
+            title = deviceName + "NOTIFY_MESSAGE_TITLE_DEVICE".localized
+        }
+
+        let message: String
+        if duration == .permanent {
+            message = "KEEP_AWAKE_NOTIFY_PERMANENT".localized
+        } else {
+            message = String(format: "KEEP_AWAKE_NOTIFY_TIMED".localized, duration.localizationKey.localized)
+        }
+
+        do {
+            try _ = NotifyManager.shared.send(title: title, message: message)
+        } catch NotifyError.invalidConfig {
+            logger.error("Keep awake notify failed: invalid config")
+        } catch {
+            logger.error("Keep awake notify failed: \(error)")
         }
     }
 

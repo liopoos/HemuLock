@@ -27,6 +27,12 @@ struct AppConfig: Codable {
     // Notify config
     var notifyConfig: NotifyConfig = NotifyConfig()
 
+    // Notify scope: whether to send notifications for system events
+    var isNotifyForEvents: Bool = true
+
+    // Notify scope: whether to send notifications when Keep Awake is activated
+    var isNotifyForKeepAwake: Bool = true
+
     // Do Not Disturb config
     var doNotDisturbConfig: DoNotDisturbConfig = DoNotDisturbConfig()
 
@@ -50,6 +56,8 @@ struct AppConfig: Codable {
         case activeEvents
         case notifyType
         case notifyConfig
+        case isNotifyForEvents
+        case isNotifyForKeepAwake
         case doNotDisturbConfig
         case isRecordEvent
         case webhookConfig
@@ -69,6 +77,8 @@ struct AppConfig: Codable {
         activeEvents = (try? container.decode([Int].self, forKey: .activeEvents)) ?? [Event.systemLock.tag, Event.systemUnLock.tag]
         notifyType = (try? container.decode(Int.self, forKey: .notifyType)) ?? Notify.none.tag
         notifyConfig = (try? container.decode(NotifyConfig.self, forKey: .notifyConfig)) ?? NotifyConfig()
+        isNotifyForEvents = (try? container.decode(Bool.self, forKey: .isNotifyForEvents)) ?? true
+        isNotifyForKeepAwake = (try? container.decode(Bool.self, forKey: .isNotifyForKeepAwake)) ?? true
         doNotDisturbConfig = (try? container.decode(DoNotDisturbConfig.self, forKey: .doNotDisturbConfig)) ?? DoNotDisturbConfig()
         isRecordEvent = (try? container.decode(Bool.self, forKey: .isRecordEvent)) ?? false
         webhookConfig = (try? container.decode(WebhookConfig.self, forKey: .webhookConfig)) ?? WebhookConfig()

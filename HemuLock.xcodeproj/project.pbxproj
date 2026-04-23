@@ -31,8 +31,6 @@
 		284251F62F00FBEA00DCB7C4 /* ExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284251F52F00FBEA00DCB7C4 /* ExportManager.swift */; };
 		284251F82F01031D00DCB7C4 /* SystemNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284251F72F01031D00DCB7C4 /* SystemNotificationManager.swift */; };
 		2885B3B62F06CDD400EAA2F9 /* WebhookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885B3B52F06CDD400EAA2F9 /* WebhookManager.swift */; };
-		28AA0002CAFECAFE00DEAD01 /* KeepAwakeDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AA0001CAFECAFE00DEAD01 /* KeepAwakeDuration.swift */; };
-		28AA0004CAFECAFE00DEAD01 /* KeepAwakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AA0003CAFECAFE00DEAD01 /* KeepAwakeManager.swift */; };
 		2885B3B82F06CDDD00EAA2F9 /* WebhookConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885B3B72F06CDDD00EAA2F9 /* WebhookConfig.swift */; };
 		2885B3BA2F06CDE600EAA2F9 /* WebhookPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885B3B92F06CDE600EAA2F9 /* WebhookPanelView.swift */; };
 		2885B3BC2F06CDF100EAA2F9 /* WebhookAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2885B3BB2F06CDF100EAA2F9 /* WebhookAPI.swift */; };
@@ -48,6 +46,8 @@
 		288981902B5E3ADE0078834D /* DoNotDisturbPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889818F2B5E3ADE0078834D /* DoNotDisturbPanelView.swift */; };
 		288981922B5E48A40078834D /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288981912B5E48A40078834D /* MenuItem.swift */; };
 		28A695A42B5F531100409E17 /* DisturbModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A695A32B5F531100409E17 /* DisturbModeManager.swift */; };
+		28AA0002CAFECAFE00DEAD01 /* KeepAwakeDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AA0001CAFECAFE00DEAD01 /* KeepAwakeDuration.swift */; };
+		28AA0004CAFECAFE00DEAD01 /* KeepAwakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AA0003CAFECAFE00DEAD01 /* KeepAwakeManager.swift */; };
 		28B243E026145BAA00367F57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B243DF26145BAA00367F57 /* AppDelegate.swift */; };
 		28B243E226145BAA00367F57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B243E126145BAA00367F57 /* ViewController.swift */; };
 		28B243E426145BAD00367F57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B243E326145BAD00367F57 /* Assets.xcassets */; };
@@ -90,8 +90,6 @@
 		284251F52F00FBEA00DCB7C4 /* ExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportManager.swift; sourceTree = "<group>"; };
 		284251F72F01031D00DCB7C4 /* SystemNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemNotificationManager.swift; sourceTree = "<group>"; };
 		2885B3B52F06CDD400EAA2F9 /* WebhookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookManager.swift; sourceTree = "<group>"; };
-		28AA0001CAFECAFE00DEAD01 /* KeepAwakeDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakeDuration.swift; sourceTree = "<group>"; };
-		28AA0003CAFECAFE00DEAD01 /* KeepAwakeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakeManager.swift; sourceTree = "<group>"; };
 		2885B3B72F06CDDD00EAA2F9 /* WebhookConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookConfig.swift; sourceTree = "<group>"; };
 		2885B3B92F06CDE600EAA2F9 /* WebhookPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookPanelView.swift; sourceTree = "<group>"; };
 		2885B3BB2F06CDF100EAA2F9 /* WebhookAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebhookAPI.swift; sourceTree = "<group>"; };
@@ -105,6 +103,8 @@
 		2889818F2B5E3ADE0078834D /* DoNotDisturbPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNotDisturbPanelView.swift; sourceTree = "<group>"; };
 		288981912B5E48A40078834D /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		28A695A32B5F531100409E17 /* DisturbModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisturbModeManager.swift; sourceTree = "<group>"; };
+		28AA0001CAFECAFE00DEAD01 /* KeepAwakeDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakeDuration.swift; sourceTree = "<group>"; };
+		28AA0003CAFECAFE00DEAD01 /* KeepAwakeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakeManager.swift; sourceTree = "<group>"; };
 		28B243DC26145BAA00367F57 /* HemuLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HemuLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B243DF26145BAA00367F57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28B243E126145BAA00367F57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -579,7 +579,7 @@
 				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = X63ZQ5VH53;
 				INFOPLIST_FILE = HemuLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -587,7 +587,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyberstack.HemuLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HemuLock/HemuLock-Bridging-Header.h";
@@ -605,7 +605,7 @@
 				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = X63ZQ5VH53;
 				INFOPLIST_FILE = HemuLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -613,7 +613,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyberstack.HemuLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HemuLock/HemuLock-Bridging-Header.h";

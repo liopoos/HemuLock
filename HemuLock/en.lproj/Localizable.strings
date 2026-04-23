@@ -93,6 +93,10 @@
 
 "NOTIFY_BARK_CRITICAL" = "Critical Message";
 
+"NOTIFY_SCOPE_TITLE" = "Notify For";
+"NOTIFY_SCOPE_EVENTS" = "Events";
+"NOTIFY_SCOPE_KEEP_AWAKE" = "Keep Awake";
+
 "HISTORY_TITLE" = "History";
 "HISTORY_TODAY" = "Today";
 "HISTORY_YESTERDAY" = "Yesterday";
@@ -145,3 +149,5 @@
 "KEEP_AWAKE_4_HOURS" = "4 Hours";
 "KEEP_AWAKE_8_HOURS" = "8 Hours";
 "KEEP_AWAKE_CANCEL" = "Cancel Keep Awake";
+"KEEP_AWAKE_NOTIFY_PERMANENT" = "Keep Awake enabled indefinitely";
+"KEEP_AWAKE_NOTIFY_TIMED" = "Keep Awake enabled for %@";
