@@ -36,6 +36,19 @@ class MenuController: NSObject, NSMenuDelegate {
         mainMenu.addItem(withTitle: "RUN_SCREENSAVER".localized, action: #selector(AppDelegate.runScreenSaver), keyEquivalent: "S")
         mainMenu.addItem(NSMenuItem.separator())
 
+        // Keep Awake sub menu
+        let keepAwakeSubMenu = NSMenu()
+        for duration in KeepAwakeDuration.allCases {
+            keepAwakeSubMenu.addItem(withTitle: duration.localizationKey.localized, action: #selector(AppDelegate.setKeepAwake), keyEquivalent: "").tag = duration.tag
+        }
+        keepAwakeSubMenu.addItem(NSMenuItem.separator())
+        let cancelItem = keepAwakeSubMenu.addItem(withTitle: "KEEP_AWAKE_CANCEL".localized, action: #selector(AppDelegate.cancelKeepAwake), keyEquivalent: "")
+        cancelItem.tag = MenuItem.cancelKeepAwake.tag
+        let keepAwakeItem = mainMenu.addItem(withTitle: "KEEP_AWAKE".localized, action: nil, keyEquivalent: "")
+        keepAwakeItem.tag = MenuItem.keepAwake.tag
+        keepAwakeItem.submenu = keepAwakeSubMenu
+        mainMenu.addItem(NSMenuItem.separator())
+
         // Event sub menu.
         let eventSubMenu = NSMenu()
         for event in Event.allCases {

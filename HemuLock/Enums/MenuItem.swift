@@ -21,6 +21,8 @@ enum MenuItem: Int, CaseIterable {
     case eventRecord = 1009
     case features = 1010
     case setWebhook = 1011
+    case keepAwake = 1012
+    case cancelKeepAwake = 1013
 
     var tag: Int {
         return rawValue

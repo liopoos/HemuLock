@@ -161,6 +161,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             notifyTestItem.isHidden = appState.appConfig.notifyType == Notify.none.tag
         }
 
+        if let keepAwakeItem = menu.item(withTag: MenuItem.keepAwake.tag), let subMenu = keepAwakeItem.submenu {
+            let active = KeepAwakeManager.shared.activeDuration
+            for item in subMenu.items {
+                guard let duration = KeepAwakeDuration(rawValue: item.tag) else { continue }
+                item.state = duration == active ? .on : .off
+            }
+            if let cancelItem = subMenu.item(withTag: MenuItem.cancelKeepAwake.tag) {
+                cancelItem.isHidden = active == nil
+            }
+        }
+
         // Features submenu toggles (script / DND / webhook)
         if let featuresItem = menu.item(withTag: MenuItem.features.tag), let featuresMenu = featuresItem.submenu {
             if let scriptItem = featuresMenu.item(withTag: MenuItem.setScript.tag) {
@@ -243,6 +254,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         NSWorkspace.shared.openApplication(at: URL(fileURLWithPath: appPath),
                                           configuration: NSWorkspace.OpenConfiguration(),
                                           completionHandler: nil)
+    }
+
+    @objc func setKeepAwake(_ menuItem: NSMenuItem) {
+        guard let duration = KeepAwakeDuration(rawValue: menuItem.tag) else { return }
+        if KeepAwakeManager.shared.activeDuration == duration {
+            KeepAwakeManager.shared.stop()
+        } else {
+            KeepAwakeManager.shared.start(duration: duration)
+        }
+    }
+
+    @objc func cancelKeepAwake(_ menuItem: NSMenuItem) {
+        KeepAwakeManager.shared.stop()
     }
 
     /**
@@ -419,6 +443,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
      - Parameter notification: The termination notification
      */
     func applicationWillTerminate(_ notification: Notification) {
+        KeepAwakeManager.shared.stop()
         print("good night!")
     }
 }

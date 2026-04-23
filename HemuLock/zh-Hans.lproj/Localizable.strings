@@ -141,3 +141,11 @@
 "EVENT_CLEAR_CONFIRM_MESSAGE" = "确定要清除所有事件记录吗？此操作不可撤销。";
 "EVENT_CLEAR_CONFIRM_YES" = "清除";
 "EVENT_CLEAR_CONFIRM_NO" = "取消";
+
+"KEEP_AWAKE" = "保持唤醒";
+"KEEP_AWAKE_PERMANENT" = "永久";
+"KEEP_AWAKE_30_MIN" = "30 分钟";
+"KEEP_AWAKE_1_HOUR" = "1 小时";
+"KEEP_AWAKE_4_HOURS" = "4 小时";
+"KEEP_AWAKE_8_HOURS" = "8 小时";
+"KEEP_AWAKE_CANCEL" = "取消保持唤醒";
