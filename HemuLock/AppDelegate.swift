@@ -170,6 +170,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             if let cancelItem = subMenu.item(withTag: MenuItem.cancelKeepAwake.tag) {
                 cancelItem.isHidden = active == nil
             }
+            if let statusItem = subMenu.item(withTag: MenuItem.keepAwakeStatus.tag) {
+                if let pid = KeepAwakeManager.shared.currentPID {
+                    let timeText: String
+                    if let remaining = KeepAwakeManager.shared.remainingSeconds {
+                        if remaining >= 3600 {
+                            let hours = Double(remaining) / 3600.0
+                            timeText = String(format: "%.1f h", hours)
+                        } else {
+                            let minutes = max(1, remaining / 60)
+                            timeText = "\(minutes) min"
+                        }
+                    } else {
+                        timeText = "KEEP_AWAKE_PERMANENT".localized
+                    }
+                    let label = "PID: \(pid)  ·  \(timeText)"
+                    statusItem.attributedTitle = NSAttributedString(
+                        string: label,
+                        attributes: [.foregroundColor: NSColor.secondaryLabelColor]
+                    )
+                    statusItem.isHidden = false
+                } else {
+                    statusItem.isHidden = true
+                }
+            }
         }
 
         // Features submenu toggles (script / DND / webhook)

@@ -14,6 +14,8 @@ class KeepAwakeManager {
 
     private var process: Process?
     private(set) var activeDuration: KeepAwakeDuration?
+    private var startDate: Date?
+    private var endDate: Date?
 
     private init() {}
 
@@ -21,8 +23,28 @@ class KeepAwakeManager {
         return process?.isRunning == true
     }
 
+    var currentPID: Int? {
+        guard let p = process, p.isRunning else { return nil }
+        return Int(p.processIdentifier)
+    }
+
+    var remainingSeconds: Int? {
+        guard isActive else { return nil }
+        guard let end = endDate else { return nil }
+        return max(0, Int(end.timeIntervalSinceNow))
+    }
+
+    private func killOrphanedCaffeinate() {
+        let task = Process()
+        task.executableURL = URL(fileURLWithPath: "/bin/sh")
+        task.arguments = ["-c", "pgrep -x caffeinate | xargs -r kill -9 2>/dev/null; true"]
+        try? task.run()
+        task.waitUntilExit()
+    }
+
     func start(duration: KeepAwakeDuration) {
         stop()
+        killOrphanedCaffeinate()
 
         var arguments = ["-i", "-d"]
         if let seconds = duration.seconds {
@@ -38,6 +60,8 @@ class KeepAwakeManager {
                     self?.activeDuration = nil
                 }
                 self?.process = nil
+                self?.startDate = nil
+                self?.endDate = nil
             }
         }
 
@@ -45,6 +69,8 @@ class KeepAwakeManager {
             try p.run()
             process = p
             activeDuration = duration
+            startDate = Date()
+            endDate = duration.seconds.map { Date().addingTimeInterval(TimeInterval($0)) }
             logger.info("caffeinate started: pid=\(p.processIdentifier) duration=\(duration)")
             sendNotify(duration: duration)
         } catch {
@@ -86,6 +112,8 @@ class KeepAwakeManager {
         p.terminate()
         process = nil
         activeDuration = nil
+        startDate = nil
+        endDate = nil
         logger.info("caffeinate stopped: pid=\(pid)")
     }
 }

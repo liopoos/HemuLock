@@ -44,6 +44,11 @@ class MenuController: NSObject, NSMenuDelegate {
         keepAwakeSubMenu.addItem(NSMenuItem.separator())
         let cancelItem = keepAwakeSubMenu.addItem(withTitle: "KEEP_AWAKE_CANCEL".localized, action: #selector(AppDelegate.cancelKeepAwake), keyEquivalent: "")
         cancelItem.tag = MenuItem.cancelKeepAwake.tag
+        keepAwakeSubMenu.addItem(NSMenuItem.separator())
+        let statusItem = keepAwakeSubMenu.addItem(withTitle: "", action: nil, keyEquivalent: "")
+        statusItem.tag = MenuItem.keepAwakeStatus.tag
+        statusItem.isHidden = true
+        statusItem.attributedTitle = NSAttributedString(string: "", attributes: [.foregroundColor: NSColor.secondaryLabelColor])
         let keepAwakeItem = mainMenu.addItem(withTitle: "KEEP_AWAKE".localized, action: nil, keyEquivalent: "")
         keepAwakeItem.tag = MenuItem.keepAwake.tag
         keepAwakeItem.submenu = keepAwakeSubMenu
