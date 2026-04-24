@@ -41,10 +41,11 @@ extension WebhookAPI: TargetType {
     }
     
     var headers: [String: String]? {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown"
         return [
             "Content-Type": "application/json",
-            "User-Agent": "HemuLock/1.0",
-            "X-HemuLock-Version": "1.0"
+            "User-Agent": "HemuLock/\(version)",
+            "X-HemuLock-Version": version
         ]
     }
 }
