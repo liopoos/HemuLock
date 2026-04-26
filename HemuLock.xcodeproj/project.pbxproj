@@ -46,6 +46,8 @@
 		288981902B5E3ADE0078834D /* DoNotDisturbPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889818F2B5E3ADE0078834D /* DoNotDisturbPanelView.swift */; };
 		288981922B5E48A40078834D /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288981912B5E48A40078834D /* MenuItem.swift */; };
 		28A695A42B5F531100409E17 /* DisturbModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A695A32B5F531100409E17 /* DisturbModeManager.swift */; };
+		28AA0002CAFECAFE00DEAD01 /* KeepAwakeDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AA0001CAFECAFE00DEAD01 /* KeepAwakeDuration.swift */; };
+		28AA0004CAFECAFE00DEAD01 /* KeepAwakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AA0003CAFECAFE00DEAD01 /* KeepAwakeManager.swift */; };
 		28B243E026145BAA00367F57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B243DF26145BAA00367F57 /* AppDelegate.swift */; };
 		28B243E226145BAA00367F57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B243E126145BAA00367F57 /* ViewController.swift */; };
 		28B243E426145BAD00367F57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28B243E326145BAD00367F57 /* Assets.xcassets */; };
@@ -101,6 +103,8 @@
 		2889818F2B5E3ADE0078834D /* DoNotDisturbPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNotDisturbPanelView.swift; sourceTree = "<group>"; };
 		288981912B5E48A40078834D /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		28A695A32B5F531100409E17 /* DisturbModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisturbModeManager.swift; sourceTree = "<group>"; };
+		28AA0001CAFECAFE00DEAD01 /* KeepAwakeDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakeDuration.swift; sourceTree = "<group>"; };
+		28AA0003CAFECAFE00DEAD01 /* KeepAwakeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakeManager.swift; sourceTree = "<group>"; };
 		28B243DC26145BAA00367F57 /* HemuLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HemuLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28B243DF26145BAA00367F57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28B243E126145BAA00367F57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				2834B6152B5A59AF00708FB1 /* Notify.swift */,
 				2889818D2B5BCBEC0078834D /* NotifyError.swift */,
 				288981912B5E48A40078834D /* MenuItem.swift */,
+				28AA0001CAFECAFE00DEAD01 /* KeepAwakeDuration.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			children = (
 				280581022F07F406003501F0 /* LogManager.swift */,
 				2885B3B52F06CDD400EAA2F9 /* WebhookManager.swift */,
+				28AA0003CAFECAFE00DEAD01 /* KeepAwakeManager.swift */,
 				284251F72F01031D00DCB7C4 /* SystemNotificationManager.swift */,
 				284251F52F00FBEA00DCB7C4 /* ExportManager.swift */,
 				283F172E2CE84A5C00DAC8BE /* ScriptManager.swift */,
@@ -411,6 +417,8 @@
 				2834B60C2B5A4ABF00708FB1 /* AppConfig.swift in Sources */,
 				2889818C2B5BBAFD0078834D /* NotifyAPI.swift in Sources */,
 				2885B3B62F06CDD400EAA2F9 /* WebhookManager.swift in Sources */,
+				28AA0002CAFECAFE00DEAD01 /* KeepAwakeDuration.swift in Sources */,
+				28AA0004CAFECAFE00DEAD01 /* KeepAwakeManager.swift in Sources */,
 				280D82352EF7C9AF00F161F2 /* HistoryPanelView.swift in Sources */,
 				28B2442D2615645000367F57 /* NotifyConfig.swift in Sources */,
 				2834B6102B5A50EF00708FB1 /* DoNotDisturbConfig.swift in Sources */,
@@ -571,7 +579,7 @@
 				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = X63ZQ5VH53;
 				INFOPLIST_FILE = HemuLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -579,7 +587,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyberstack.HemuLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HemuLock/HemuLock-Bridging-Header.h";
@@ -597,7 +605,7 @@
 				CODE_SIGN_ENTITLEMENTS = HemuLock/HemuLock.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = X63ZQ5VH53;
 				INFOPLIST_FILE = HemuLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -605,7 +613,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cyberstack.HemuLock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HemuLock/HemuLock-Bridging-Header.h";

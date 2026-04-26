@@ -93,6 +93,10 @@
 
 "NOTIFY_BARK_CRITICAL" = "Critical Message";
 
+"NOTIFY_SCOPE_TITLE" = "Notify For";
+"NOTIFY_SCOPE_EVENTS" = "Events";
+"NOTIFY_SCOPE_KEEP_AWAKE" = "Keep Awake";
+
 "HISTORY_TITLE" = "History";
 "HISTORY_TODAY" = "Today";
 "HISTORY_YESTERDAY" = "Yesterday";
@@ -137,3 +141,13 @@
 "EVENT_CLEAR_CONFIRM_MESSAGE" = "Are you sure you want to clear all event records? This action cannot be undone.";
 "EVENT_CLEAR_CONFIRM_YES" = "Clear";
 "EVENT_CLEAR_CONFIRM_NO" = "Cancel";
+
+"KEEP_AWAKE" = "Keep Awake";
+"KEEP_AWAKE_PERMANENT" = "Indefinitely";
+"KEEP_AWAKE_30_MIN" = "30 Minutes";
+"KEEP_AWAKE_1_HOUR" = "1 Hour";
+"KEEP_AWAKE_4_HOURS" = "4 Hours";
+"KEEP_AWAKE_8_HOURS" = "8 Hours";
+"KEEP_AWAKE_CANCEL" = "Cancel Keep Awake";
+"KEEP_AWAKE_NOTIFY_PERMANENT" = "Keep Awake enabled indefinitely";
+"KEEP_AWAKE_NOTIFY_TIMED" = "Keep Awake enabled for %@";

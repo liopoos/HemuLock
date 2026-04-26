@@ -56,7 +56,7 @@ class EventObserver {
         }
 
         // Send notify.
-        if appState.appConfig.notifyType != Notify.none.tag {
+        if appState.appConfig.notifyType != Notify.none.tag && appState.appConfig.isNotifyForEvents {
             sendNotify(event: event)
         }
         

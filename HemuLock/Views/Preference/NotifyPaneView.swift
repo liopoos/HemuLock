@@ -28,6 +28,14 @@ struct NotifyPanelView: View {
 
     var body: some View {
         Settings.Container(contentWidth: contentWidth) {
+            Settings.Section(title: "NOTIFY_SCOPE_TITLE".localized) {
+                HStack(spacing: 16) {
+                    Toggle("NOTIFY_SCOPE_EVENTS".localized, isOn: $appState.appConfig.isNotifyForEvents)
+                        .disabled(true)
+                    Toggle("NOTIFY_SCOPE_KEEP_AWAKE".localized, isOn: $appState.appConfig.isNotifyForKeepAwake)
+                }
+            }
+
             Settings.Section(title: "NOTIFY_TITLE".localized) {
                 Picker("", selection: $appState.appConfig.notifyType) {
                     ForEach(Notify.allCases, id: \.rawValue) { notify in
