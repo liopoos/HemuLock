@@ -198,7 +198,7 @@ DefaultsManager.shared.setConfig(...)  // ❌ Bypasses observation
 
 1. **Typo Preserved**: `Event.screenSeeep` (typo in "sleep") is preserved for backward compatibility. Do not "fix" this.
 2. **Notification Centers**: System lock/unlock use `DistributedNotificationCenter.default`; all other events use `NSWorkspace.shared.notificationCenter`.
-3. **Script Path**: Scripts must be at `~/Library/Application Scripts/com.cyberstack.HemuLock/script` (a **file**, not a directory).
+3. **Script Path**: Scripts must be at `~/Library/Application Scripts/com.cyberstack.HemuLock/script` (a **file**, not a directory). `EventObserver.runScript(_:)` executes it via `/bin/bash`, so the file does not need executable permissions; missing files are logged and skipped.
 4. **History Limit**: UI displays only 12 most recent event records (no pagination).
 5. **LaunchAtLogin**: Requires manual entitlement configuration in Xcode if updating.
 6. **Legacy File**: `Resources/config.json` is unused—config stored in UserDefaults only.

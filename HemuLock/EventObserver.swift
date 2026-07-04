@@ -145,9 +145,14 @@ class EventObserver {
             return
         }
         let file = ScriptManager.shared.getFile()
+        guard FileManager.default.fileExists(atPath: file.path) else {
+            logger.error("Script execution failed for event \(params): Script file does not exist at \(file.path)")
+            return
+        }
+
         let process = Process()
-        process.executableURL = file
-        process.arguments = [params]
+        process.executableURL = URL(fileURLWithPath: "/bin/bash")
+        process.arguments = [file.path, params]
         do {
             try process.run()
             logger.info("Script executed successfully for event: \(params)")
