@@ -5,39 +5,36 @@
 //  Created by hades on 2024/11/16.
 //
 import Cocoa
-import Logging
 
 /**
  ScriptManager handles user script management and execution.
  
- This manager manages the sandboxed script directory location and provides
+ This manager manages the application script directory location and provides
  access to the user's custom script file. Scripts are stored in the
  application's designated scripts directory (~/Library/Application Scripts/com.cyberstack.HemuLock/)
  as required by macOS sandboxing.
  */
 class ScriptManager {
     static let shared = ScriptManager()
-    private let logger = LogManager.shared.logger(for: "ScriptManager")
 
-    /// The sandboxed application scripts directory
+    /// The application scripts directory
     private let path: URL
     
     /// The user's script file location
     private lazy var file: URL = { path.appendingPathComponent("script") }()
 
     /**
-     Initialize the script manager and ensure the scripts directory exists.
+     Initialize the script manager and locate the application's scripts directory.
      
-     This constructor locates or creates the application's scripts directory.
-     If the directory cannot be created, falls back to the temporary directory.
+     The sandbox grants access to this standard directory but does not grant
+     permission to create it, so lookup must not request directory creation.
      */
     private init() {
-        do {
-            path = try FileManager.default.url(for: .applicationScriptsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        } catch {
-            logger.error("Failed to get applicationScriptsDirectory: \(error)")
-            path = FileManager.default.temporaryDirectory
-        }
+        let bundleIdentifier = Bundle.main.bundleIdentifier ?? "com.cyberstack.HemuLock"
+        path = FileManager.default.urls(for: .applicationScriptsDirectory, in: .userDomainMask).first
+            ?? FileManager.default.homeDirectoryForCurrentUser
+                .appendingPathComponent("Library/Application Scripts")
+                .appendingPathComponent(bundleIdentifier, isDirectory: true)
     }
 
     // MARK: - Path Access
@@ -45,7 +42,7 @@ class ScriptManager {
     /**
      Get the application scripts directory path.
      
-     - Returns: The URL of the sandboxed scripts directory
+     - Returns: The URL of the application scripts directory
      */
     func getPath() -> URL {
         return path

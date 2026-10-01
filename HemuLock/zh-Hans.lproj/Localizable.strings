@@ -155,3 +155,16 @@
 "KEEP_AWAKE_CANCEL" = "取消保持唤醒";
 "KEEP_AWAKE_NOTIFY_PERMANENT" = "已永久开启保持唤醒";
 "KEEP_AWAKE_NOTIFY_TIMED" = "已开启保持唤醒%@";
+
+"KEEP_AWAKE_TAB" = "唤醒";
+"KEEP_AWAKE_ENABLE" = "启用保持唤醒";
+"KEEP_AWAKE_PRESET_TONIGHT" = "直到今晚（21:00）";
+"KEEP_AWAKE_PRESET_MIDNIGHT" = "直到零点（23:59）";
+"KEEP_AWAKE_PRESETS" = "预设时间";
+"KEEP_AWAKE_PRESET_NAME" = "预设时间";
+"KEEP_AWAKE_PRESET_ENABLED" = "启用";
+"KEEP_AWAKE_END_AT_FORMAT" = "结束时间：%@";
+"KEEP_AWAKE_PROCESS" = "当前唤醒任务";
+"KEEP_AWAKE_PROCESS_ID" = "进程号：%d";
+"KEEP_AWAKE_REMAINING" = "剩余时间：%@";
+"KEEP_AWAKE_INACTIVE" = "当前没有运行中的唤醒任务。";

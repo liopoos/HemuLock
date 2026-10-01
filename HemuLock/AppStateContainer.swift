@@ -13,6 +13,9 @@ class AppStateContainer: ObservableObject {
     
     @Published var appConfig: AppConfig {
         didSet {
+            if oldValue.isKeepAwakeEnabled && !appConfig.isKeepAwakeEnabled {
+                KeepAwakeManager.shared.stop()
+            }
             logger.trace("Save appConfig to UserDefaults")
             DefaultsManager.shared.setConfig(appConfig)
         }

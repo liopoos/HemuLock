@@ -41,6 +41,9 @@ class MenuController: NSObject, NSMenuDelegate {
         for duration in KeepAwakeDuration.allCases {
             keepAwakeSubMenu.addItem(withTitle: duration.localizationKey.localized, action: #selector(AppDelegate.setKeepAwake), keyEquivalent: "").tag = duration.tag
         }
+        for preset in KeepAwakePreset.allCases {
+            keepAwakeSubMenu.addItem(withTitle: preset.localizationKey.localized, action: #selector(AppDelegate.setKeepAwakePreset), keyEquivalent: "").tag = preset.tag
+        }
         keepAwakeSubMenu.addItem(NSMenuItem.separator())
         let cancelItem = keepAwakeSubMenu.addItem(withTitle: "KEEP_AWAKE_CANCEL".localized, action: #selector(AppDelegate.cancelKeepAwake), keyEquivalent: "")
         cancelItem.tag = MenuItem.cancelKeepAwake.tag

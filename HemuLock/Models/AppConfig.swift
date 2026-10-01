@@ -33,6 +33,10 @@ struct AppConfig: Codable {
     // Notify scope: whether to send notifications when Keep Awake is activated
     var isNotifyForKeepAwake: Bool = true
 
+    // Keep Awake availability and enabled presets
+    var isKeepAwakeEnabled: Bool = true
+    var enabledKeepAwakeOptions: [Int: Bool] = [:]
+
     // Do Not Disturb config
     var doNotDisturbConfig: DoNotDisturbConfig = DoNotDisturbConfig()
 
@@ -58,6 +62,10 @@ struct AppConfig: Codable {
         case notifyConfig
         case isNotifyForEvents
         case isNotifyForKeepAwake
+        case isKeepAwakeEnabled
+        case enabledKeepAwakeOptions
+        case isKeepAwakeTonightEnabled
+        case isKeepAwakeMidnightEnabled
         case doNotDisturbConfig
         case isRecordEvent
         case webhookConfig
@@ -79,8 +87,33 @@ struct AppConfig: Codable {
         notifyConfig = (try? container.decode(NotifyConfig.self, forKey: .notifyConfig)) ?? NotifyConfig()
         isNotifyForEvents = (try? container.decode(Bool.self, forKey: .isNotifyForEvents)) ?? true
         isNotifyForKeepAwake = (try? container.decode(Bool.self, forKey: .isNotifyForKeepAwake)) ?? true
+        isKeepAwakeEnabled = (try? container.decode(Bool.self, forKey: .isKeepAwakeEnabled)) ?? true
+        enabledKeepAwakeOptions = (try? container.decode([Int: Bool].self, forKey: .enabledKeepAwakeOptions)) ?? [:]
+        if let legacyTonight = try? container.decode(Bool.self, forKey: .isKeepAwakeTonightEnabled) {
+            enabledKeepAwakeOptions[KeepAwakePreset.tonight.rawValue] = legacyTonight
+        }
+        if let legacyMidnight = try? container.decode(Bool.self, forKey: .isKeepAwakeMidnightEnabled) {
+            enabledKeepAwakeOptions[KeepAwakePreset.midnight.rawValue] = legacyMidnight
+        }
         doNotDisturbConfig = (try? container.decode(DoNotDisturbConfig.self, forKey: .doNotDisturbConfig)) ?? DoNotDisturbConfig()
         isRecordEvent = (try? container.decode(Bool.self, forKey: .isRecordEvent)) ?? false
         webhookConfig = (try? container.decode(WebhookConfig.self, forKey: .webhookConfig)) ?? WebhookConfig()
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(isLaunchAtLogin, forKey: .isLaunchAtLogin)
+        try container.encode(isExecScript, forKey: .isExecScript)
+        try container.encode(isDoNotDisturb, forKey: .isDoNotDisturb)
+        try container.encode(activeEvents, forKey: .activeEvents)
+        try container.encode(notifyType, forKey: .notifyType)
+        try container.encode(notifyConfig, forKey: .notifyConfig)
+        try container.encode(isNotifyForEvents, forKey: .isNotifyForEvents)
+        try container.encode(isNotifyForKeepAwake, forKey: .isNotifyForKeepAwake)
+        try container.encode(isKeepAwakeEnabled, forKey: .isKeepAwakeEnabled)
+        try container.encode(enabledKeepAwakeOptions, forKey: .enabledKeepAwakeOptions)
+        try container.encode(doNotDisturbConfig, forKey: .doNotDisturbConfig)
+        try container.encode(isRecordEvent, forKey: .isRecordEvent)
+        try container.encode(webhookConfig, forKey: .webhookConfig)
     }
 }

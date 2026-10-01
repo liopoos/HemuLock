@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28AA0006CAFECAFE00DEAD01 /* KeepAwakePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AA0005CAFECAFE00DEAD01 /* KeepAwakePanelView.swift */; };
 		280580F32F07C461003501F0 /* EventPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280580F22F07C461003501F0 /* EventPanelView.swift */; };
 		280580F92F07F0C5003501F0 /* InMemoryLogging in Frameworks */ = {isa = PBXBuildFile; productRef = 280580F82F07F0C5003501F0 /* InMemoryLogging */; };
 		280580FB2F07F0C5003501F0 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 280580FA2F07F0C5003501F0 /* Logging */; };
@@ -71,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		28AA0005CAFECAFE00DEAD01 /* KeepAwakePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakePanelView.swift; sourceTree = "<group>"; };
 		280580F22F07C461003501F0 /* EventPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPanelView.swift; sourceTree = "<group>"; };
 		280580FF2F07F3F0003501F0 /* FileLogHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLogHandler.swift; sourceTree = "<group>"; };
 		280581022F07F406003501F0 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		288981782B5B596E0078834D /* Preference */ = {
 			isa = PBXGroup;
 			children = (
+				28AA0005CAFECAFE00DEAD01 /* KeepAwakePanelView.swift */,
 				280580F22F07C461003501F0 /* EventPanelView.swift */,
 				2885B3B92F06CDE600EAA2F9 /* WebhookPanelView.swift */,
 				280D82342EF7C9AF00F161F2 /* HistoryPanelView.swift */,
@@ -419,6 +422,7 @@
 				2885B3B62F06CDD400EAA2F9 /* WebhookManager.swift in Sources */,
 				28AA0002CAFECAFE00DEAD01 /* KeepAwakeDuration.swift in Sources */,
 				28AA0004CAFECAFE00DEAD01 /* KeepAwakeManager.swift in Sources */,
+				28AA0006CAFECAFE00DEAD01 /* KeepAwakePanelView.swift in Sources */,
 				280D82352EF7C9AF00F161F2 /* HistoryPanelView.swift in Sources */,
 				28B2442D2615645000367F57 /* NotifyConfig.swift in Sources */,
 				2834B6102B5A50EF00708FB1 /* DoNotDisturbConfig.swift in Sources */,

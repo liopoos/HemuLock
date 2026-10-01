@@ -52,6 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     private lazy var settingsWindowController = SettingsWindowController(
         panes: [
             GeneraPanelViewController(),
+            KeepAwakePanelViewController(),
             EventPanelViewController(),
             NotifyPanelViewController(),
             WebhookPanelViewController(),
@@ -162,28 +163,31 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         if let keepAwakeItem = menu.item(withTag: MenuItem.keepAwake.tag), let subMenu = keepAwakeItem.submenu {
+            let manager = KeepAwakeManager.shared
+            keepAwakeItem.isEnabled = appState.appConfig.isKeepAwakeEnabled
+            subMenu.autoenablesItems = false
             let active = KeepAwakeManager.shared.activeDuration
             for item in subMenu.items {
-                guard let duration = KeepAwakeDuration(rawValue: item.tag) else { continue }
+                guard let duration = KeepAwakeDuration(rawValue: item.tag),
+                      let option = KeepAwakeOption(rawValue: duration.rawValue) else { continue }
                 item.state = duration == active ? .on : .off
+                item.isHidden = !isPresetEnabled(option)
+                item.isEnabled = appState.appConfig.isKeepAwakeEnabled
+            }
+            for preset in KeepAwakePreset.allCases {
+                if let presetItem = subMenu.item(withTag: preset.tag) {
+                    guard let option = KeepAwakeOption(rawValue: preset.rawValue) else { continue }
+                    presetItem.isHidden = !isPresetEnabled(option)
+                    presetItem.state = manager.activePreset == preset ? .on : .off
+                    presetItem.isEnabled = appState.appConfig.isKeepAwakeEnabled && preset.deadline() > Date()
+                }
             }
             if let cancelItem = subMenu.item(withTag: MenuItem.cancelKeepAwake.tag) {
-                cancelItem.isHidden = active == nil
+                cancelItem.isHidden = !manager.isActive
             }
             if let statusItem = subMenu.item(withTag: MenuItem.keepAwakeStatus.tag) {
                 if let pid = KeepAwakeManager.shared.currentPID {
-                    let timeText: String
-                    if let remaining = KeepAwakeManager.shared.remainingSeconds {
-                        if remaining >= 3600 {
-                            let hours = Double(remaining) / 3600.0
-                            timeText = String(format: "%.1f h", hours)
-                        } else {
-                            let minutes = max(1, remaining / 60)
-                            timeText = "\(minutes) min"
-                        }
-                    } else {
-                        timeText = "KEEP_AWAKE_PERMANENT".localized
-                    }
+                    let timeText = manager.countdownText
                     let label = "PID: \(pid)  ·  \(timeText)"
                     statusItem.attributedTitle = NSAttributedString(
                         string: label,
@@ -281,12 +285,31 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
 
     @objc func setKeepAwake(_ menuItem: NSMenuItem) {
-        guard let duration = KeepAwakeDuration(rawValue: menuItem.tag) else { return }
+        guard appState.appConfig.isKeepAwakeEnabled else { return }
+        guard let duration = KeepAwakeDuration(rawValue: menuItem.tag),
+              let option = KeepAwakeOption(rawValue: duration.rawValue),
+              isPresetEnabled(option) else { return }
         if KeepAwakeManager.shared.activeDuration == duration {
             KeepAwakeManager.shared.stop()
         } else {
             KeepAwakeManager.shared.start(duration: duration)
         }
+    }
+
+    @objc func setKeepAwakePreset(_ menuItem: NSMenuItem) {
+        guard appState.appConfig.isKeepAwakeEnabled else { return }
+        guard let preset = KeepAwakePreset(rawValue: menuItem.tag),
+              let option = KeepAwakeOption(rawValue: preset.rawValue),
+              isPresetEnabled(option) else { return }
+        if KeepAwakeManager.shared.activePreset == preset {
+            KeepAwakeManager.shared.stop()
+        } else {
+            KeepAwakeManager.shared.start(until: preset)
+        }
+    }
+
+    private func isPresetEnabled(_ option: KeepAwakeOption) -> Bool {
+        appState.appConfig.enabledKeepAwakeOptions[option.rawValue] ?? true
     }
 
     @objc func cancelKeepAwake(_ menuItem: NSMenuItem) {

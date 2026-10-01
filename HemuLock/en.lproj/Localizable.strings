@@ -151,3 +151,16 @@
 "KEEP_AWAKE_CANCEL" = "Cancel Keep Awake";
 "KEEP_AWAKE_NOTIFY_PERMANENT" = "Keep Awake enabled indefinitely";
 "KEEP_AWAKE_NOTIFY_TIMED" = "Keep Awake enabled for %@";
+
+"KEEP_AWAKE_TAB" = "Awake";
+"KEEP_AWAKE_ENABLE" = "Enable Keep Awake";
+"KEEP_AWAKE_PRESET_TONIGHT" = "Until Tonight (21:00)";
+"KEEP_AWAKE_PRESET_MIDNIGHT" = "Until Midnight (23:59)";
+"KEEP_AWAKE_PRESETS" = "Presets";
+"KEEP_AWAKE_PRESET_NAME" = "Preset";
+"KEEP_AWAKE_PRESET_ENABLED" = "Enabled";
+"KEEP_AWAKE_END_AT_FORMAT" = "Ends at %@";
+"KEEP_AWAKE_PROCESS" = "Current session";
+"KEEP_AWAKE_PROCESS_ID" = "Process ID: %d";
+"KEEP_AWAKE_REMAINING" = "Remaining: %@";
+"KEEP_AWAKE_INACTIVE" = "No Keep Awake session is running.";
