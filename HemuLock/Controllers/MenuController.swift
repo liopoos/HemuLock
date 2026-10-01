@@ -40,6 +40,9 @@ class MenuController: NSObject, NSMenuDelegate {
         let keepAwakeSubMenu = NSMenu()
         for duration in KeepAwakeDuration.allCases {
             keepAwakeSubMenu.addItem(withTitle: duration.localizationKey.localized, action: #selector(AppDelegate.setKeepAwake), keyEquivalent: "").tag = duration.tag
+            if duration == .permanent || duration == .eightHours {
+                keepAwakeSubMenu.addItem(NSMenuItem.separator())
+            }
         }
         for preset in KeepAwakePreset.allCases {
             keepAwakeSubMenu.addItem(withTitle: preset.localizationKey.localized, action: #selector(AppDelegate.setKeepAwakePreset), keyEquivalent: "").tag = preset.tag
